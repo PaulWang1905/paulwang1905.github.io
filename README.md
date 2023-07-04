@@ -4,12 +4,12 @@
  
 - Musicologist / Coder / Bassist / Linux User / Opensource Enthusiast / Agnostic
 - Believe in Science, Art, Freedom, Democracy, Openness, and World Peace.
-- Nof a fan for  Censorship, Walls, Bureaucracy, etc.
+- Says No to Censorship, Walls, Bureaucracy, etc.
 - Born in Henan, China. Speak Henan Hua(dialect).   
 - Free people in all lands, unite.  
 - ~~Wearing a MASK in public place since 01/23/2020.~~
 - Graduate Student at Shanghai Normal University. 
-- Former Coke Cola Consumer.  
+- Probably Former Coke Cola Consumer.  
 - Probably watched over 1000 movies and tv episodes.
 - Vaccinated. 
 - Doing digital humanities.
