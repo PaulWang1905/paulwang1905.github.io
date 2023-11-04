@@ -8,7 +8,8 @@
 - Born in Henan, China. Speak Henan Hua(dialect).   
 - Free people in all lands, unite.  
 - ~~Wearing a MASK in public place since 01/23/2020.~~
-- Graduate Student at Shanghai Normal University. 
+- Graduate Student at Shanghai Normal University.
+- Doing a postgraduate study in Oxford.
 - Probably Former Coke Cola Consumer.  
 - Probably watched over 1000 movies and tv episodes.
 - Vaccinated. 
@@ -16,7 +17,7 @@
  
 # Links
 
-[Twitter](https://twitter.com/Paul_Y_W)  
+[Twitter](https://twitter.com/puyu1001)  
 [Github](https://github.com/PaulWang1905)    
 [Facebook](https://facebook.com/puyu.wang.music)  
 
