@@ -2,12 +2,12 @@
 
 ## Introducation
 
-OXIE is a static blog generator. 
+oxie is a static blog generator I use to generate my personal blog. 
 
-# reading goes here.
-[![Awesome](https://awesome.re/badge.svg)](https://github.com/PaulWang1905/oxie) 
-![](https://img.shields.io/github/last-commit/PaulWang1905/oxie?color=green) 
-[![Build Status](https://github.com/PaulWang1905/Readings/workflows/CI/badge.svg)](https://github.com/PaulWang1905/oxie/actions?workflow=CI)
+# Status
+[![Awesome](https://awesome.re/badge.svg)](https://github.com/PaulWang1905/paulwang1905.github.io) 
+![](https://img.shields.io/github/last-commit/PaulWang1905/paulwang1905.github.io?color=green) 
+[![Build Status](https://github.com/PaulWang1905/Readings/workflows/CI/badge.svg)](https://github.com/PaulWang1905/paulwang1905.github.io/actions?workflow=Deploy)
 
 ## Folder Structure
 
@@ -17,7 +17,7 @@ OXIE is a static blog generator.
     - post001.md
   - page/
     - page001.md
-- html/
+- docs/
   - index.html
   - post/
     - post001.html
