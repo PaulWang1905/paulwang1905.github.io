@@ -143,8 +143,8 @@ def generate_html() -> None:
                     else:
                         pages.append(post)
                     post.render()
-    # reverse the order of posts to show the latest post first
-    posts.reverse() 
+    # sort the order of posts to show the latest post first
+    posts.sort(key=lambda post: (post.date, post.title))
     index = INDEX(meta_data, posts, pages)
     index.render()
                 
