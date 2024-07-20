@@ -2,7 +2,6 @@ import subprocess
 import os
 import markdown
 from jinja2 import Template
-from datetime import datetime
 from markupsafe import Markup, escape
 # Function to build CSS using Tailwind CSS
 
@@ -23,6 +22,8 @@ meta_data = {
 
 template = Template(open("src/template.html").read())
 index_template = Template(open("src/index.html").read())
+Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta','footnotes','md_in_html','extra']   
+
 posts = []
 pages = []
 
@@ -46,6 +47,7 @@ class POST:
         self.tags = None
         self.read_time = None
         self.link = None
+        self.summary = None
 
     def parse(self) -> None:
         '''
@@ -53,41 +55,39 @@ class POST:
         '''
         with open(self.md_path, 'r') as md_file:
             # use markupsafe to escape html content 
-            md_content = Markup(escape(md_file.read()))
-            html_content = markdown.markdown(md_content,extensions=['pymdownx.tilde'])
+            # md_content = Markup(md_file.read())
+            # md_content = Markup(escape(md_file.read()))
+            # not using markupsafe to escape html content for the moment because it will escape the blockquote in markdown. 
+            # I will find a way to escape the html content in the future.
+            md_content = md_file.read()
+            md = markdown.Markdown(extensions = Markdown_Extenstions)
+            html_content = md.convert(md_content)
             self.content = html_content
-            self.title = md_content.split("\n")[0].strip()[2:]
+            # get metadata from the md file
+            post_meta_data = md.Meta
             # get the link for page and post domain name + html path
             self.link = meta_data["link"] + self.html_path[4:]
-            self.author = meta_data["author"]
-            # get modification date and time of the md file in MM-DD-YYYY HH:MM:SS format
-            # self.date = time.ctime(os.path.getmtime(self.md_path))
-            self.date = self.get_modification_date()
-            # no need to parse metadata for now. 
-            # for line in md_content.split("\n"):
-            #    if line.startswith("title:"):
-            #        self.title = line.split("title:")[1].strip()
-            #    elif line.startswith("date:"):
-            #        self.date = line.split("date:")[1].strip()
-            #    elif line.startswith("author:"):
-            #        self.author = line.split("author:")[1].strip()
-            #    elif line.startswith("tags:"):
-            #        self.tags = line.split("tags:")[1].strip()
-            #    elif line.startswith("read_time:"):
-            #        self.read_time = line.split("read_time:")[1].strip()
-    def get_modification_date(self):
-        mod_time = os.path.getmtime(self.md_path)
-        mod_date = datetime.fromtimestamp(mod_time).strftime('%m-%d-%Y %H:%M')
-        return mod_date
-    
+            try: 
+                self.title = post_meta_data["title"][0]
+                self.author = post_meta_data["authors"][0]
+                self.summary = post_meta_data["summary"][0]
+                self.date = post_meta_data["date"][0]
+
+            except KeyError:
+                print(f"Metadata not found in {self.md_path}")
+                pass
+
+        
+        
     def render(self) -> None:
         ''' Render the post to HTML
         '''
         rendered_html = template.render(
             title=self.title,
             author=self.author,
+            summary=self.summary,
             date=self.date,
-            content=self.content
+            content=self.content,
         )
         with open(self.html_path, "w") as html_file:
             html_file.write(rendered_html)
@@ -138,7 +138,6 @@ def generate_html() -> None:
                     os.makedirs(os.path.dirname(html_path), exist_ok=True)
                     post = POST(md_path, html_path)   
                     post.parse()
-                    #posts.append([post.title, post.link])
                     if directory == "source/post":
                         posts.append(post)
                     else:

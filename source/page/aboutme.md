@@ -1,3 +1,8 @@
+Title:   About Puyu Wang
+Summary: A brief description of myself.
+Authors: Puyu Wang
+Date:    2024-07-20
+
 # About Puyu Wang
 
 ## Quick Facts
