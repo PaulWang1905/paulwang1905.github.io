@@ -144,8 +144,7 @@ def generate_html() -> None:
                         pages.append(post)
                     post.render()
     # sort the order of posts to show the latest post first
-    posts.sort(key=lambda post: (post.date, post.title))
-    posts.reverse()
+    posts.sort(key=lambda post: (-post.date, post.title))
     index = INDEX(meta_data, posts, pages)
     index.render()
                 
