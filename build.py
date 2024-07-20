@@ -3,6 +3,8 @@ import os
 import markdown
 from jinja2 import Template
 from markupsafe import Markup, escape
+from datetime import datetime
+
 # Function to build CSS using Tailwind CSS
 
 # Read the template only once
@@ -71,8 +73,7 @@ class POST:
                 self.title = post_meta_data["title"][0]
                 self.author = post_meta_data["authors"][0]
                 self.summary = post_meta_data["summary"][0]
-                self.date = post_meta_data["date"][0]
-
+                self.date = datetime.strptime(post_meta_data["date"][0], '%Y-%m-%d') 
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
                 pass
@@ -144,7 +145,7 @@ def generate_html() -> None:
                         pages.append(post)
                     post.render()
     # sort the order of posts to show the latest post first
-    posts.sort(key=lambda post: (-post.date, post.title))
+    posts.sort(key=lambda post: (-post.date.timestamp(), post.title))
     index = INDEX(meta_data, posts, pages)
     index.render()
                 
