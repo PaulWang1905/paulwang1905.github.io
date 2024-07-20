@@ -118,7 +118,7 @@
                
                 <tr class="hover" >
                   <td ><a href="{{ post.link }}">{{ post.title }} </a> </td>      
-                  <td >{{ post.date }}</td>     
+                  <td >{{ post.date.strftime("%A %Y-%m-%d") }}</td>     
                 </tr>  
                 {% endfor %} 
                 </tr>
