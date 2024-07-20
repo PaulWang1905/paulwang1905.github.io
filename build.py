@@ -73,8 +73,8 @@ class POST:
                 self.title = post_meta_data["title"][0]
                 self.author = post_meta_data["authors"][0]
                 self.summary = post_meta_data["summary"][0]
-                # self.date = datetime.strptime(post_meta_data["date"][0], '%Y-%m-%d') 
-                self.date = post_meta_data["date"][0]
+                self.date = datetime.strptime(post_meta_data["date"][0], '%Y-%m-%d') 
+                # self.date = post_meta_data["date"][0]
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
                 pass
