@@ -102,6 +102,7 @@ class POST:
             summary=self.summary,
             date=self.date,
             content=self.content,
+            phrases=meta_data["phrases"],
         )
         with open(self.html_path, "w") as html_file:
             html_file.write(rendered_html)
