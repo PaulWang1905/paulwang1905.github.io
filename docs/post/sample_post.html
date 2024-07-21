@@ -55,7 +55,7 @@
     </div>
     <div class="collapse-content">
       <p>By Puyu Wang</p>
-      <p>Last Modified on 2024-07-20 </p>
+      <p>Last Modified on Saturday 2024-07-20 </p>
      
     </div>
 
@@ -75,11 +75,22 @@
 </div>
 
 <div class="divider"></div>
-<blockquote class="transition-transform transform hover:scale-95 text-2xl font-semibold italic text-center text-slate-900">
+<blockquote class="text-xl font-semibold italic text-center text-slate-900">
   <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-    <span class="relative text-white ">天之苍苍，其正色邪？</span>
+    <span class="relative text-white" id="phrase"></span>
   </span>
 </blockquote>
+<div class="divider"></div>
+<!-- phrase is a list, everytime show a random phrase -->
+<script>
+  const phrases_list =  ;
+
+  function showRandomPhrase() {
+      const randomIndex = Math.floor(Math.random() * phrases_list.length);
+      document.getElementById('phrase').innerText = phrases_list[randomIndex];
+  }
+  window.onload = showRandomPhrase;
+</script>
 
 </body>
 </html>

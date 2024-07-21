@@ -55,7 +55,7 @@
     </div>
     <div class="collapse-content">
       <p>By Puyu Wang</p>
-      <p>Last Modified on 2024-07-20 </p>
+      <p>Last Modified on Saturday 2024-07-20 </p>
      
     </div>
 
@@ -75,19 +75,139 @@
 </blockquote>
 <p><strong>Translation:</strong></p>
 <blockquote>
-<p>The Master said, "At fifteen, I had my mind bent on learning. At thirty, I stood firm. At forty, I had no doubts. At fifty, I knew the decrees of Heaven. At sixty, my ear was an obedient organ for the reception of truth. At seventy, I could follow what my heart desired, without transgressing what was right."</p>
+<p>The Master said, "At fifteen, I had my mind bent on learning. At thirty, I stood firm. At forty, I had no doubts. At fifty, I knew the decrees of Heaven. At sixty, my ear was an obedient organ for the reception of truth. At seventy, I could follow what my heart desired, without transgressing what was right."  </p>
+<p>[!NOTE]
+Useful information that users should know, even when skimming content.</p>
+<p>[!TIP]
+Helpful advice for doing things better or more easily.</p>
+<p>[!IMPORTANT]
+Key information users need to know to achieve their goal.</p>
+<p>[!WARNING]
+Urgent info that needs immediate user attention to avoid problems.</p>
+<p>[!CAUTION]
+Advises about risks or negative outcomes of certain actions.</p>
 </blockquote>
+<h1>Markdown Cheat Sheet</h1>
+<p>Thanks for visiting <a href="https://www.markdownguide.org">The Markdown Guide</a>!</p>
+<p>This Markdown cheat sheet provides a quick overview of all the Markdown syntax elements. It can’t cover every edge case, so if you need more information about any of these elements, refer to the reference guides for <a href="https://www.markdownguide.org/basic-syntax/">basic syntax</a> and <a href="https://www.markdownguide.org/extended-syntax/">extended syntax</a>.</p>
+<h2>Basic Syntax</h2>
+<p>These are the elements outlined in John Gruber’s original design document. All Markdown applications support these elements.</p>
+<h3>Heading</h3>
+<h1>H1</h1>
+<h2>H2</h2>
+<h3>H3</h3>
+<h3>Bold</h3>
+<p><strong>bold text</strong></p>
+<h3>Italic</h3>
+<p><em>italicized text</em></p>
+<h3>Blockquote</h3>
+<blockquote>
+<p>blockquote</p>
+</blockquote>
+<h3>Ordered List</h3>
+<ol>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ol>
+<h3>Unordered List</h3>
+<ul>
+<li>First item</li>
+<li>Second item</li>
+<li>Third item</li>
+</ul>
+<h3>Code</h3>
+<p><code>code</code></p>
+<h3>Horizontal Rule</h3>
+<hr />
+<h3>Link</h3>
+<p><a href="https://www.markdownguide.org">Markdown Guide</a></p>
+<h3>Image</h3>
+<p><img alt="alt text" src="https://www.markdownguide.org/assets/images/tux.png" /></p>
+<h2>Extended Syntax</h2>
+<p>These elements extend the basic syntax by adding additional features. Not all Markdown applications support these elements.</p>
+<h3>Table</h3>
+<table>
+<thead>
+<tr>
+<th>Syntax</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Header</td>
+<td>Title</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td>Text</td>
+</tr>
+</tbody>
+</table>
+<h3>Fenced Code Block</h3>
+<pre><code>{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot;: &quot;Smith&quot;,
+  &quot;age&quot;: 25
+}
+</code></pre>
+<h3>Footnote</h3>
+<p>Here's a sentence with a footnote. <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
+<h3>Heading ID</h3>
+<h3 id="custom-id">My Great Heading</h3>
+<h3>Definition List</h3>
+<dl>
+<dt>term</dt>
+<dd>definition</dd>
+</dl>
+<h3>Strikethrough</h3>
+<p><del>The world is flat.</del></p>
+<h3>Task List</h3>
+<ul>
+<li>[x] Write the press release</li>
+<li>[ ] Update the website</li>
+<li>[ ] Contact the media</li>
+</ul>
+<h3>Emoji</h3>
+<p>That is so funny! <img alt="😂" class="emojione" src="https://cdnjs.cloudflare.com/ajax/libs/emojione/2.2.7/assets/png/1f602.png" title=":joy:" /></p>
+<p>(See also <a href="https://www.markdownguide.org/extended-syntax/#copying-and-pasting-emoji">Copying and Pasting Emoji</a>)</p>
+<h3>Highlight</h3>
+<p>I need to highlight these ==very important words==.</p>
+<h3>Subscript</h3>
+<p>H<sub>2</sub>O</p>
+<h3>Superscript</h3>
+<p>X^2^</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>This is the footnote.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
     </article>
       </div>
     
 </div>
 
 <div class="divider"></div>
-<blockquote class="transition-transform transform hover:scale-95 text-2xl font-semibold italic text-center text-slate-900">
+<blockquote class="text-xl font-semibold italic text-center text-slate-900">
   <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-    <span class="relative text-white ">天之苍苍，其正色邪？</span>
+    <span class="relative text-white" id="phrase"></span>
   </span>
 </blockquote>
+<div class="divider"></div>
+<!-- phrase is a list, everytime show a random phrase -->
+<script>
+  const phrases_list =  ;
+
+  function showRandomPhrase() {
+      const randomIndex = Math.floor(Math.random() * phrases_list.length);
+      document.getElementById('phrase').innerText = phrases_list[randomIndex];
+  }
+  window.onload = showRandomPhrase;
+</script>
 
 </body>
 </html>

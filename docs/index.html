@@ -93,6 +93,7 @@
           <div class="card shadow-lg transition-transform transform hover:scale-105">
             <div class="card-body">
               <a href="/page/aboutme.html" class="card-title text-xl font-semibold">About Puyu Wang</a>
+              <p>A brief description of myself. </p>
             </div>
           </div>
           
@@ -116,20 +117,32 @@
                 
                
                 <tr class="hover" >
-                  <td ><a href="/post/testpost.html">Test Post </a> </td>      
-                  <td >2024-07-20</td>     
+                  <td ><a href="/post/note21072024.html">Note for 21 July </a> </td>      
+                  <td >Sunday 2024-07-21</td>     
+                </tr>  
+                
+               
+                <tr class="hover" >
+                  <td ><a href="/post/Chinese_Coinage.html">Chinese Coinage </a> </td>      
+                  <td >Saturday 2024-07-20</td>     
                 </tr>  
                 
                
                 <tr class="hover" >
                   <td ><a href="/post/reading202407.html">Reading </a> </td>      
-                  <td >2024-07-20</td>     
+                  <td >Saturday 2024-07-20</td>     
                 </tr>  
                 
                
                 <tr class="hover" >
                   <td ><a href="/post/sample_post.html">Sample Post </a> </td>      
-                  <td >2024-07-20</td>     
+                  <td >Saturday 2024-07-20</td>     
+                </tr>  
+                
+               
+                <tr class="hover" >
+                  <td ><a href="/post/testpost.html">Test Post </a> </td>      
+                  <td >Saturday 2024-07-20</td>     
                 </tr>  
                  
                 </tr>
@@ -147,11 +160,24 @@
   </div>
   <div class="divider"></div>
 
-  <blockquote class="transition-transform transform hover:scale-105 text-2xl font-semibold italic text-center text-slate-900">
+  <blockquote class="text-xl font-semibold italic text-center text-slate-900">
     <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-      <span class="relative text-white ">天之苍苍，其正色邪？</span>
+      <span class="relative text-white" id="phrase"></span>
     </span>
   </blockquote>
+  <div class="divider"></div>
+
+  <!-- phrase is a list, everytime show a random phrase -->
+  <script>
+    const phrases_list = ['天之苍苍，其正色邪', '吾日三省吾身', '知行合一', '行有馀力，则以学文', '思无邪', '先行其言，而后从之', '尽美矣，又尽善也', '好仁者，无以尚之', '无所从来，亦无所去', '所谓佛法者，即非佛法。'] ;
+
+    function showRandomPhrase() {
+        const randomIndex = Math.floor(Math.random() * phrases_list.length);
+        document.getElementById('phrase').innerText = phrases_list[randomIndex];
+    }
+    window.onload = showRandomPhrase;
+</script>
+
 </body>
 </html>
          

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <title>{{ title }}</title>
+  <title>Chinese Coinage</title>
 </head>
 
 
@@ -49,13 +49,13 @@
   <div tabindex="0" class="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
    
-     <h1 class="text-3xl"> {{ title }}</h1>
+     <h1 class="text-3xl"> Chinese Coinage</h1>
      <div class="divider"></div>
-     <p>{{ summary }} </p>
+     <p>A note on reading a book about Chinese Coinage </p>
     </div>
     <div class="collapse-content">
-      <p>By {{ author }}</p>
-      <p>Last Modified on {{ date.strftime("%A %Y-%m-%d") }} </p>
+      <p>By Puyu Wang</p>
+      <p>Last Modified on Saturday 2024-07-20 </p>
      
     </div>
 
@@ -68,7 +68,9 @@
    
     <article class="prose lg:prose-xl max-w-none">
       
-      {{ content }}
+      <h1>Chinese Coinage</h1>
+<p>Recently I have been reading this book <a href="https://www.google.co.uk/books/edition/%E4%B8%AD%E5%9B%BD%E8%B4%A7%E5%B8%81%E5%8F%B2_%E6%A0%A1%E8%AE%A2%E7%89%88/BBNZEAAAQBAJ?hl=en&amp;gbpv=0">《中国货币史》</a> to understand Chinese Coinage for my PhD work -- creating numismatic knowledge model for Chinese Coins. 
+I will keep some note here for reference. </p>
     </article>
       </div>
     
@@ -83,7 +85,7 @@
 <div class="divider"></div>
 <!-- phrase is a list, everytime show a random phrase -->
 <script>
-  const phrases_list = {{ phrases }} ;
+  const phrases_list =  ;
 
   function showRandomPhrase() {
       const randomIndex = Math.floor(Math.random() * phrases_list.length);

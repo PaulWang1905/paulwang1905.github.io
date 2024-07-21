@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <title>{{ title }}</title>
+  <title>Note for 21 July</title>
 </head>
 
 
@@ -49,13 +49,13 @@
   <div tabindex="0" class="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
    
-     <h1 class="text-3xl"> {{ title }}</h1>
+     <h1 class="text-3xl"> Note for 21 July</h1>
      <div class="divider"></div>
-     <p>{{ summary }} </p>
+     <p>A Note for 21 July </p>
     </div>
     <div class="collapse-content">
-      <p>By {{ author }}</p>
-      <p>Last Modified on {{ date.strftime("%A %Y-%m-%d") }} </p>
+      <p>By Puyu Wang</p>
+      <p>Last Modified on Sunday 2024-07-21 </p>
      
     </div>
 
@@ -68,7 +68,7 @@
    
     <article class="prose lg:prose-xl max-w-none">
       
-      {{ content }}
+      <h1>Nothing Yet.</h1>
     </article>
       </div>
     
@@ -83,7 +83,7 @@
 <div class="divider"></div>
 <!-- phrase is a list, everytime show a random phrase -->
 <script>
-  const phrases_list = {{ phrases }} ;
+  const phrases_list =  ;
 
   function showRandomPhrase() {
       const randomIndex = Math.floor(Math.random() * phrases_list.length);
