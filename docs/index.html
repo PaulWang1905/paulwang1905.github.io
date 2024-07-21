@@ -6,6 +6,20 @@
 <link href="./styles.css" rel="stylesheet">
 
 <style>
+  
+
+    .color-box::before {
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+    #phrase {
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+    .color-box {
+        display: inline-block;
+        position: relative;
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+
 </style>
 
 <title>     Puyu Wang's Blog </title>
@@ -161,10 +175,11 @@
   <div class="divider"></div>
 
   <blockquote class="text-xl font-semibold italic text-center text-slate-900">
-    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
+    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block color-box">
       <span class="relative text-white" id="phrase"></span>
     </span>
   </blockquote>
+
   <div class="divider"></div>
 
   <!-- phrase is a list, everytime show a random phrase -->
@@ -173,9 +188,23 @@
 
     function showRandomPhrase() {
         const randomIndex = Math.floor(Math.random() * phrases_list.length);
-        document.getElementById('phrase').innerText = phrases_list[randomIndex];
+        const phraseElement = document.getElementById('phrase');
+        const colorBox = document.querySelector('.color-box');
+
+        phraseElement.style.opacity = 0;
+        colorBox.style.opacity = 0;
+
+        setTimeout(() => {
+            phraseElement.innerText = phrases_list[randomIndex];
+            phraseElement.style.opacity = 1;
+            colorBox.style.opacity = 1;
+        }, 1000); // Adjust the delay to be in sync with the transition duration
     }
-    window.onload = showRandomPhrase;
+
+    window.onload = () => {
+        showRandomPhrase();
+        setInterval(showRandomPhrase, 4000); // Adjust interval to allow for smoother transitions
+    };
 </script>
 
 </body>
