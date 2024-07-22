@@ -4,6 +4,7 @@ import markdown
 from jinja2 import Template
 from markupsafe import Markup, escape
 from datetime import datetime
+import json
 
 # Function to build CSS using Tailwind CSS
 
@@ -11,29 +12,15 @@ from datetime import datetime
 # The template locatio: oxie/src/template.html
 
 # Metadata for the index page, this is a dictionary.
-# It is hard coded here for now, because this generator is for a single blog only,
-# but it can be read from a file or a database.
-meta_data = {
-    "title": "Puyu Blog",
-    "content": "Welcome to my website.",
-    "author": "Puyu",
-    "date": "2024-07-17",
-    "link": "",
-    "phrases": [
-        "天之苍苍，其正色邪", 
-        "吾日三省吾身", 
-        "知行合一",
-        "行有馀力，则以学文",
-        "思无邪",
-        "先行其言，而后从之",
-        "尽美矣，又尽善也",
-        "好仁者，无以尚之",
-        "无所从来，亦无所去",
-        "所谓佛法者，即非佛法。"
-]
-}
+# The metadata is used in the index.html template.
+# The metadata json file is located in oxie/src/meta_data.json
+
+# read the metadata only once from /src/meta_data.json
+meta_data_dir = "src/meta_data.json"
+meta_data = json.load(open("meta_data_dir"))
 
 
+# read the template only once
 template = Template(open("src/template.html").read())
 index_template = Template(open("src/index.html").read())
 Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta','footnotes','md_in_html','extra']   
