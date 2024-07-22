@@ -17,7 +17,7 @@ import json
 
 # read the metadata only once from /src/meta_data.json
 meta_data_dir = "src/meta_data.json"
-meta_data = json.load(open("meta_data_dir"))
+meta_data = json.load(open(meta_data_dir))
 
 
 # read the template only once
