@@ -68,14 +68,25 @@
    
     <article class="prose lg:prose-xl max-w-none">
       
-      <h1>Using ‘dd’ to benchmark SSD</h1>
-<p>Using dd might be the simplest way to benchmark an SSD on Unix-like systems. It is also very dangerous (obviously). I only recommend this method in TEST environments.</p>
-<h2>Ways to do this.</h2>
-<p>`#dd if=/dev/zero of=test bs=1M count=1024</p>
-<h1>dd if=/dev/zero of=test bs=1M count=1024 ; sync</h1>
-<h1>dd if=/dev/zero of=test bs=1M count=1024 oflag=sync</h1>
-<h1>dd if=/dev/zero of=test bs=1M count=1024 oflag=direct</h1>
-<h1>dd if=/dev/zero of=test bs=1M count=1024 conv=fsync`</h1>
+      <h1>Using <code>dd</code> to Benchmark an SSD</h1>
+<p>Benchmarking an SSD can provide valuable insights into its performance. One of the simplest, albeit risky, methods to do this on Unix-like systems is by using the <code>dd</code> command. This approach should be reserved for test environments only due to the potential risks involved.</p>
+<h2>Benchmarking Methods</h2>
+<p>Below are several <code>dd</code> commands used to benchmark an SSD:</p>
+<pre><code class="language-bash"># Basic write test
+dd if=/dev/zero of=test bs=1M count=1024
+
+# Write test with sync after command execution
+dd if=/dev/zero of=test bs=1M count=1024 ; sync
+
+# Write test with synchronized I/O for each operation
+dd if=/dev/zero of=test bs=1M count=1024 oflag=sync
+
+# Write test using direct I/O
+dd if=/dev/zero of=test bs=1M count=1024 oflag=direct
+
+# Write test with final synchronization
+dd if=/dev/zero of=test bs=1M count=1024 conv=fsync
+</code></pre>
 <h2>What do those commands mean?</h2>
 <p>dd  if=/dev/zero of=test bs=1M count=1024  would tell the system to write ZERO bytes to a file called test which is 1024MiB,bs=1M means to read and write up to 1M bytes each time and count=1024 means to write 1024 times.</p>
 <p>dd is not set by default to “sync”, that means the recent disk change might be cached and not be completely written before dd exiting. Consequently, you would find that dd would exit pretty fast.This would affect the benchmark results.</p>
