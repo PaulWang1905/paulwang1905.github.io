@@ -8,7 +8,7 @@ Date:    2024-07-20
 ## Quick Facts
  
 - Musicologist / Coder / Bassist / Linux User / Opensource Enthusiast / Agnostic
-- Believe that Science work
+- Believe that Science works
 - Believe in Art, Freedom, Democracy, Openness, and World Peace.
 - Says No to Censorship, Walls, Bureaucracy, etc.
 - Born in Henan, China. Speak Henan Hua(dialect).   
