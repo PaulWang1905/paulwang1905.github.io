@@ -8,17 +8,17 @@ Date:    2024-07-20
 ## Quick Facts
  
 - Musicologist / Coder / Bassist / Linux User / Opensource Enthusiast / Agnostic
-- Believe in Science, Art, Freedom, Democracy, Openness, and World Peace.
+- Believe that Science work
+- Believe in Art, Freedom, Democracy, Openness, and World Peace.
 - Says No to Censorship, Walls, Bureaucracy, etc.
 - Born in Henan, China. Speak Henan Hua(dialect).   
-- Free people in all lands, unite.  
 - ~~Wearing a MASK in public place since 01/23/2020.~~
-- Graduate Student at Shanghai Normal University.
-- Doing a postgraduate study in Oxford.
-- Probably Former Coke Cola Consumer.  
-- Probably watched over 1000 movies and tv episodes.
-- Vaccinated. 
-- Doing digital humanities.
+- Graduate Student at Shanghai Normal University
+- Doing a postgraduate study in Oxford
+- Probably Former Coca-cola Consumer
+- Probably watched over 1000 movies and tv episodes
+- Vaccinated 
+- Doing digital humanities
  
 # Links
 
@@ -34,7 +34,7 @@ Since 2019, entrolled for Master in Art degree program at Shanghai Normal Univer
 Since 2022, studying for PhD in Engineering Science at University of Oxford. 
 
 # Quick Intro
-  
+
 I am a DPhil (PhD) student at University of Oxford. 
 In 2022, I graduated at Shanghai Normal University, majoring in musicology. 
 I play the double bass, guitar and a little bit piano.
