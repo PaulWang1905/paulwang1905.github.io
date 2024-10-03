@@ -1,9 +1,14 @@
 Title:   About Puyu Wang
 Summary: A brief description of myself.
 Authors: Puyu Wang
-Date:    2024-07-20
+Date:    2024-10-03
 
 # About Puyu Wang
+
+DPhil (PhD) student, Oxford e-Research Centre, Department of Engineering Science, University of Oxford.  
+
+Puyu is a DPhil (PhD) student at the Oxford e-Research Centre, Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervisored by Professor David de Roure and Professor Donna Kurtz Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by Professor Hongjie Sun. 
+
 
 ## Quick Facts
  
