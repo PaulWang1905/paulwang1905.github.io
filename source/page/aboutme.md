@@ -7,7 +7,7 @@ Date:    2024-10-03
 
 DPhil (PhD) student, Oxford e-Research Centre, Department of Engineering Science, University of Oxford.  
 
-Puyu is a DPhil (PhD) student at the Oxford e-Research Centre, Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervisored by Professor David de Roure and Professor Donna Kurtz Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by Professor Hongjie Sun. 
+Puyu is a DPhil (PhD) student at the [Oxford e-Research Centre](https://oerc.ox.ac.uk/), Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervisored by [Professor David de Roure](https://eng.ox.ac.uk/people/david-de-roure/) and [Professor Donna Kurtz](https://eng.ox.ac.uk/people/donna-kurtz/). Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by [Professor Hongjie Sun](https://drsun.online/%e4%b8%aa%e4%ba%ba%e8%b5%84%e6%96%99/). 
 
 
 ## Quick Facts
@@ -33,19 +33,8 @@ Puyu is a DPhil (PhD) student at the Oxford e-Research Centre, Department of Eng
 
 # Short Bio
 
-In 90s, born in a small county in Henan. 
-In 2014, enrolled in Musicology major at Zhengzhou Normal University. 
-Since 2019, entrolled for Master in Art degree program at Shanghai Normal University, graduated in 2022. 
-Since 2022, studying for PhD in Engineering Science at University of Oxford. 
+Born in the 1990s in a small county in Henan, I began my academic journey in 2014 by enrolling in the Musicology program at Zhengzhou Normal University. In 2019, I pursued a Master of Arts degree at Shanghai Normal University, where my research focused on the performance practice of 18th-century concertos, particularly exploring solo parts, orchestral accompaniment, and improvisational elements such as cadenzas. During a lockdown lasting about three month, I graduated in May 2022 without a formal ceremony.
 
-# Quick Intro
+Later in 2022, I transitioned to the University of Oxford to pursue a PhD in Engineering Science. While I have a strong background in music—playing the double bass, guitar, and some piano—my interest in coding and Linux has developed as a personal hobby. My initial focus was helping computers understand the structure of music and even generate it.
 
-I am a DPhil (PhD) student at University of Oxford. 
-In 2022, I graduated at Shanghai Normal University, majoring in musicology. 
-I play the double bass, guitar and a little bit piano.
-As a musician, my hobby was playing with linux and coding.
-Now I tranfered to Engineering Science department, trying to do come coding for fun. 
-My major interest used to be helping computer to understand music and the structure of music 
-itself and even to compose or create music.
-Right now I am working on semantic web,  Linked Open Data and its application on music and cultural heritage. 
-I am familiar with CIDOC CRM.
+Now, I am working on semantic web technologies, Linked Open Data, and their applications in music and cultural heritage, with proficiency in CIDOC CRM.
