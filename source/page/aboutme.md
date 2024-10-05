@@ -7,7 +7,7 @@ Date:    2024-10-03
 
 DPhil (PhD) student, Oxford e-Research Centre, Department of Engineering Science, University of Oxford.  
 
-Puyu is a DPhil (PhD) student at the [Oxford e-Research Centre](https://oerc.ox.ac.uk/), Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervisored by [Professor David de Roure](https://eng.ox.ac.uk/people/david-de-roure/) and [Professor Donna Kurtz](https://eng.ox.ac.uk/people/donna-kurtz/). Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by [Professor Hongjie Sun](https://drsun.online/%e4%b8%aa%e4%ba%ba%e8%b5%84%e6%96%99/). 
+Puyu is a DPhil (PhD) student at the [Oxford e-Research Centre](https://oerc.ox.ac.uk/), Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervised by [Professor David de Roure](https://eng.ox.ac.uk/people/david-de-roure/) and [Professor Donna Kurtz](https://eng.ox.ac.uk/people/donna-kurtz/). Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by [Professor Hongjie Sun](https://drsun.online/%e4%b8%aa%e4%ba%ba%e8%b5%84%e6%96%99/). 
 
 
 ## Quick Facts
