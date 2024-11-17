@@ -12,7 +12,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 
 ## Random Facts
  
-- Musicologist / Coding / Bassist / Linux User / Opensource Enthusiast / Agnostic
+- Musicologist / Coding / Bassist / Linux User / Open-source Enthusiast / Agnostic
 - Born in Henan, China. Speak Henan Hua(dialect).   
 - ~~Wearing a MASK in public place since 01/23/2020.~~
 - Went Shanghai Normal University / Zhengzhou Normal University
