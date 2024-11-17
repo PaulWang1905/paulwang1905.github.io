@@ -11,7 +11,6 @@ module.exports = {
   plugins: [
   require('daisyui'),
   require("@tailwindcss/typography"),
-  require('@tailwindcss/forms'),
   ],
   daisyui: {
     themes: ["winter","light","dark"], // Add this line to include the retro theme

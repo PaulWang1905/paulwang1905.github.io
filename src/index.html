@@ -70,38 +70,67 @@
     
     <div class="md:container mx-auto px-5">
         
-      
-      <div
-        class="hero bg-custom p-5 rounded-lg "
-        style="background-image: url('image/background2.jpg');position: relative; overflow: hidden;">
-        <div class="hero-overlay rounded-lg bg-opacity-1 backdrop-blur-sm"></div>
-        <div class="hero-content text-neutral-content text-center">
-          <figure class="rounded-xl bg-slate-100 p-8 md:flex md:p-0 dark:bg-slate-800">
-            <img class="mx-auto h-24 w-24 rounded-full md:h-auto md:w-48 md:rounded-none" src="image/profile.png" alt="" width="454.8" height="490.2" />
-            <div class="space-y-4 pt-6 text-center md:p-8 md:text-left">
-             
+    
+
+      <div class="relative bg-cover bg-center p-5 rounded-lg overflow-hidden bg-[url('image/background.jpg')]">
+        <!-- Content -->
+        <div class="flex items-center justify-center">
+          <figure class="flex flex-col md:flex-row items-center bg-white bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-xl p-8">
+            <img
+              class="w-24 h-24 md:w-48 md:h-auto rounded-full md:rounded-none mx-auto md:mx-0"
+              src="image/profile.png"
+              alt="Profile Picture"
+            />
+            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
               <figcaption class="font-medium">
-                <div class="text-sky-500 dark:text-sky-400">Puyu Wang</div>
-                <div class="text-slate-700 dark:text-slate-500">Ph.D. candidate, University of Oxford</div>
+                <div class="text-black dark:text-white">Puyu Wang</div>
+                <div class="text-gray-700 dark:text-gray-300">
+                  Ph.D. candidate, University of Oxford
+                </div>
               </figcaption>
-              <ul class="mt-2 text-gray-400 text-left">
-                <li style="display: flex; gap: 10px; align-items: center;">
-                  <a href="https://x.com/puyu1001">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16">
-                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/>
-                    </svg></a> <a href="mailto:puyu.wang@eng.ox.ac.uk">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope" viewBox="0 0 16 16">
-                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"/>
+              <ul class="space-y-2">
+                <li class="flex items-center gap-4">
+                  <a href="https://x.com/puyu1001" class="hover:text-sky-700">
+                    <!-- Twitter Icon -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
+                      />
                     </svg>
-                    </a>                    
+                  </a>
+                  <a href="mailto:puyu.wang@eng.ox.ac.uk" class="hover:text-sky-700">
+                    <!-- Email Icon -->
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="w-6 h-6"
+                      fill="currentColor"
+                      viewBox="0 0 16 16"
+                    >
+                      <path
+                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                      />
+                    </svg>
+                  </a>
                 </li>
-                <li><span class="font-bold">Working on: </span>Semantic Web Technology, Linked Open Data, Language Models</li>
+                <li>
+                  <span class="font-bold text-black dark:text-white">Working on:</span>
+                  <span class="text-gray-700 dark:text-gray-300">
+                    Semantic Web Technology, Linked Open Data, Language Models
+                  </span>
+                </li>
               </ul>
             </div>
-          </figure>     
-        </div> 
+          </figure>
+        </div>
       </div>
-
+      
+      
+      
      
      
 
