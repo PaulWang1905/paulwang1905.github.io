@@ -26,8 +26,6 @@ template = Template(open("src/template.html").read())
 index_template = Template(open("src/index.html").read())
 Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta','footnotes','md_in_html','extra']   
 
-posts = []
-pages = []
 
 
 def build_css():
@@ -134,6 +132,8 @@ def generate_html() -> None:
     directories = ["source/page", "source/post"]
     source_root = Path("source")
     docs_root = Path("docs")
+    posts = []
+    pages = []
 
     for directory in directories:
         dir_path = Path(directory)
