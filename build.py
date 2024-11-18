@@ -5,6 +5,7 @@ from jinja2 import Template
 from markupsafe import Markup, escape
 from datetime import datetime
 import json
+from pathlib import Path
 
 # Function to build CSS using Tailwind CSS
 
@@ -131,21 +132,28 @@ def generate_html() -> None:
     to the docs directory
     '''
     directories = ["source/page", "source/post"]
+    source_root = Path("source")
+    docs_root = Path("docs")
 
     for directory in directories:
-        for root, dirs, files in os.walk(directory):
-            for file in files:
-                if file.endswith(".md"):
-                    md_path = os.path.join(root, file)
-                    html_path = os.path.join("docs", os.path.relpath(md_path, "source")).replace(".md", ".html")
-                    os.makedirs(os.path.dirname(html_path), exist_ok=True)
-                    post = POST(md_path, html_path)   
-                    post.parse()
-                    if directory == "source/post":
-                        posts.append(post)
-                    else:
-                        pages.append(post)
-                    post.render()
+        dir_path = Path(directory)
+        # print the work being done
+        print(f"Processing Folder: {dir_path}")
+        for md_path in dir_path.rglob('*.md'):
+            # Calculate the relative path from the source root
+            relative_md_path = md_path.relative_to(source_root)
+            # Construct the corresponding HTML path in the docs directory
+            html_path = (docs_root / relative_md_path).with_suffix('.html')
+            # Ensure the parent directory exists
+            html_path.parent.mkdir(parents=True, exist_ok=True)
+            # Create and process the POST object
+            post = POST(str(md_path), str(html_path))
+            post.parse()
+            if directory == "source/post":
+                posts.append(post)
+            else:
+                pages.append(post)
+            post.render()
     # sort the order of posts to show the latest post first
     posts.sort(key=lambda post: (-post.date.timestamp(), post.title))
     index = INDEX(meta_data, posts, pages)
@@ -156,14 +164,17 @@ def clean_old_files() -> None:
     '''
     Clean old HTML files
     '''
-    for root, dirs, files in os.walk("docs"):
-        for file in files:
-            if file.endswith(".html"):
-                os.remove(os.path.join(root, file))
-    try:
-        os.remove("docs/styles.css")
-    except FileNotFoundError:
-        pass
+    print("Cleaning old files")
+    docs_dir = Path("docs")
+    # Remove all .html files in docs directory and subdirectories
+    for html_file in docs_dir.rglob('*.html'):
+        html_file.unlink()
+    print("Old files cleaned")
+    # Remove styles.css if it exists
+    styles_css = docs_dir / "styles.css"
+    if styles_css.exists():
+        styles_css.unlink()
+    print("styles.css removed")
     
 
 
