@@ -123,7 +123,7 @@ class CATEGORY:
         self.tags = [tag for post in self.posts for tag in post.tags]
         self.link = f"blog_{category}.html"
         self.count = len(self.posts)
-        self.last_post = self.posts[-1]
+        self.last_post = self.posts[0]
         
     def render(self) -> None:
         '''
