@@ -4131,6 +4131,10 @@ details.collapse summary::-webkit-details-marker {
     margin-right: 0px;
   }
 
+  .md\:block {
+    display: block;
+  }
+
   .md\:h-auto {
     height: auto;
   }
