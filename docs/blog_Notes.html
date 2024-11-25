@@ -33,7 +33,7 @@
     <div class="navbar bg-base-100">
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" class="theme-controller theme-controller hidden appearance-none" value="dark" />
+        <input type="checkbox" class="theme-controller" value="dark" />
       
         <!-- sun icon -->
         <svg
@@ -68,133 +68,100 @@
     <div class="divider"></div>
 
     
+    
     <div class="md:container mx-auto px-5">
-        
-    
-
-      <div class="relative bg-cover bg-center p-5 rounded-lg overflow-hidden bg-[url('image/background.jpg')]">
-        <!-- Content -->
-        <div class="flex items-center justify-center">
-          <figure class="flex flex-col md:flex-row items-center bg-white bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-xl p-8">
-            <img
-              class="w-24 h-24 md:w-48 md:h-auto rounded-full md:rounded-none mx-auto md:mx-0"
-              src="image/profile.png"
-              alt="Profile Picture"
-            />
-            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-              <figcaption class="font-medium">
-                <div class="text-black dark:text-white">Puyu Wang</div>
-                <div class="text-gray-700 dark:text-gray-300">
-                  Ph.D. candidate, University of Oxford
-                </div>
-              </figcaption>
-              <ul class="space-y-2">
-                <li class="flex items-center gap-4">
-                  <a href="https://x.com/puyu1001" class="hover:text-sky-700">
-                    <!-- Twitter Icon -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                      />
-                    </svg>
-                  </a>
-                  <a href="mailto:puyu.wang@eng.ox.ac.uk" class="hover:text-sky-700">
-                    <!-- Email Icon -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <span class="font-bold text-black dark:text-white">Working on:</span>
-                  <span class="text-gray-700 dark:text-gray-300">
-                    Semantic Web Technology, Linked Open Data, Language Models
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </figure>
-        </div>
-      </div>
-      
-      
-      
-     
-     
-
-
-      <div class="divider"></div>
-
-     
-
-    <div role="tablist" class="tabs tabs-lifted">
-      <input
-      type="radio"
-      name="my_index_tabs"
-      role="tab"
-      class="tab"
-      aria-label="Pages" 
-      checked="checked"
-      />
-      <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {% for page in pages %}
-          <div class="card shadow-lg transition-transform transform hover:scale-105">
-            <div class="card-body">
-              <a href="{{ page.link }}" class="card-title text-xl font-semibold">{{ page.title }}</a>
-              <p>{{ page.summary }} </p>
-            </div>
+      <!-- Updated layout with sidebar -->
+      <div class="flex flex-row gap-4">
+        <!-- Tag Filter Sidebar -->
+        <div class="w-48 flex-shrink-0">
+          <div class="flex flex-col gap-2 sticky top-4">
+            <button class="btn btn-sm btn-primary tag-filter" data-tag="All">All</button>
+            
+            <button class="btn btn-sm tag-filter" data-tag="Philosophy">Philosophy</button>
+            
+            <button class="btn btn-sm tag-filter" data-tag="Video">Video</button>
+            
+            <button class="btn btn-sm tag-filter" data-tag="Chinese">Chinese</button>
+            
+            <button class="btn btn-sm tag-filter" data-tag="Coinage">Coinage</button>
+            
           </div>
-          {% endfor %}
+        </div>
+
+        <!-- Post List -->
+        <div class="flex-grow space-y-6">
+          
+          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card" data-tags="Philosophy Video">
+              <!-- Post Image -->
+              <div class="flex-shrink-0">
+                  <img src="image/default.png" alt="Post Image" class="w-16 h-16 rounded-lg object-cover">
+              </div>
+
+              <!-- Post Content -->
+              <div class="flex-grow px-4">
+                  <h3 class="text-lg hover:text-primary transition-colors duration-200 font-bold tracking-tight leading-snug">
+                    <a href="/post/24-07-24.html">  Note for 24-07-24</a>
+                  </h3>
+                  <div class="flex items-center text-sm text-gray-500 gap-2">
+                    
+                  <div class="flex flex-wrap gap-2">
+                    
+                    <span class="badge badge-secondary">Philosophy</span>
+                    
+                    <span class="badge badge-secondary">Video</span>
+                    
+                  </div>
+                  
+                  
+                  
+                  </div>
+
+                  <div class="text-sm text-gray-500"><span>Wednesday 2024-07-24</span></div>
+                  <div class="text-sm text-gray-500">Note for 24-07-24 updates</div>
+                  
+              </div>
+
+             
+          </div>
+          
+          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card" data-tags="Chinese Coinage">
+              <!-- Post Image -->
+              <div class="flex-shrink-0">
+                  <img src="image/default.png" alt="Post Image" class="w-16 h-16 rounded-lg object-cover">
+              </div>
+
+              <!-- Post Content -->
+              <div class="flex-grow px-4">
+                  <h3 class="text-lg hover:text-primary transition-colors duration-200 font-bold tracking-tight leading-snug">
+                    <a href="/post/Chinese_Coinage.html">  Chinese Coinage</a>
+                  </h3>
+                  <div class="flex items-center text-sm text-gray-500 gap-2">
+                    
+                  <div class="flex flex-wrap gap-2">
+                    
+                    <span class="badge badge-secondary">Chinese</span>
+                    
+                    <span class="badge badge-secondary">Coinage</span>
+                    
+                  </div>
+                  
+                  
+                  
+                  </div>
+
+                  <div class="text-sm text-gray-500"><span>Saturday 2024-07-20</span></div>
+                  <div class="text-sm text-gray-500">A note on reading a book about Chinese Coinage</div>
+                  
+              </div>
+
+             
+          </div>
+          
         </div>
       </div>
-
-
-      <input type="radio" name="my_index_tabs" role="tab" class="tab" aria-label="Posts" />
-      <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-        <div class="h-96 overflow-x-auto"> 
-          <table class="table table-pin-rows">
-              <!-- head -->
-              <thead>
-                <tr>
-                  <th class="text-xl">Post</th>
-                  <th class="text-xl">Date</th>
-                </tr> 
-              </thead>
-              <tbody >
-              <!-- body -->
-                {% for post in posts %}
-               
-                <tr class="hover" >
-                  <td ><a href="{{ post.link }}">{{ post.title }} </a> </td>      
-                  <td >{{ post.date.strftime("%A %Y-%m-%d") }}</td>     
-                </tr>  
-                {% endfor %} 
-                </tr>
-              </tbody>
-            </table>
-      </div>
-      </div>
-    
-   
-    
-      
     </div>
           
        
-  </div>
   <div class="divider"></div>
 
   <blockquote class="text-xl font-semibold italic text-center text-slate-900">
@@ -202,6 +169,7 @@
       <span class="relative text-white" id="phrase"></span>
     </span>
   </blockquote>
+
   <div class="divider"></div>
 
  
@@ -232,7 +200,7 @@
 
   <!-- phrase is a list, everytime show a random phrase -->
   <script>
-    const phrases_list = {{ phrases }} ;
+    const phrases_list = ['天之苍苍，其正色邪', '吾日三省吾身', '知行合一', '行有馀力，则以学文', '思无邪', '先行其言，而后从之', '尽美矣，又尽善也', '好仁者，无以尚之', '无所从来，亦无所去', '所谓佛法者，即非佛法。', '道法自然', '天下大事，必作於細', '為無為，事無事，味無味。', '周雖舊邦,其命維新'] ;
 
     function showRandomPhrase() {
         const randomIndex = Math.floor(Math.random() * phrases_list.length);
@@ -255,6 +223,36 @@
     };
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tagButtons = document.querySelectorAll(".tag-filter");
+  const postCards = document.querySelectorAll(".post-card");
+
+  // Add click event to all tag filter buttons
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      tagButtons.forEach((btn) => btn.classList.remove("btn-primary"));
+      // Add active class to the clicked button
+      button.classList.add("btn-primary");
+
+      const selectedTag = button.getAttribute("data-tag");
+
+      // Show or hide posts based on the selected tag
+      postCards.forEach((postCard) => {
+        const postTags = postCard.getAttribute("data-tags").split(' ');
+        if (selectedTag === "All" || postTags.includes(selectedTag)) {
+          postCard.style.display = "flex"; // Show post
+        } else {
+          postCard.style.display = "none"; // Hide post
+        }
+      });
+    });
+  });
+});
+
+
+</script>
 </body>
 </html>
          

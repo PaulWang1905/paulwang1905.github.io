@@ -3,28 +3,20 @@ module.exports = {
   content: [
     "./docs/**/*.html",
     "./docs/page/*.html",
-    "./docs/post/*.html"
+    "./docs/post/*.html",
   ],
+  safelist: [], // Add safelisted classes here if needed
   theme: {
-    extend: {},
+    extend: {
+      
+    },
   },
   plugins: [
-  require('daisyui'),
-  require("@tailwindcss/typography"),
+    
+    require('@tailwindcss/typography'),
+    require('daisyui'),
   ],
   daisyui: {
-    themes: ["winter","light","dark"], // Add this line to include the retro theme
+    themes: ["winter", "light", "dark"], // Include your desired themes
   },
-  //purge: {
-	  content: [
-      './docs/**/*.html',
-    ],
-    option:{
-      safelist: [],
-
-    },
-    
-
-}
-
-
+};

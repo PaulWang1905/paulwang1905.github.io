@@ -33,7 +33,7 @@
     <div class="navbar bg-base-100">
       <label class="swap swap-rotate">
         <!-- this hidden checkbox controls the state -->
-        <input type="checkbox" class="theme-controller theme-controller hidden appearance-none" value="dark" />
+        <input type="checkbox" class="theme-controller" value="dark" />
       
         <!-- sun icon -->
         <svg
@@ -67,134 +67,45 @@
 
     <div class="divider"></div>
 
-    
-    <div class="md:container mx-auto px-5">
-        
-    
-
-      <div class="relative bg-cover bg-center p-5 rounded-lg overflow-hidden bg-[url('image/background.jpg')]">
-        <!-- Content -->
-        <div class="flex items-center justify-center">
-          <figure class="flex flex-col md:flex-row items-center bg-white bg-opacity-60 dark:bg-gray-800 dark:bg-opacity-80 backdrop-blur-md rounded-xl p-8">
-            <img
-              class="w-24 h-24 md:w-48 md:h-auto rounded-full md:rounded-none mx-auto md:mx-0"
-              src="image/profile.png"
-              alt="Profile Picture"
-            />
-            <div class="pt-6 md:p-8 text-center md:text-left space-y-4">
-              <figcaption class="font-medium">
-                <div class="text-black dark:text-white">Puyu Wang</div>
-                <div class="text-gray-700 dark:text-gray-300">
-                  Ph.D. candidate, University of Oxford
+      <!-- Categories Section with Theme-Appropriate Colors -->
+      <div class="hero bg-base-200 my-4 rounded-lg shadow-lg">
+        <div class="hero-content text-center py-10">
+          <div class="max-w-4xl">
+            <h1 class="text-4xl font-extrabold mb-6">Explore Categories</h1>
+            <p class="text-lg mb-8">Articles across a variety of topics</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {% for category in categories %}
+                <div class="card bg-base-100 shadow-md hover:shadow-xl transition-shadow duration-300">
+                  <div class="card-body">
+                    <!-- Badge for Post Count -->
+                    <div class="badge badge-primary mb-4">
+                      {{ category.count }} Posts
+                    </div>
+                    <!-- Category Name -->
+                    <h2 class="card-title text-lg font-bold mb-4">{{ category.category }}</h2>
+                    <!-- Highlight Last Post -->
+                    <p class="text-sm opacity-75 mb-4">
+                      Last Post: <span class="font-medium">{{ category.last_post.title }}</span>
+                    </p>
+                    <!-- Tags -->
+                    <div class="flex flex-wrap gap-2 mb-4">
+                      {% for tag in category.tags %}
+                        <span class="badge badge-outline badge-secondary">{{ tag }}</span>
+                      {% endfor %}
+                    </div>
+                    <!-- Link to Category Page -->
+                    <a href="{{ category.link }}" 
+                      class="btn btn-primary hover:btn-primary-focus transition-all duration-300">
+                      {{ category.category }}
+                    </a>
+                  </div>
                 </div>
-              </figcaption>
-              <ul class="space-y-2">
-                <li class="flex items-center gap-4">
-                  <a href="https://x.com/puyu1001" class="hover:text-sky-700">
-                    <!-- Twitter Icon -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"
-                      />
-                    </svg>
-                  </a>
-                  <a href="mailto:puyu.wang@eng.ox.ac.uk" class="hover:text-sky-700">
-                    <!-- Email Icon -->
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      class="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
-                      />
-                    </svg>
-                  </a>
-                </li>
-                <li>
-                  <span class="font-bold text-black dark:text-white">Working on:</span>
-                  <span class="text-gray-700 dark:text-gray-300">
-                    Semantic Web Technology, Linked Open Data, Language Models
-                  </span>
-                </li>
-              </ul>
-            </div>
-          </figure>
-        </div>
-      </div>
-      
-      
-      
-     
-     
-
-
-      <div class="divider"></div>
-
-     
-
-    <div role="tablist" class="tabs tabs-lifted">
-      <input
-      type="radio"
-      name="my_index_tabs"
-      role="tab"
-      class="tab"
-      aria-label="Pages" 
-      checked="checked"
-      />
-      <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          {% for page in pages %}
-          <div class="card shadow-lg transition-transform transform hover:scale-105">
-            <div class="card-body">
-              <a href="{{ page.link }}" class="card-title text-xl font-semibold">{{ page.title }}</a>
-              <p>{{ page.summary }} </p>
+              {% endfor %}
             </div>
           </div>
-          {% endfor %}
         </div>
       </div>
 
-
-      <input type="radio" name="my_index_tabs" role="tab" class="tab" aria-label="Posts" />
-      <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6">
-        <div class="h-96 overflow-x-auto"> 
-          <table class="table table-pin-rows">
-              <!-- head -->
-              <thead>
-                <tr>
-                  <th class="text-xl">Post</th>
-                  <th class="text-xl">Date</th>
-                </tr> 
-              </thead>
-              <tbody >
-              <!-- body -->
-                {% for post in posts %}
-               
-                <tr class="hover" >
-                  <td ><a href="{{ post.link }}">{{ post.title }} </a> </td>      
-                  <td >{{ post.date.strftime("%A %Y-%m-%d") }}</td>     
-                </tr>  
-                {% endfor %} 
-                </tr>
-              </tbody>
-            </table>
-      </div>
-      </div>
-    
-   
-    
-      
-    </div>
-          
-       
-  </div>
   <div class="divider"></div>
 
   <blockquote class="text-xl font-semibold italic text-center text-slate-900">
@@ -202,6 +113,7 @@
       <span class="relative text-white" id="phrase"></span>
     </span>
   </blockquote>
+
   <div class="divider"></div>
 
  
@@ -254,6 +166,7 @@
         setInterval(showRandomPhrase, 4000); // Adjust interval to allow for smoother transitions
     };
 </script>
+
 
 </body>
 </html>

@@ -2,7 +2,8 @@ Title:   Test Post
 Summary: A brief description of Test Post.
 Authors: Puyu Wang
 Date:    2024-07-20
-
+Category: Blog
+Tags: Test
 # Test Post
 
 ## 為政 (Wei Zheng)
