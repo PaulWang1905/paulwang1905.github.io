@@ -192,7 +192,32 @@ class INDEX:
         self.meta_data = meta_data
         self.posts = posts
         self.pages = pages
-        
+        self.description = None
+        self.content = None
+
+    def parse(self) -> None:
+        '''
+        Parse the index page, index.md in the source directory
+        '''
+        with open("source/index.md", 'r') as md_file:
+            md_content = md_file.read()
+            md = markdown.Markdown(extensions = Markdown_Extenstions)
+            html_content = md.convert(md_content)
+            # get metadata from the md file
+            post_meta_data = md.Meta
+            self.content = html_content
+            try:
+                self.meta_data["title"] = post_meta_data.get("title", ["Untitled"])[0]
+                self.meta_data["author"] = post_meta_data.get("authors", ["Anonymous"])[0]
+                self.meta_data["date"] = datetime.strptime(
+                    post_meta_data.get("date", [datetime.now().strftime('%Y-%m-%d')])[0], 
+                    '%Y-%m-%d'
+                )
+                self.meta_data["description"] = self.meta_data.get("description", ["No description available"])[0]
+
+            except KeyError:
+                print(f"Metadata not found in index.md")
+         
 
     def render(self) -> None:
         '''
@@ -202,10 +227,11 @@ class INDEX:
             title=self.meta_data["title"],
             author=self.meta_data["author"],
             date=self.meta_data["date"],
-            content=self.meta_data["content"],
+            description=self.meta_data["description"],
             phrases=self.meta_data["phrases"],
+            content=self.content,
             posts=self.posts,
-            pages=self.pages
+            pages=self.pages,
         )
         with open("docs/index.html", "w") as html_file:
             html_file.write(rendered_html)
@@ -247,6 +273,7 @@ def generate_html() -> None:
     blog_index = BLOG_INDEX(meta_data, posts)
     blog_index.render()
     index = INDEX(meta_data, posts, pages)
+    index.parse()
     index.render()
 
                 
