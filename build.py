@@ -86,8 +86,14 @@ class POST:
                 self.summary = post_meta_data["summary"][0]
                 self.category = post_meta_data["category"][0]
                 self.date = datetime.strptime(post_meta_data["date"][0], '%Y-%m-%d')
+                # read metadata for last modified date LastModified is optional
+                # the default last modified date is the date of the post
+                self.last_modified = datetime.strptime(post_meta_data.get("last_modified", [self.date.strftime('%Y-%m-%d')])[0], '%Y-%m-%d')
+                print(f"Processing {self.md_path} with last modified date {self.last_modified}")
+
                 # Split comma-separated tags and strip whitespace
                 raw_tags = post_meta_data.get("tags", [""])[0]
+                self.image = post_meta_data.get("image", [self.image])[0]
                 self.tags = [tag.strip() for tag in raw_tags.split(",") if tag.strip()]
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
@@ -105,6 +111,7 @@ class POST:
             summary=self.summary,
             category=self.category,
             date=self.date,
+            last_modified=self.last_modified,
             content=self.content,
             phrases=meta_data["phrases"],
         )
