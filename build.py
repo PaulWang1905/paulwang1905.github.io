@@ -6,6 +6,7 @@ from markupsafe import Markup, escape
 from datetime import datetime
 import json
 from pathlib import Path
+import shutil
 
 # Function to build CSS using Tailwind CSS
 
@@ -114,6 +115,8 @@ class POST:
             last_modified=self.last_modified,
             content=self.content,
             phrases=meta_data["phrases"],
+            image=self.image,
+            tags=self.tags,
         )
         with open(self.html_path, "w") as html_file:
             html_file.write(rendered_html)
@@ -300,10 +303,29 @@ def clean_old_files() -> None:
     if styles_css.exists():
         styles_css.unlink()
     print("styles.css removed")
+    # Remove image directory if it exists
+    images_dir = docs_dir / "image"
+    if images_dir.exists():
+        for image in images_dir.rglob('*'):
+            image.unlink()
+        images_dir.rmdir()
+        print("images directory removed")
+    
+def copy_images():
+    '''
+    Copy images from source/image to docs/image
+    '''
+    print("Copying images")
+    source_image_dir = Path("source/image")
+    docs_image_dir = Path("docs/image")
+    # Copy all images from source/image to docs/image
+    shutil.copytree(source_image_dir, docs_image_dir)
+    print("Images copied")
     
 
 
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
+    copy_images()
     build_css()
