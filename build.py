@@ -310,22 +310,40 @@ def clean_old_files() -> None:
             image.unlink()
         images_dir.rmdir()
         print("images directory removed")
-    
-def copy_images():
-    '''
-    Copy images from source/image to docs/image
-    '''
-    print("Copying images")
-    source_image_dir = Path("source/image")
-    docs_image_dir = Path("docs/image")
-    # Copy all images from source/image to docs/image
-    shutil.copytree(source_image_dir, docs_image_dir)
-    print("Images copied")
-    
 
+
+def collect_static_files(static_dirs: dict = None) -> None:
+    """
+    Collect static files from specified directories.
+
+    Args:
+        static_dirs (dict): Dictionary mapping source directories to target directories.
+                            Defaults to {'source/image': 'docs/image'}.
+    """
+    if static_dirs is None:
+        static_dirs = {'source/image': 'docs/image'}
+
+    for source, target in static_dirs.items():
+        source_dir = Path(source)
+        target_dir = Path(target)
+        print(f"Copying files from {source_dir} to {target_dir}")
+
+        if not source_dir.exists():
+            print(f"Source directory {source_dir} does not exist")
+            continue
+
+        if target_dir.exists():
+            shutil.rmtree(target_dir)
+
+        try:
+            shutil.copytree(source_dir, target_dir)
+            print("Files copied successfully")
+        except Exception as e:
+            print(f"Error copying files: {e}")
+            raise
 
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
-    copy_images()
+    collect_static_files()
     build_css()
