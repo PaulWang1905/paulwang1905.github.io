@@ -3,7 +3,7 @@
     "description": "Welcome to my website.",
     "author": "Puyu",
     "date": "2024-07-17",
-    "link": "",
+    "link": "https://puyuwang.org",
     "phrases": [
         "天之苍苍，其正色邪", 
         "吾日三省吾身", 
@@ -21,4 +21,5 @@
         "周雖舊邦,其命維新" 
     ],
     "image": "image/default.png"
+    
 }

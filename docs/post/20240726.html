@@ -46,29 +46,44 @@
 
 <div class="container mx-auto px-5">
 
-  <div tabindex="0" class="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse p-5 rounded-lg">
+  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
+      <div class="breadcrumbs max-w-xs text-sm">
+        <ul>
+          <li><a href="/blog_index.html">Blog</a></li>
+          <li><a href="/blog_Blog.html">Blog</a></li> 
+          <li><a href="/post/20240726.html"> Using ‘dd’ to benchmark SSD </a> </li>
+        </ul>
+      </div>
+     <h1 class="text-3xl py-3.5"> Using ‘dd’ to benchmark SSD </h1>
+     
+     <span class="badge">Linux</span>
+     
+     <span class="badge">Benchmark</span>
+     
+     <span class="badge">SSD</span>
+     
+     
    
-     <h1 class="text-3xl"> Using ‘dd’ to benchmark SSD</h1>
-     <div class="divider"></div>
-     <p>Using dd might be the simplest way to benchmark an SSD on Unix-like systems. It is also very dangerous (obviously). I only recommend this method in TEST environments. </p>
-    </div>
+    <p class='py-3.5'>Using dd might be the simplest way to benchmark an SSD on Unix-like systems. It is also very dangerous (obviously). I only recommend this method in TEST environments. </p>  
+       </div>
+      
     <div class="collapse-content">
       <p>By Puyu Wang</p>
       <p>Published on Friday 2024-07-26 </p>
       <p>Last Modified on Friday 2024-07-26 </p>
-     
     </div>
-
-   
   </div>
 
+  
+ 
+    
   <div class="divider"></div>
   
   <div class="bg-base-200 p-5 rounded-lg">
    
     <article class="prose lg:prose-xl max-w-none">
-      
+     
       <h1>Using <code>dd</code> to Benchmark an SSD</h1>
 <p>Benchmarking an SSD can provide valuable insights into its performance. One of the simplest, albeit risky, methods to do this on Unix-like systems is by using the <code>dd</code> command. This approach should be reserved for test environments only due to the potential risks involved.</p>
 <h2>Benchmarking Methods</h2>

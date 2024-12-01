@@ -46,29 +46,68 @@
 
 <div class="container mx-auto px-5">
 
-  <div tabindex="0" class="bg-primary text-primary-content focus:bg-secondary focus:text-secondary-content collapse p-5 rounded-lg">
+  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
+      <div class="breadcrumbs max-w-xs text-sm">
+        <ul>
+          <li><a href="/blog_index.html">Blog</a></li>
+          <li><a href="/blog_{{ category }}.html">{{ category }}</a></li> 
+          <li><a href="{{ link }}"> {{ title }} </a> </li>
+        </ul>
+      </div>
+     <h1 class="text-3xl py-3.5"> {{ title }} </h1>
+     {% for tag in tags %}
+     <span class="badge">{{ tag }}</span>
+     {% endfor %}
+     
    
-     <h1 class="text-3xl"> {{ title }}</h1>
-     <div class="divider"></div>
-     <p>{{ summary }} </p>
-    </div>
+    <p class='py-3.5'>{{ summary }} </p>  
+       </div>
+      
     <div class="collapse-content">
       <p>By {{ author }}</p>
       <p>Published on {{ date.strftime("%A %Y-%m-%d") }} </p>
       <p>Last Modified on {{ last_modified.strftime("%A %Y-%m-%d") }} </p>
-     
     </div>
-
-   
   </div>
 
+  {% if image and image != meta_data.image %}
+    <div class="carousel w-full  mx-auto my-8 rounded-xl shadow-2xl overflow-hidden flex items-center justify-center">
+      <div class="carousel-item w-full relative group">
+        <div class="relative w-full h-64 md:h-96 overflow-hidden">
+          <div class="absolute inset-0">
+            <img
+              src="{{ image }}"
+              class="w-full h-full object-cover filter blur-lg scale-150"
+              alt="Background image"
+              loading="lazy"
+              decoding="async" />
+          </div>
+          <div class="absolute inset-0 flex items-center justify-center">
+            <img
+              src="{{ image }}"
+              class="max-w-full max-h-full object-contain transition-transform duration-500 ease-in-out group-hover:scale-105"
+              alt="{% if post_meta_data.image_caption %}{{ post_meta_data.image_caption[0] }}{% else %}Article featured image{% endif %}"
+              loading="lazy"
+              decoding="async" />
+          </div>
+        </div>
+        {% if post_meta_data.image_caption %}
+        <div class="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-3 transition-opacity duration-300 opacity-0 group-hover:opacity-100">
+          <p class="text-center text-sm">{{ post_meta_data.image_caption[0] }}</p>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  {% endif %}
+ 
+    
   <div class="divider"></div>
   
   <div class="bg-base-200 p-5 rounded-lg">
    
     <article class="prose lg:prose-xl max-w-none">
-      
+     
       {{ content }}
     </article>
       </div>

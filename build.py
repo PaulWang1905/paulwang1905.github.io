@@ -36,6 +36,14 @@ Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta','fo
 posts = []
 pages = []
 categories = []
+
+# Directories to collect static files from
+collect_dirs = {
+    'source/image': 'docs/image',
+}
+
+
+# Function to build CSS using Tailwind CSS
 def build_css():
     subprocess.run(["npm", "run", "build:css"], check=True)
 
@@ -57,11 +65,12 @@ class POST:
         self.read_time = None
         self.link = None
         self.summary = None
-        # image is the image for the post, it is a relative path to the image
-        # it is used in the blog_index_template.html
-        # the default image is the image in the meta_data.json
+        self.full_link = None
+        # Image is the cover image for the post, it is a relative path to the image
+        # It is used in the category page and the blog index page
+        # The default image is the image in the meta_data.json
         self.image = meta_data["image"]
-        
+        self.post_meta_data = None
 
     def parse(self) -> None:
         '''
@@ -78,23 +87,28 @@ class POST:
             html_content = md.convert(md_content)
             self.content = html_content
             # get metadata from the md file
-            post_meta_data = md.Meta
-            # get the link for page and post domain name + html path
-            self.link = meta_data["link"] + self.html_path[4:]
+            self.post_meta_data = md.Meta
+            
+            # get the relative link 
+            self.link = self.html_path[4:]
+            # get the link with domain name
+            self.full_link = meta_data["link"] + self.link
+            
             try: 
-                self.title = post_meta_data["title"][0]
-                self.author = post_meta_data["authors"][0]
-                self.summary = post_meta_data["summary"][0]
-                self.category = post_meta_data["category"][0]
-                self.date = datetime.strptime(post_meta_data["date"][0], '%Y-%m-%d')
+                self.title = self.post_meta_data["title"][0]
+                self.author = self.post_meta_data["authors"][0]
+                self.summary = self.post_meta_data["summary"][0]
+                self.category = self.post_meta_data["category"][0]
+                self.date = datetime.strptime(self.post_meta_data["date"][0], '%Y-%m-%d')
                 # read metadata for last modified date LastModified is optional
                 # the default last modified date is the date of the post
-                self.last_modified = datetime.strptime(post_meta_data.get("last_modified", [self.date.strftime('%Y-%m-%d')])[0], '%Y-%m-%d')
+                self.last_modified = datetime.strptime(self.post_meta_data.get("last_modified", [self.date.strftime('%Y-%m-%d')])[0], '%Y-%m-%d')
                 print(f"Processing {self.md_path} with last modified date {self.last_modified}")
 
                 # Split comma-separated tags and strip whitespace
-                raw_tags = post_meta_data.get("tags", [""])[0]
-                self.image = post_meta_data.get("image", [self.image])[0]
+                raw_tags = self.post_meta_data.get("tags", [""])[0]
+                # get the image from the metadata, if not found use the default image from the meta_data.json
+                self.image = self.post_meta_data.get("image", [self.image])[0]
                 self.tags = [tag.strip() for tag in raw_tags.split(",") if tag.strip()]
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
@@ -107,6 +121,8 @@ class POST:
         Render the post to HTML
         '''
         rendered_html = template.render(
+            meta_data=meta_data,
+            post_meta_data=self.post_meta_data,
             title=self.title,
             author=self.author,
             summary=self.summary,
@@ -117,6 +133,7 @@ class POST:
             phrases=meta_data["phrases"],
             image=self.image,
             tags=self.tags,
+            link=self.link,
         )
         with open(self.html_path, "w") as html_file:
             html_file.write(rendered_html)
@@ -204,6 +221,7 @@ class INDEX:
         self.pages = pages
         self.description = None
         self.content = None
+        
 
     def parse(self) -> None:
         '''
@@ -214,13 +232,13 @@ class INDEX:
             md = markdown.Markdown(extensions = Markdown_Extenstions)
             html_content = md.convert(md_content)
             # get metadata from the md file
-            post_meta_data = md.Meta
+            self.post_meta_data = md.Meta
             self.content = html_content
             try:
-                self.meta_data["title"] = post_meta_data.get("title", ["Untitled"])[0]
-                self.meta_data["author"] = post_meta_data.get("authors", ["Anonymous"])[0]
+                self.meta_data["title"] = self.post_meta_data.get("title", ["Untitled"])[0]
+                self.meta_data["author"] = self.post_meta_data.get("authors", ["Anonymous"])[0]
                 self.meta_data["date"] = datetime.strptime(
-                    post_meta_data.get("date", [datetime.now().strftime('%Y-%m-%d')])[0], 
+                    self.post_meta_data.get("date", [datetime.now().strftime('%Y-%m-%d')])[0], 
                     '%Y-%m-%d'
                 )
                 self.meta_data["description"] = self.meta_data.get("description", ["No description available"])[0]
@@ -345,5 +363,5 @@ def collect_static_files(static_dirs: dict = None) -> None:
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
-    collect_static_files()
+    collect_static_files(collect_dirs)
     build_css()
