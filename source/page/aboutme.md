@@ -2,7 +2,7 @@ Title:   About Puyu Wang
 Summary: A brief description of myself.
 Authors: Puyu Wang
 Date:    2024-10-12
-Category: About Me
+Category: Page
 
 # About Puyu Wang
 

@@ -50,9 +50,14 @@
     <div class="collapse-title">
       <div class="breadcrumbs max-w-xs text-sm">
         <ul>
+          {% if category != 'Page' %}
           <li><a href="/blog_index.html">Blog</a></li>
           <li><a href="/blog_{{ category }}.html">{{ category }}</a></li> 
           <li><a href="{{ link }}"> {{ title }} </a> </li>
+          {% else %}
+          <li><a href="/page_index.html">Pages</a></li>
+          <li><a href="{{ link }}"> {{ title }} </a> </li>
+          {% endif %}
         </ul>
       </div>
      <h1 class="text-3xl py-3.5"> {{ title }} </h1>
