@@ -3,7 +3,7 @@ Summary: A brief description of my document.
 Authors: Puyu Wang
 Date:    2024-07-20
 Category: Notes
-Tags: Reading Note
+Tags: Reading
 # Reading 
 ## 梁惠王上
 
