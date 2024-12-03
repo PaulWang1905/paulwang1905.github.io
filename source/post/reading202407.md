@@ -2,8 +2,8 @@ Title:   Reading
 Summary: A brief description of my document.
 Authors: Puyu Wang
 Date:    2024-07-20
-Category: Blog
-Tags: Reading
+Category: Note
+Tags: Reading Note
 # Reading 
 ## 梁惠王上
 
