@@ -38,8 +38,11 @@ pages = []
 categories = []
 
 # Directories to collect static files from
+# The key is the source directory and the value is the target directory
+# The target directory and content will not delete if it exists
 collect_dirs = {
     'source/image': 'docs/image',
+    'source/static': 'docs',
 }
 
 
@@ -332,7 +335,7 @@ def clean_old_files() -> None:
 
 def collect_static_files(static_dirs: dict = None) -> None:
     """
-    Collect static files from specified directories.
+    Collect static files from specified directories without deleting the target directory.
 
     Args:
         static_dirs (dict): Dictionary mapping source directories to target directories.
@@ -350,11 +353,20 @@ def collect_static_files(static_dirs: dict = None) -> None:
             print(f"Source directory {source_dir} does not exist")
             continue
 
-        if target_dir.exists():
-            shutil.rmtree(target_dir)
+        # Ensure the target directory exists
+        target_dir.mkdir(parents=True, exist_ok=True)
 
         try:
-            shutil.copytree(source_dir, target_dir)
+            for item in source_dir.iterdir():
+                source_item = source_dir / item.name
+                target_item = target_dir / item.name
+
+                if source_item.is_dir():
+                    # Recursively copy subdirectories
+                    shutil.copytree(source_item, target_item, dirs_exist_ok=True)
+                else:
+                    # Overwrite files if they exist
+                    shutil.copy2(source_item, target_item)
             print("Files copied successfully")
         except Exception as e:
             print(f"Error copying files: {e}")
