@@ -56,13 +56,20 @@
           <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="/page/aboutme.html">About</a>
           <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="https://eng.ox.ac.uk/people/puyu-wang/">Contact</a>
           <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="/blog_index.html">Blog</a>
+          
         </div>
       
       </div>
       
+
       <div class="navbar-end">
                
-  
+        <h1 
+        class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200 font-extrabold uppercase bg-clip-text text-transparent"
+        style="background-image: url('/image/wave-texture.jpg'); background-size: cover; background-position: center;">
+        中文
+      </h1>
+
         <!-- Theme toggle button with hover effect -->
         <label class="swap swap-rotate hover:scale-110 transition-transform duration-200">
           <input type="checkbox" class="theme-controller" value="dark" />
@@ -94,87 +101,110 @@
 
   <div class="md:container mx-auto px-5 p-4">
     
-    <div class="py-6 bg-red-50 flex justify-center items-center relative overflow-hidden">
-      <!-- Text Cutout -->
-      <h1 
-        class="text-8xl font-extrabold uppercase bg-clip-text text-transparent"
-        style="background-image: url('/image/wave-texture.jpg'); background-size: cover; background-position: center;">
-        中文
-      </h1>
-    </div>
-    
 
     
+    <div class="stats shadow hidden md:grid">
+      
+      <div class="stat bg-pink-50">
+        <div class="px-8 flex justify-center items-center relative">
+          <h1 
+            class="text-6xl font-extrabold uppercase bg-clip-text text-transparent"
+            style="background-image: url('/image/wave-texture.jpg'); background-size: cover; background-position: center;">
+            中文
+          </h1>
+        </div>
+      </div>
+      
+      
+      
 
+      <div class="stat">      
+        <div class="stat-figure text-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-8 w-8 stroke-current">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <div class="stat-title">Total Posts</div>
+        <div class="stat-value text-primary">3</div>
+        <div class="stat-desc"></div>
+      </div>
     
-    <!-- Stats Section -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 mt-8">
-      <!-- Stats Card 1 -->
-      <div class="stat bg-primary text-primary-content rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-        <div class="stat-figure text-primary-content">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+      <div class="stat">
+        <div class="stat-figure text-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-8 w-8 stroke-current">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
           </svg>
         </div>
-        <div class="stat-title text-primary-content opacity-80">Total Posts</div>
-        <div class="stat-value">3</div>
+        <div class="stat-title">Tags</div>
+        <div class="stat-value text-secondary">5</div>
+        <div class="stat-desc">
+         
+        </div>  
       </div>
-  
-      <!-- Stats Card 2 -->
-      <div class="stat bg-secondary text-secondary-content rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-        <div class="stat-figure text-secondary-content">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path>
-          </svg>
+    
+      <div class="stat">
+        <div class="stat-figure text-secondary">
+          <div class="avatar online">
+            <div class="w-16 rounded-full">
+              <img src="/image/profile.png" />
+            </div>
+          </div>
         </div>
-        <div class="stat-title text-secondary-content opacity-80">Tags</div>
-        <div class="stat-value">5</div>
-      </div>
-  
-      <!-- Stats Card 3 -->
-      <div class="stat bg-accent text-accent-content rounded-xl shadow-2xl transform hover:scale-105 transition-all duration-300">
-        <div class="stat-figure text-accent-content">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-8 h-8 stroke-current">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path>
-          </svg>
-        </div>
-        <div class="stat-title text-accent-content opacity-80">Latest Update</div>
-        <div class="stat-value text-2xl">
-          2024-11-25
-        </div>
+        <div class="stat-title">Last Upate</div>
+        <div class="stat-value">2024-11-25</div>
+       
+        <div class="stat-desc text-secondary"><a href="/post/20241125.html">悼念贾舜尧</a></div>
       </div>
     </div>
+    
   </div>
   
 
-  <div class="md:container mx-auto px-5 divider"></div>
-    
+
     
     <div class="md:container mx-auto px-5">
-      <!-- Updated layout with sidebar -->
-      <div class="flex flex-row gap-4">
-        <!-- Tag Filter Sidebar -->
-        <div class="hidden md:block w-48 flex-shrink-0">
-          <div class="flex flex-col gap-2 sticky top-4">
-            <button class="btn btn-sm btn-primary tag-filter" data-tag="All">All</button>
-            
-            <button class="btn btn-sm tag-filter" data-tag="悼念">悼念</button>
-            
-            <button class="btn btn-sm tag-filter" data-tag="哲学">哲学</button>
-            
-            <button class="btn btn-sm tag-filter" data-tag="LifeWriting">LifeWriting</button>
-            
-            <button class="btn btn-sm tag-filter" data-tag="Music">Music</button>
-            
-            <button class="btn btn-sm tag-filter" data-tag="Schoenberg">Schoenberg</button>
-            
-          </div>
-        </div>
 
-        <!-- Post List -->
-        <div class="flex-grow space-y-6">
+       <!-- Tag Filter Sidebar -->
+       <div class="hidden md:block w-48 flex-shrink-0">
+        <div class="flex gap-2 sticky top-4">
+          <button class="btn btn-sm btn-primary tag-filter" data-tag="All">All</button>
           
-          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card" data-tags="悼念 哲学">
+          <button class="btn btn-sm tag-filter" data-tag="悼念">悼念</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="哲学">哲学</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="LifeWriting">LifeWriting</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="Music">Music</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="Schoenberg">Schoenberg</button>
+          
+        </div>
+      </div>
+
+      
+      <div class="divider"></div>
+
+      
+      <div class="flex flex-col ">
+          
+          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card my-1" data-tags="悼念 哲学">
               <!-- Post Image -->
               <div class="flex-shrink-0">
                     <img src="image/default.png" alt="Post Image" class="w-16 h-16 rounded-full object-cover">
@@ -194,20 +224,14 @@
                     <span class="badge badge-secondary">哲学</span>
                     
                   </div>
-                  
-                  
-                  
+                              
                   </div>
-
                   <div class="text-sm text-gray-500"><span>Monday 2024-11-25</span></div>
-                  <div class="text-sm text-gray-500">贾舜尧，一个才华横溢的年轻人，不幸离世。</div>
-                  
-              </div>
-
-             
+                  <div class="text-sm text-gray-500">贾舜尧，一个才华横溢的年轻人，不幸离世。</div>                 
+              </div>           
           </div>
           
-          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card" data-tags="LifeWriting">
+          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card my-1" data-tags="LifeWriting">
               <!-- Post Image -->
               <div class="flex-shrink-0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/Sui_Sin_Far.jpg" alt="Post Image" class="w-16 h-16 rounded-full object-cover">
@@ -225,20 +249,14 @@
                     <span class="badge badge-secondary">LifeWriting</span>
                     
                   </div>
-                  
-                  
-                  
+                              
                   </div>
-
                   <div class="text-sm text-gray-500"><span>Thursday 2020-09-10</span></div>
-                  <div class="text-sm text-gray-500">Life Writing课程小结</div>
-                  
-              </div>
-
-             
+                  <div class="text-sm text-gray-500">Life Writing课程小结</div>                 
+              </div>           
           </div>
           
-          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card" data-tags="Music Schoenberg">
+          <div class="flex items-center p-4 bg-base-100 shadow-md rounded-lg post-card my-1" data-tags="Music Schoenberg">
               <!-- Post Image -->
               <div class="flex-shrink-0">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/a/ad/Arnold_Schoenberg_la_1948.jpg" alt="Post Image" class="w-16 h-16 rounded-full object-cover">
@@ -258,24 +276,17 @@
                     <span class="badge badge-secondary">Schoenberg</span>
                     
                   </div>
-                  
-                  
-                  
+                              
                   </div>
-
                   <div class="text-sm text-gray-500"><span>Sunday 2017-01-01</span></div>
-                  <div class="text-sm text-gray-500">這些天我一直在看SCHOENBERG的書</div>
-                  
-              </div>
-
-             
+                  <div class="text-sm text-gray-500">這些天我一直在看SCHOENBERG的書</div>                 
+              </div>           
           </div>
           
-        </div>
-      </div>
+    </div>
     </div>
           
-       
+    
   <div class="divider"></div>
 
   <blockquote class="text-xl font-semibold italic text-center text-slate-900">
