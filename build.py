@@ -248,8 +248,22 @@ class INDEX:
 
             except KeyError:
                 print(f"Metadata not found in index.md")
-         
 
+    def render_page_index(self) -> None:
+        '''
+        Render the page index
+        '''
+        rendered_html = index_template.render(
+            title=self.meta_data["title"],
+            author=self.meta_data["author"],
+            date=self.meta_data["date"],
+            description=self.meta_data["description"],
+            phrases=self.meta_data["phrases"],
+            content=self.content,
+            posts=self.posts,
+            pages=self.pages,
+        )
+        
     def render(self) -> None:
         '''
         Render the index page
@@ -266,6 +280,9 @@ class INDEX:
         )
         with open("docs/index.html", "w") as html_file:
             html_file.write(rendered_html)
+    
+        
+
 
 # Function to convert Markdown files to HTML
 def generate_html() -> None:
