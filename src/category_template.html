@@ -153,7 +153,9 @@
         </div>
         <div class="stat-title">Tags</div>
         <div class="stat-value text-secondary">{{ tags | length }}</div>
-        <div class="stat-desc"></div>
+        <div class="stat-desc">
+         
+        </div>  
       </div>
     
       <div class="stat">
@@ -167,7 +169,7 @@
         <div class="stat-title">Last Upate</div>
         <div class="stat-value">{{ posts[0].date.strftime("%Y-%m-%d") if posts and posts[0].date else 'No updates' }}</div>
        
-        <div class="stat-desc text-secondary"></div>
+        <div class="stat-desc text-secondary"><a href="{{ posts[0].link }}">{{ posts[0].title }}</a></div>
       </div>
     </div>
     
