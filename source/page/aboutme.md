@@ -23,7 +23,8 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Doing several things at the same time
 - Love to learn new things
 - Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam)
- 
+- Class Tutor (TA) for [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)
+
 # Links
 
 [![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/puyu1001)[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PaulWang1905)[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/puyu-wang/)
