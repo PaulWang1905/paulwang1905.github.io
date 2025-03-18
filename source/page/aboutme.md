@@ -18,12 +18,15 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - ~~Wearing a MASK in public place since 01/23/2020.~~
 - Went Shanghai Normal University / Zhengzhou Normal University
 - Oxford DPhil Student
-- Peer Supporter / Sub-Dean at Reuben College, University of Oxford
 - Probably watched over 1000 movies and tv episodes
 - Doing several things at the same time
 - Love to learn new things
+- Peer Supporter / Sub-Dean at Reuben College, University of Oxford,
+- Memberof '_The Reuby_' - Student Magazine of Reuben College
+- Podcaster for [Voices in Research Podcast](https://www.voicesinresearch.co.uk/)
 - Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam)
-- Class Tutor (TA) for [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)
+- Founder of [OxAI Mini-Conference](https://www.oxai.org/mini-conference)
+- Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
 
 # Links
 
