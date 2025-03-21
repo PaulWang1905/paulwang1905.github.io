@@ -42,7 +42,7 @@ categories = []
 # The target directory and content will not delete if it exists
 collect_dirs = {
     'source/image': 'docs/image',
-    'source/static': 'docs',
+    'source/static': 'docs/page',
 }
 
 
