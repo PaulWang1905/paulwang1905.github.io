@@ -171,9 +171,9 @@ class CATEGORY:
 
 class BLOG_INDEX:
     '''
-    Class to represent the blog index page
-    It contains all the posts and has side bar for categories.
+    Class to represent the blog index page and render a page for each category
     '''
+
     def __init__(self, meta_data, posts) -> None:
         self.meta_data = meta_data
         self.posts = posts
