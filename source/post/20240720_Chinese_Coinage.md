@@ -2,6 +2,7 @@ Title:   Chinese Coinage
 Summary: A note on reading a book about Chinese Coinage
 Authors: Puyu Wang
 Date:    2024-07-20
+Last_modified: 2025-04-05
 Category: Notes
 Tags: Chinese, Coinage
 # Chinese Coinage
