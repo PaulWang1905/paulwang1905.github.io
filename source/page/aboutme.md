@@ -2,6 +2,7 @@ Title:   About Puyu Wang
 Summary: A brief description of myself.
 Authors: Puyu Wang
 Date:    2024-10-12
+Last_modified: 2025-04-05
 Category: Page
 
 # About Puyu Wang
@@ -41,73 +42,71 @@ Later in 2022, I transitioned to the University of Oxford to pursue a PhD in Eng
 Now, I am working on semantic web technologies, Linked Open Data, and their applications in music and cultural heritage, with proficiency in CIDOC CRM.
 
 # Timeline
-<div class="-my-6">
+<div class="relative max-w-4xl mx-auto px-4 py-12 bg-base-100 rounded-xl shadow-sm">
 
     <!-- Item #1 -->
-    <div class="relative pl-8 sm:pl-32 py-6 group">
+    <div class="relative pl-8 sm:pl-32 py-6 group hover:bg-base-200/30 rounded-lg transition-all duration-300 ease-in-out">
         <!-- Label -->
-        <div class="font-caveat text-indigo-500 font-medium text-2xl mb-1 sm:mb-0">The Early Years</div>
-        <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-gray-600 after:border-4 after:box-content after:border-white after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-emerald-600 bg-emerald-100 w-20 h-6 mb-3 sm:mb-0 rounded-full">1990s</time>
-            <div class="text-xl font-bold">Born in a small county in Henan</div>
+        <div class="font-serif text-primary text-2xl font-medium mb-1 sm:mb-0 group-hover:text-primary-focus transition-colors duration-300">The Early Years</div>
+        <!-- Vertical line ~ Date ~ Title ~ Circle marker -->
+        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-base-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-3 after:h-3 after:bg-primary after:border-4 after:box-content after:border-base-100 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5 after:shadow-md after:transition-all after:duration-300 group-hover:after:scale-110">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-accent badge badge-accent badge-outline w-20 h-6 mb-3 sm:mb-0 shadow-sm group-hover:shadow group-hover:scale-105 transition-all duration-300">1990s</time>
+            <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Born in a small county in Henan</div>
         </div>
         <!-- Content -->
-        <div>Born in the 1990s in a small county in Henan, China.</div>
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Born in the 1990s in a small county in Henan, China.</div>
     </div>
     
+    <!-- Item #2 -->
+    <div class="relative pl-8 sm:pl-32 py-6 group hover:bg-base-200/30 rounded-lg transition-all duration-300 ease-in-out">
+        <!-- Label -->
+        <div class="font-serif text-primary text-2xl font-medium mb-1 sm:mb-0 group-hover:text-primary-focus transition-colors duration-300">Beginning of Music Studies</div>
+        <!-- Vertical line ~ Date ~ Title ~ Circle marker -->
+        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-base-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-3 after:h-3 after:bg-primary after:border-4 after:box-content after:border-base-100 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5 after:shadow-md after:transition-all after:duration-300 group-hover:after:scale-110">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-accent badge badge-accent badge-outline w-20 h-6 mb-3 sm:mb-0 shadow-sm group-hover:shadow group-hover:scale-105 transition-all duration-300">SEP 2014</time>
+            <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Enrolled in Musicology at Zhengzhou Normal University</div>
+        </div>
+        <!-- Content -->
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">I began my studies in musicology with a broad exploration of various instruments, including the double bass, guitar, and piano. Under the guidance of Xu Yanwei, I also engaged in piano tuning and tea tasting, further enriching my artistic practice. My double bass tutor was Professor Guoqiang Cao (曹国强), a renowned and active choir conductor in Zhengzhou. My undergraduate thesis was supervised by Professor Guoliang Wang (王国良), who sadly passed away a few months after my graduation. </div>
+    </div>
+    
+    <!-- Item #3 -->
+    <div class="relative pl-8 sm:pl-32 py-6 group hover:bg-base-200/30 rounded-lg transition-all duration-300 ease-in-out">
+        <!-- Label -->
+        <div class="font-serif text-primary text-2xl font-medium mb-1 sm:mb-0 group-hover:text-primary-focus transition-colors duration-300">Master's Research</div>
+        <!-- Vertical line ~ Date ~ Title ~ Circle marker -->
+        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-base-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-3 after:h-3 after:bg-primary after:border-4 after:box-content after:border-base-100 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5 after:shadow-md after:transition-all after:duration-300 group-hover:after:scale-110">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-accent badge badge-accent badge-outline w-20 h-6 mb-3 sm:mb-0 shadow-sm group-hover:shadow group-hover:scale-105 transition-all duration-300">SEP 2019</time>
+            <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Started Master of Arts at Shanghai Normal University</div>
+        </div>
+        <!-- Content -->
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Supervised by Professor Hongjie Sun, my research focused on the performance practice of 18th-century concertos, with particular attention to solo parts, orchestral accompaniment, and cadenzas. Alongside this, I dedicated significant time to a side project in digital humanities, where I developed a platform based on ResearchSpace, supported by funding from CADAL. This experience sparked my interest in digital humanities and semantic web technologies, ultimately leading to my current doctoral research. </div>
+    </div>
 
-    
-    <div class="relative pl-8 sm:pl-32 py-6 group">
+    <!-- Item #4 -->
+    <div class="relative pl-8 sm:pl-32 py-6 group hover:bg-base-200/30 rounded-lg transition-all duration-300 ease-in-out">
         <!-- Label -->
-        <div class="font-caveat text-indigo-500 font-medium text-2xl mb-1 sm:mb-0">Beginning of Music Studies</div>
-        <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-gray-600 after:border-4 after:box-content after:border-white after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-emerald-600 bg-emerald-100 w-20 h-6 mb-3 sm:mb-0 rounded-full">SEP 2014</time>
-            <div class="text-xl font-bold">Enrolled in Musicology at Zhengzhou Normal University</div>
+        <div class="font-serif text-primary text-2xl font-medium mb-1 sm:mb-0 group-hover:text-primary-focus transition-colors duration-300">Graduation</div>
+        <!-- Vertical line ~ Date ~ Title ~ Circle marker -->
+        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-base-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-3 after:h-3 after:bg-primary after:border-4 after:box-content after:border-base-100 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5 after:shadow-md after:transition-all after:duration-300 group-hover:after:scale-110">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-accent badge badge-accent badge-outline w-20 h-6 mb-3 sm:mb-0 shadow-sm group-hover:shadow group-hover:scale-105 transition-all duration-300">May 2022</time>
+            <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Graduated without formal ceremony</div>
         </div>
         <!-- Content -->
-        <div>Began studying musicology, exploring various instruments including the double bass, guitar, and piano. I experimented with piano tuning and tea tasting under the guidance of Xu Yanwei. </div>
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Due to the lockdown, graduated with a Master of Arts but without a formal ceremony.</div>
     </div>
     
-    
-    <div class="relative pl-8 sm:pl-32 py-6 group">
+    <!-- Item #5 -->
+    <div class="relative pl-8 sm:pl-32 py-6 group hover:bg-base-200/30 rounded-lg transition-all duration-300 ease-in-out">
         <!-- Label -->
-        <div class="font-caveat text-indigo-500 font-medium text-2xl mb-1 sm:mb-0">Master's Research</div>
-        <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-gray-600 after:border-4 after:box-content after:border-white after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-emerald-600 bg-emerald-100 w-20 h-6 mb-3 sm:mb-0 rounded-full">SEP 2019</time>
-            <div class="text-xl font-bold">Started Master of Arts at Shanghai Normal University</div>
+        <div class="font-serif text-primary text-2xl font-medium mb-1 sm:mb-0 group-hover:text-primary-focus transition-colors duration-300">Reading DPhil at Oxford</div>
+        <!-- Vertical line ~ Date ~ Title ~ Circle marker -->
+        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-base-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-3 after:h-3 after:bg-primary after:border-4 after:box-content after:border-base-100 after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5 after:shadow-md after:transition-all after:duration-300 group-hover:after:scale-110">
+            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-accent badge badge-accent badge-outline w-20 h-6 mb-3 sm:mb-0 shadow-sm group-hover:shadow group-hover:scale-105 transition-all duration-300">Oct 2022</time>
+            <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Started DPhil (PHD) at University of Oxford</div>
         </div>
         <!-- Content -->
-        <div>Research focused on the performance practice of 18th-century concertos, including solo parts, orchestral accompaniment, and cadenzas.</div>
-    </div>
-
-    
-    <div class="relative pl-8 sm:pl-32 py-6 group">
-        <!-- Label -->
-        <div class="font-caveat text-indigo-500 font-medium text-2xl mb-1 sm:mb-0">Graduation</div>
-        <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-gray-600 after:border-4 after:box-content after:border-white after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-emerald-600 bg-emerald-100 w-20 h-6 mb-3 sm:mb-0 rounded-full">May 2022</time>
-            <div class="text-xl font-bold">Graduated without formal ceremony</div>
-        </div>
-        <!-- Content -->
-        <div>Due to the lockdown, graduated with a Master of Arts but without a formal ceremony.</div>
-    </div>
-    
-    
-    <div class="relative pl-8 sm:pl-32 py-6 group">
-        <!-- Label -->
-        <div class="font-caveat text-indigo-500 font-medium text-2xl mb-1 sm:mb-0">Reading DPhil at Oxford</div>
-        <!-- Vertical line (::before) ~ Date ~ Title ~ Circle marker (::after) -->
-        <div class="flex flex-col sm:flex-row items-start mb-1 group-last:before:hidden before:absolute before:left-2 sm:before:left-0 before:h-full before:px-px before:bg-gray-300 sm:before:ml-[6.5rem] before:self-start before:-translate-x-1/2 before:translate-y-3 after:absolute after:left-2 sm:after:left-0 after:w-2 after:h-2 after:bg-gray-600 after:border-4 after:box-content after:border-white after:rounded-full sm:after:ml-[6.5rem] after:-translate-x-1/2 after:translate-y-1.5">
-            <time class="sm:absolute left-0 translate-y-0.5 inline-flex items-center justify-center text-xs font-semibold uppercase text-emerald-600 bg-emerald-100 w-20 h-6 mb-3 sm:mb-0 rounded-full">Oct 2022</time>
-            <div class="text-xl font-bold">Started DPhil (PHD) at University of Oxford</div>
-        </div>
-        <!-- Content -->
-        <div>Transitioned to Engineering Science, Oxford, focusing on semantic web technologies and Linked Open Data, exploring their applications in music and cultural heritage.</div>
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Transitioned to Engineering Science, Oxford, focusing on semantic web technologies and Linked Open Data, exploring their applications in music and cultural heritage.</div>
     </div>
 
 </div>
-
