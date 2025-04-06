@@ -67,7 +67,7 @@ Now, I am working on semantic web technologies, Linked Open Data, and their appl
             <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Enrolled in Musicology at Zhengzhou Normal University</div>
         </div>
         <!-- Content -->
-        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">I began my studies in musicology with a broad exploration of various instruments, including the double bass, guitar, and piano. Under the guidance of Xu Yanwei, I also engaged in piano tuning and tea tasting, further enriching my artistic practice. My double bass tutor was Professor Guoqiang Cao (曹国强), a renowned and active choir conductor in Zhengzhou. My undergraduate thesis was supervised by Professor Guoliang Wang (王国良), who sadly passed away a few months after my graduation. </div>
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">I began my studies in musicology with a broad exploration of various instruments, including the double bass, guitar, and piano. I also engaged in piano tuning. </div>
     </div>
     
     <!-- Item #3 -->
@@ -80,7 +80,7 @@ Now, I am working on semantic web technologies, Linked Open Data, and their appl
             <div class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">Started Master of Arts at Shanghai Normal University</div>
         </div>
         <!-- Content -->
-        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Supervised by Professor Hongjie Sun, my research focused on the performance practice of 18th-century concertos, with particular attention to solo parts, orchestral accompaniment, and cadenzas. Alongside this, I dedicated significant time to a side project in digital humanities, where I developed a platform based on ResearchSpace, supported by funding from CADAL. This experience sparked my interest in digital humanities and semantic web technologies, ultimately leading to my current doctoral research. </div>
+        <div class="prose-sm text-base-content/80 group-hover:text-base-content transition-colors duration-300 mt-2">Supervised by Professor Hongjie Sun, my research focused on the performance practice of 18th-century concertos, with particular attention to solo parts, orchestral accompaniment, and cadenzas. Alongside this, I worked on a project in digital humanities, where I developed a platform based on ResearchSpace, supported by funding from CADAL (China Academic Digital Associative Library). This experience sparked my interest in digital humanities and semantic web technologies, ultimately leading to my current doctoral research. </div>
     </div>
 
     <!-- Item #4 -->
