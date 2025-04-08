@@ -157,19 +157,189 @@
       
       
       <div class="divider"></div>
-
-      <main class="container mx-auto">
-        <div class="bg-base-200 p-5 rounded-lg">
-   
-          <article class="prose lg:prose-xl max-w-none">
+      <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <!-- Sidebar - Takes 1/3 of the space on large screens - Now on the LEFT -->
+          <aside class="space-y-6">
+            <!-- Recent News Card -->
+            <div class="bg-base-200 rounded-lg shadow-md overflow-hidden">
+              <div class="bg-accent/10 p-4 border-l-4 border-accent">
+                <h2 class="text-xl font-bold flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  Recent Updates
+                </h2>
+              </div>
+              <div class="p-4">
+                <!-- News content will go here -->
+                <div class="bg-base-300/30 p-3 rounded-lg text-sm">
+                  <p class="font-medium">March 2025</p>
+                  <p>We successfully held the OxAI 2nd Mini-Conference! Grateful to all our speakers, panelists, and attendees for making it an engaging and thought-provoking event. Proud to serve as General Chair—thank you to everyone who contributed. Looking forward to the next one!</p>
+                </div>
+                
+                <!-- <div class="bg-base-300/30 p-3 rounded-lg text-sm mt-3">
+                  <p class="font-medium">March 2025</p>
+                  <p>I will be giving a talk on Semantic Web Technologies at University Name.</p>
+                </div>
+                
+                <div class="bg-base-300/30 p-3 rounded-lg text-sm mt-3">
+                  <p class="font-medium">February 2025</p>
+                  <p>New research project on Language Models and Linked Data started.</p>
+                </div> -->
+              </div>
+            </div>
             
-            <h1>About me</h1>
+            <!-- Recent Posts Card - Limited to 3 -->
+            <div class="bg-base-200 rounded-lg shadow-md overflow-hidden">
+              <div class="bg-primary/10 p-4 border-l-4 border-primary">
+                <h2 class="text-xl font-bold flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  Recent Posts
+                </h2>
+              </div>
+              
+              <ul class="divide-y divide-base-300">
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/post/20241125.html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-primary transition-colors">悼念贾舜尧</h3>
+                      <p class="text-sm text-base-content/70">Nov 25, 2024</p>
+                    </div>
+                  </a>
+                </li>
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/post/20240726(1).html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-primary transition-colors">Setup Wireguard</h3>
+                      <p class="text-sm text-base-content/70">Jul 26, 2024</p>
+                    </div>
+                  </a>
+                </li>
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/post/20240726.html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-primary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-primary transition-colors">Using ‘dd’ to benchmark SSD</h3>
+                      <p class="text-sm text-base-content/70">Jul 26, 2024</p>
+                    </div>
+                  </a>
+                </li>
+                
+              </ul>
+              
+              <div class="p-3 bg-base-300/50 text-center">
+                <a href="/blog_index.html" class="text-sm font-medium text-primary hover:underline">View All Posts →</a>
+              </div>
+            </div>
+            
+            <!-- Recent Pages Card -->
+            <div class="bg-base-200 rounded-lg shadow-md overflow-hidden">
+              <div class="bg-secondary/10 p-4 border-l-4 border-secondary">
+                <h2 class="text-xl font-bold flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2 text-secondary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Pages
+                </h2>
+              </div>
+              
+              <ul class="divide-y divide-base-300">
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/page/aboutme.html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-secondary transition-colors">About Puyu Wang</h3>
+                    </div>
+                  </a>
+                </li>
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/page/terms-of-service.html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-secondary transition-colors">Terms of Service</h3>
+                    </div>
+                  </a>
+                </li>
+                
+                <li class="p-4 hover:bg-base-300 transition-colors duration-200">
+                  <a href="/page/privacy-policy.html" class="flex items-start space-x-3">
+                    <div class="flex-shrink-0 mt-1">
+                      <div class="w-2 h-2 rounded-full bg-secondary"></div>
+                    </div>
+                    <div>
+                      <h3 class="font-medium hover:text-secondary transition-colors">Privacy Policy</h3>
+                    </div>
+                  </a>
+                </li>
+                
+              </ul>
+              
+            </div>
+          </aside>
+          
+          <!-- Main Content Area - Takes 2/3 of the space on large screens - Now on the RIGHT -->
+          <main class="lg:col-span-2">
+            <div class="bg-base-200 rounded-lg shadow-md overflow-hidden">
+              <!-- Content Header with gradient accent -->
+              <div class="h-2 bg-gradient-to-r from-primary to-secondary"></div>
+              
+              <!-- Content Area -->
+              <div class="p-6">
+                <article class="prose prose-base leading-relaxed max-w-none">
+                  <h2>About me</h2>
 <p>Puyu is a DPhil (PhD) student at the <a href="https://oerc.ox.ac.uk/">Oxford e-Research Centre</a>, Department of Engineering Science, specializing in Semantic Web technologies and their impact across different sectors. His research interests extend to data integration and leveraging large language models (LLMs) for enhancing semantic web applications. He is co-supervised by <a href="https://eng.ox.ac.uk/people/david-de-roure/">Professor David de Roure</a> and <a href="https://eng.ox.ac.uk/people/donna-kurtz/">Professor Donna Kurtz</a>. Prior to his current research, Puyu studied musicology at Shanghai Normal University, supervised by <a href="https://drsun.online/%e4%b8%aa%e4%ba%ba%e8%b5%84%e6%96%99/">Professor Hongjie Sun</a>. 
 Puyu currently is one of <strong>Sub-Deans</strong> at <strong>Reuben College</strong> and serves as a <strong>peer supporter</strong>. His college profile is <a href="https://reuben.ox.ac.uk/people/puyu-wang">here</a>.  </p>
-          </article>
+<h2>Research Interests</h2>
+<ul>
+<li>Linked Open Data, Knowledge Graphs</li>
+<li>Ontology Engineering / Mapping</li>
+<li>Data Integration</li>
+<li>Large Language Models </li>
+<li>Digital Humanities</li>
+</ul>
+<h2>Teaching Assistants</h2>
+<ul>
+<li><strong>Hilary Term 2025</strong>: Class Tutor for <em>Knowledge Representation &amp; Reasoning:  2024-2025</em> at the Department of Computer Science, University of Oxford.</li>
+</ul>
+<h2>Commiunity Service &amp; Activities</h2>
+<ul>
+<li>Sub-Dean &amp; Peer Supporter of Reuben College</li>
+<li>Treasurer of Oxford AI Society</li>
+<li>Team member of the  <a href="https://reuben.ox.ac.uk/reuby-student-magazine"><em>Reuby</em></a> - Student Magazine at Reuben College </li>
+</ul>
+<h2>Hobbies</h2>
+<ul>
+<li>Movies</li>
+<li>Music</li>
+<li>Non-Fiction Literature (especially lifewriting)</li>
+</ul>
+                </article>
+              </div>
             </div>
-    </main>
-
+          </main>
+        </div>
+      </div>
+     
   
     
      
@@ -313,28 +483,76 @@ Puyu currently is one of <strong>Sub-Deans</strong> at <strong>Reuben College</s
   <div class="divider"></div>
 
  
-  <footer class="footer footer-center bg-primary text-primary-content p-10">
-    <aside>
-      <svg
-        width="50"
-        height="50"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-        fill-rule="evenodd"
-        clip-rule="evenodd"
-        class="inline-block fill-current">
-        <path
-          d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-      </svg>
-      <p class="font-bold">
-         Puyu Wang's website
-        <br />
+  <footer class="footer footer-center p-10 bg-primary text-primary-content">
+    <div class="max-w-5xl mx-auto w-full">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
         
-      </p>
-      <p>Copyright © 2024 - All right reserved</p>
-    </aside>
-  
-   
+        <!-- Profile Section -->
+        <div class="flex flex-col items-center md:items-start">
+          <!-- Avatar -->
+          <div class="avatar">
+            <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2 mb-4">
+              <div class="bg-primary-focus flex items-center justify-center h-full">
+                <span class="text-2xl font-bold"> 
+                  <img
+                  class="w-24 h-24 md:w-48 md:h-auto rounded-full md:rounded-none mx-auto md:mx-0"
+                  src="image/profile.png"
+                  alt="Profile Picture"/>
+                </span>
+              </div>
+            </div>
+          </div>
+          
+          <h2 class="text-2xl font-bold mb-2">Puyu Wang</h2>
+          <p class="opacity-75 mb-4">Ph.D. candidate, University of Oxford          </p>
+          
+          <!-- Social Links -->
+          <div class="flex space-x-4 mt-2">
+            <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-ghost" title="Email">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                <polyline points="22,6 12,13 2,6"></polyline>
+              </svg>
+            </a>
+            <a href="https://x.com/puyu1001" class="btn btn-circle btn-ghost" title="X (Twitter)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+              </svg>
+            </a>
+            <a href="https://github.com/paulwang1905" class="btn btn-circle btn-ghost" title="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-ghost" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Quick Links Section -->
+        <div class="flex flex-col items-center md:items-start">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="menu menu-vertical p-0">
+            <li><a href="#" class="link link-hover">Home</a></li>
+            <li><a href="https://eng.ox.ac.uk/people/puyu-wang/" class="link link-hover">Contact</a></li>
+            <li><a href="page/privacy-policy.html" class="link link-hover mr-4">Privacy Policy</a></li>
+            <li><a href="page/terms-of-service.html" class="link link-hover">Terms of Use</a></li>
+
+          </ul>
+        </div>
+      </div>
+      
+      <!-- Bottom Bar -->
+      <div class="mt-10 pt-6  w-full text-center">
+        <p class="text-sm opacity-60">© 2025 Puyu Wang - All rights reserved</p>
+        <div class="mt-2">
+         
+        </div>
+      </div>
+    </div>
   </footer>
   <div class="divider"></div>
 
