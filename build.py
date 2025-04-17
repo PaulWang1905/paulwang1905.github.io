@@ -222,6 +222,16 @@ class INDEX:
         self.meta_data = meta_data
         self.posts = posts
         self.pages = pages
+        # Terms of Service and Privacy Policy are not included in the index page
+        self.pages = [page for page in self.pages if page.title not in ["Terms of Service", "Privacy Policy"]]
+
+        # for page in self.pages:
+        #     if page.title in ["Terms of Service", "Privacy Policy"]:
+        #         self.pages.remove(page)
+        #         print(f"Removing {page.title} from index page")
+        # Initialize metadata for the index page
+
+
         self.description = None
         self.content = None
         
@@ -249,20 +259,6 @@ class INDEX:
             except KeyError:
                 print(f"Metadata not found in index.md")
 
-    def render_page_index(self) -> None:
-        '''
-        Render the page index
-        '''
-        rendered_html = index_template.render(
-            title=self.meta_data["title"],
-            author=self.meta_data["author"],
-            date=self.meta_data["date"],
-            description=self.meta_data["description"],
-            phrases=self.meta_data["phrases"],
-            content=self.content,
-            posts=self.posts,
-            pages=self.pages,
-        )
         
     def render(self) -> None:
         '''
