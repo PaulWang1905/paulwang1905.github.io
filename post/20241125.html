@@ -13,7 +13,7 @@
 
 
   <header>
-  <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="navbar-start">
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
@@ -139,23 +139,343 @@
     
 </div>
 
-<div class="divider"></div>
-<blockquote class="text-xl font-semibold italic text-center text-slate-900">
-  <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block">
-    <span class="relative text-white" id="phrase"></span>
-  </span>
-</blockquote>
-<div class="divider"></div>
-<!-- phrase is a list, everytime show a random phrase -->
-<script>
-  const phrases_list = ['天之苍苍，其正色邪', '吾日三省吾身', '知行合一', '行有馀力，则以学文', '思无邪', '先行其言，而后从之', '尽美矣，又尽善也', '好仁者，无以尚之', '无所从来，亦无所去', '所谓佛法者，即非佛法。', '道法自然', '天下大事，必作於細', '為無為，事無事，味無味。', '周雖舊邦,其命維新'] ;
+<!-- <div class="divider"></div> -->
 
-  function showRandomPhrase() {
-      const randomIndex = Math.floor(Math.random() * phrases_list.length);
-      document.getElementById('phrase').innerText = phrases_list[randomIndex];
-  }
-  window.onload = showRandomPhrase;
-</script>
+<!-- <blockquote class="text-xl font-semibold italic text-center text-slate-900">
+    <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block color-box">
+      <span class="relative text-white" id="phrase"></span>
+    </span>
+</blockquote>
+<div class="divider"></div> -->
+
+<footer class="bg-gradient-to-br from-slate-800 to-slate-900 text-white mt-8 border-t border-pink-500/30">
+  
+    <div class="max-w-6xl mx-auto px-4 py-12">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- Profile Section (Enhanced) -->
+        <div class="flex flex-col items-center lg:items-start space-y-4">
+          <div class="flex items-center space-x-4">
+            <!-- Avatar with animated border -->
+            <div class="relative group">
+              <div class="absolute -inset-0.5 bg-gradient-to-r from-pink-600 to-purple-600 rounded-full opacity-75 group-hover:opacity-100 blur-sm group-hover:blur transition duration-500"></div>
+              <div class="relative">
+                <img
+                  class="w-24 h-24 rounded-full object-cover"
+                  src="/image/profile.png"
+                  alt="Dr. Puyu Wang"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+            
+            <!-- Name and Title -->
+            <div>
+              <h2 class="text-2xl font-bold">Puyu Wang</h2>
+              <p class="text-slate-300">DPhil Student</p>
+              <p class="text-slate-300">University of Oxford</p>
+            </div>
+          </div>
+          
+          <!-- Research interests -->
+          <div class="mt-4 text-slate-300 max-w-sm">
+            <h3 class="text-lg font-semibold text-white mb-2">Research Interests</h3>
+            <p>Semantic Web Technology, Linked Open Data, Language Models</p>
+          </div>
+          
+          <!-- Social Links - Enhanced -->
+          <div class="flex flex-wrap gap-3 mt-4">
+            
+            <a href="https://x.com/puyu1001" class="btn btn-circle bg-slate-700 hover:bg-slate-600 border-0 transition-all duration-300" aria-label="X (Twitter)">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+              </svg>
+            </a>
+            <a href="https://github.com/paulwang1905" class="btn btn-circle bg-slate-700 hover:bg-slate-600 border-0 transition-all duration-300" aria-label="GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"></path>
+              </svg>
+            </a>
+            <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle bg-slate-700 hover:bg-slate-600 border-0 transition-all duration-300" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <!-- <a href="https://scholar.google.com" class="btn btn-circle bg-slate-700 hover:bg-slate-600 border-0 transition-all duration-300" aria-label="Google Scholar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>
+              </svg>
+            </a> -->
+            <!-- <a href="https://orcid.org" class="btn btn-circle bg-slate-700 hover:bg-slate-600 border-0 transition-all duration-300" aria-label="ORCID">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.372 0 0 5.372 0 12s5.372 12 12 12 12-5.372 12-12S18.628 0 12 0zM7.369 4.378c.525 0 .947.431.947.947s-.422.947-.947.947a.95.95 0 0 1-.947-.947c0-.525.422-.947.947-.947zm-.722 3.038h1.444v10.041H6.647V7.416zm3.562 0h3.9c3.712 0 5.156 2.791 5.156 5.034 0 2.625-1.91 5.006-5.156 5.006h-3.9V7.416zm1.444 1.312v7.425h2.456c2.934 0 3.712-2.109 3.712-3.694 0-1.528-.778-3.731-3.712-3.731h-2.456z"/>
+              </svg>
+            </a> -->
+          </div>
+        </div>
+        
+        <!-- Quick Links Section (Simplified) -->
+        <div class="flex flex-col items-center lg:items-start lg:ml-auto lg:mr-0 space-y-6">
+          <div>
+            <h3 class="text-xl font-semibold border-b border-pink-500 pb-2 mb-4 inline-block">Navigation</h3>
+            <ul class="space-y-2">
+              <li><a href="#" class="hover:text-pink-400 transition-colors duration-300 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                  <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+                </svg>
+                Home
+              </a></li>
+              <li><a href="#" class="hover:text-pink-400 transition-colors duration-300 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+                </svg>
+                About
+              </a></li>
+              <li><a href="https://eng.ox.ac.uk/people/puyu-wang/" class="hover:text-pink-400 transition-colors duration-300 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                  <path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328zM1.884.511a1.745 1.745 0 0 1 2.612.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                </svg>
+                Contact
+              </a></li>
+            </ul>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold border-b border-pink-500 pb-2 mb-4 inline-block">Resources</h3>
+            <ul class="space-y-2">
+              <li><a href="page/privacy-policy.html" class="hover:text-pink-400 transition-colors duration-300">Privacy Policy</a></li>
+              <li><a href="page/terms-of-service.html" class="hover:text-pink-400 transition-colors duration-300">Terms of Use</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Bottom Bar with Copyright and Back to Top -->
+      <div class="mt-12 pt-8 border-t border-slate-700 flex flex-col md:flex-row justify-between items-center">
+        <p class="text-slate-400">© 2025 Puyu Wang - All rights reserved</p>
+        
+        <div class="quote-container flex items-center justify-center h-16 overflow-hidden">
+            <!-- Blockquote with gradient background -->
+            <blockquote class="quote-display relative z-10 px-6 py-2 mx-auto">
+                <div class="gradient-bg absolute inset-0 z-0"></div>
+                <span id="phrase" class="relative z-10 inline-block text-lg md:text-xl font-medium text-white"></span>
+            </blockquote>
+        </div>
+        
+
+        
+
+        <!-- <div class="flex items-center space-x-2 mt-4 md:mt-0">
+          <span class="text-slate-400">Made with</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="text-pink-500" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314z"/>
+          </svg>
+          <span class="text-slate-400">at Oxford</span>
+          
+        </div> -->
+        
+        <a href="#top" class="mt-4 md:mt-0 inline-flex items-center justify-center p-2 bg-slate-700 hover:bg-pink-600 rounded-full transition-colors duration-300 group">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="group-hover:animate-bounce" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+          </svg>
+        </a>
+
+            
+       
+      </div>
+      
+    </div>
+  </footer>
+
+
+  <!-- phrase is a list, everytime show a random phrase -->
+  <!-- <script>
+    const phrases_list = ['天之苍苍，其正色邪', '吾日三省吾身', '知行合一', '行有馀力，则以学文', '思无邪', '先行其言，而后从之', '尽美矣，又尽善也', '好仁者，无以尚之', '无所从来，亦无所去', '所谓佛法者，即非佛法。', '道法自然', '天下大事，必作於細', '為無為，事無事，味無味。', '周雖舊邦,其命維新'] ;
+
+    function showRandomPhrase() {
+        const randomIndex = Math.floor(Math.random() * phrases_list.length);
+        const phraseElement = document.getElementById('phrase');
+        const colorBox = document.querySelector('.color-box');
+
+        phraseElement.style.opacity = 0;
+        colorBox.style.opacity = 0;
+
+        setTimeout(() => {
+            phraseElement.innerText = phrases_list[randomIndex];
+            phraseElement.style.opacity = 1;
+            colorBox.style.opacity = 1;
+        }, 1000); // Adjust the delay to be in sync with the transition duration
+    }
+
+    window.onload = () => {
+        showRandomPhrase();
+        setInterval(showRandomPhrase, 4000); // Adjust interval to allow for smoother transitions
+    };
+</script> -->
+
+
+<style>
+    /* Modern one-line styling */
+    .quote-container {
+        position: relative;
+    }
+    
+    .gradient-bg {
+        background: linear-gradient(
+            90deg, 
+            var(--color-start, #ec4899), 
+            var(--color-end, #8b5cf6)
+        );
+        background-size: 200% 200%;
+        animation: gradient-shift 8s infinite alternate ease-in-out;
+        opacity: 0.9;
+        transition: background 1s ease;
+    }
+    
+    .quote-display {
+        white-space: nowrap;
+        backdrop-filter: blur(8px);
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        transform: translateY(0);
+        transition: all 0.4s ease;
+        overflow: hidden;
+        position: relative; /* Added to contain the gradient-bg */
+    }
+    
+    .quote-display::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background: rgba(255, 255, 255, 0.7);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 1.5s ease-out;
+        z-index: 1; /* Ensure it appears above the gradient */
+    }
+    
+    .quote-display.active::before {
+        transform: scaleX(1);
+    }
+    
+    #phrase {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.4s ease;
+    }
+    
+    #phrase.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    @keyframes gradient-shift {
+        0% {
+            background-position: 0% 50%;
+        }
+        100% {
+            background-position: 100% 50%;
+        }
+    }
+</style>
+
+<script>
+    (function() {
+        // Configuration
+        const config = {
+            displayTime: 4000,
+            fadeTime: 1000,
+            // Vibrant color gradient pairs
+            colorPairs: [
+                {start: '#ec4899', end: '#8b5cf6'}, // Pink to Purple
+                {start: '#3b82f6', end: '#10b981'}, // Blue to Green
+                {start: '#f59e0b', end: '#ef4444'}, // Amber to Red
+                {start: '#06b6d4', end: '#8b5cf6'}, // Cyan to Purple
+                {start: '#8b5cf6', end: '#ec4899'}  // Purple to Pink
+            ]
+        };
+      
+        // Variables
+        const phrases = ['天之苍苍，其正色邪', '吾日三省吾身', '知行合一', '行有馀力，则以学文', '思无邪', '先行其言，而后从之', '尽美矣，又尽善也', '好仁者，无以尚之', '无所从来，亦无所去', '所谓佛法者，即非佛法。', '道法自然', '天下大事，必作於細', '為無為，事無事，味無味。', '周雖舊邦,其命維新'] || ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
+        let currentIndex = 0;
+        let colorIndex = 0;
+      
+        // Elements
+        const phraseElement = document.getElementById('phrase');
+        const quoteDisplay = document.querySelector('.quote-display');
+        const gradientBg = document.querySelector('.gradient-bg');
+      
+        // Show next quote with enhanced transitions
+        function showNextQuote() {
+            // Hide current quote
+            phraseElement.classList.remove('visible');
+            quoteDisplay.classList.remove('active');
+        
+            setTimeout(() => {
+                // Update index
+                currentIndex = (currentIndex + 1) % phrases.length;
+          
+                // Update colors
+                colorIndex = (colorIndex + 1) % config.colorPairs.length;
+                const colorPair = config.colorPairs[colorIndex];
+                document.documentElement.style.setProperty('--color-start', colorPair.start);
+                document.documentElement.style.setProperty('--color-end', colorPair.end);
+          
+                // Update text
+                phraseElement.textContent = phrases[currentIndex];
+          
+                // Update quote display width for the new content
+                // We delay this to get proper text measurement
+                setTimeout(() => {
+                    // Add a slight padding to the text width
+                    const textWidth = phraseElement.offsetWidth;
+                    quoteDisplay.style.width = `${textWidth + 40}px`;
+            
+                    // Show new quote with animation
+                    phraseElement.classList.add('visible');
+                    quoteDisplay.classList.add('active');
+                }, 50);
+            }, config.fadeTime);
+        }
+      
+        // Initialize
+        function initialize() {
+            // Set initial colors
+            const initialColors = config.colorPairs[0];
+            document.documentElement.style.setProperty('--color-start', initialColors.start);
+            document.documentElement.style.setProperty('--color-end', initialColors.end);
+        
+            // Set initial text
+            phraseElement.textContent = phrases[0];
+        
+            // Set initial width based on content
+            setTimeout(() => {
+                // Initial text measurement
+                const textWidth = phraseElement.offsetWidth;
+                quoteDisplay.style.width = `${textWidth + 40}px`;
+          
+                // Show first quote with animation
+                phraseElement.classList.add('visible');
+                quoteDisplay.classList.add('active');
+            }, 100);
+        
+            // Start rotation
+            setInterval(showNextQuote, config.displayTime);
+        }
+      
+        // Start when document is loaded
+        if (document.readyState !== 'loading') {
+            initialize();
+        } else {
+            document.addEventListener('DOMContentLoaded', initialize);
+        }
+    })();
+</script> 
 
 </body>
 </html>
