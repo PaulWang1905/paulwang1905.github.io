@@ -1,7 +1,7 @@
 import subprocess
 import os
 import markdown
-from jinja2 import Template
+from jinja2 import Template, Environment, FileSystemLoader
 from markupsafe import Markup, escape
 from datetime import datetime
 import json
@@ -11,7 +11,9 @@ import shutil
 # Function to build CSS using Tailwind CSS
 
 # Read the template only once
-# The template locatio: oxie/src/template.html
+# The template location: oxie/src/template.html
+# Set up Jinja2 environment
+env = Environment(loader=FileSystemLoader('src'))
 
 # Metadata for the index page, this is a dictionary.
 # The metadata is used in the index.html template.
@@ -19,19 +21,20 @@ import shutil
 
 # read the metadata only once from /src/meta_data.json
 meta_data_dir = "src/meta_data.json"
-meta_data = json.load(open(meta_data_dir))
+with open(meta_data_dir) as f:
+    meta_data = json.load(f)
 
 
 # read the template only once
-template = Template(open("src/template.html").read())
+template = env.get_template("template.html")
 # index template is used to render the index page
-index_template = Template(open("src/index.html").read())
+index_template = env.get_template("index.html")
 # category template is used to render a page for each category
-category_template = Template(open("src/category_template.html").read())
+category_template = env.get_template("category_template.html")
 # blog index template is used to render the blog index page (for all categories)
-blog_index_template = Template(open("src/blog_template.html").read())
+blog_index_template = env.get_template("blog_template.html")
 
-Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta','footnotes','md_in_html','extra']   
+Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes', 'md_in_html', 'extra']   
 
 posts = []
 pages = []
