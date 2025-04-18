@@ -22,6 +22,11 @@
         "德不孤，必有鄰",
         "且有真人，而後有真知"
     ],
-    "image": "image/default.png"
-    
+    "image": "image/default.png",
+    "random_facts": [
+        "I am a piano tuner.",
+        "I watched too many movies.",
+        "I can not sing very well. But I like to be in a choir.",
+        "I started to learn to play the bass because there were enough guitarists in my band at high school."
+    ]
 }

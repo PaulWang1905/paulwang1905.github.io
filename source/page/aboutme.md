@@ -12,8 +12,8 @@ Puyu is a DPhil (PhD) student at the [Oxford e-Research Centre](https://oerc.ox.
 Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **peer supporter**. His college profile is [here](https://reuben.ox.ac.uk/people/puyu-wang). 
 
 
-## Random Facts
- 
+## Quick Facts
+
 - Musicologist / Coding / Bassist / Linux User / Open-source Enthusiast / Agnostic
 - Born in Henan, China. Speak Henan Hua(dialect).   
 - ~~Wearing a MASK in public place since 01/23/2020.~~
@@ -28,6 +28,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam)
 - Founder of [OxAI Mini-Conference](https://www.oxai.org/mini-conference)
 - Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
+
 
 # Links
 
