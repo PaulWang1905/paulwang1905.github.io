@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Submit Update information">
+
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Recent Update | puyuwang.org">
+    <meta property="og:description" content="Submit Recent Update information">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://puyuwang.org/page/update.html">
+    
+    <title>Recent Update | puyuwang.org</title>
+    <link rel="stylesheet" href="../styles.css">
+   
+        <style>
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
+            
+            @keyframes pulse {
+                0% { background-position: 0% 0; }
+                100% { background-position: -200% 0; }
+            }
+            
+            .spinner {
+                animation: spin 1s linear infinite;
+            }
+            
+            .skeleton-pulse {
+                background: linear-gradient(90deg, #f0f0f0 25%, #f8f8f8 50%, #f0f0f0 75%);
+                background-size: 200% 100%;
+                animation: pulse 1.5s ease-in-out infinite;
+            }
+        </style>
+    </head>
+    
+    <body class="bg-gray-100 text-gray-800">
+        <!-- Skip to content link -->
+        <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:p-4 focus:bg-white focus:z-50 focus:text-blue-600">
+            Skip to main content
+        </a>
+    
+        <!-- Navigation -->
+        <nav class="bg-white shadow-sm">
+            <div class="max-w-6xl mx-auto px-4 py-3">
+                <div class="flex justify-between items-center">
+                    <a href="/" class="font-bold text-xl">puyuwang.org</a>
+                    
+                    <button id="menuBtn" class="md:hidden p-2" aria-label="Toggle menu" aria-expanded="false">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    
+                    <div class="hidden md:flex space-x-6">
+                        <a href="/" class="hover:text-blue-600 transition-colors duration-200">Home</a>
+                    </div>
+                </div>
+                
+                <div id="mobileMenu" class="hidden md:hidden mt-3 pb-3">
+                    <div class="flex flex-col space-y-2">
+                        <a href="/" class="hover:text-blue-600 transition-colors duration-200">Home</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- Main Content -->
+        <main id="main-content" class="py-8 px-4">
+            <div class="max-w-3xl mx-auto bg-white rounded-lg shadow-md p-6">
+                <h1 class="text-2xl md:text-3xl font-bold text-center mb-2">Recent Update</h1>
+                <p class="text-gray-600 text-center mb-6">Update Recent News</p>
+                
+                <div class="relative w-full min-h-[650px] border border-gray-200 rounded-md">
+                    <div id="loading" class="absolute inset-0 flex flex-col justify-center items-center bg-gray-50 rounded-md">
+                        <div class="spinner border-4 border-gray-200 border-t-blue-500 rounded-full h-10 w-10 mb-4" role="status" aria-live="polite"></div>
+                        <p class="text-gray-600">Loading form...</p>
+                        
+                        <div class="w-3/4 mt-8 space-y-4">
+                            <div class="h-10 skeleton-pulse rounded"></div>
+                            <div class="h-10 skeleton-pulse rounded"></div>
+                            <div class="h-24 skeleton-pulse rounded"></div>
+                            <div class="h-10 skeleton-pulse rounded"></div>
+                        </div>
+                    </div>
+                    
+                    <iframe
+                        src="https://docs.google.com/forms/d/e/1FAIpQLSdiVUpnKlUnDA1mM8EzEYA_UduCy9WVNSXkhaYrNwiaEM4bcA/viewform?embedded=true"
+                        title="Information Submission Form"
+                        class="absolute inset-0 w-full h-full border-none rounded-md"
+                        loading="lazy"
+                        onload="document.getElementById('loading').style.display='none';"
+                        onerror="handleFormError()"
+                        aria-live="polite"
+                    ></iframe>
+                </div>
+                
+                
+                <div id="error" class="hidden mt-4 p-4 bg-red-50 border border-red-200 rounded-md">
+                    <p class="text-red-600 flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                        </svg>
+                        Failed to load the form. Please try again later or contact support.
+                    </p>
+                    <button id="retryBtn" class="mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition-colors">
+                        Try Again
+                    </button>
+                </div>
+            </div>
+        </main>
+    
+        <script>
+            // Handle form loading errors
+            function handleFormError() {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').classList.remove('hidden');
+            }
+            
+            // Mobile menu toggle
+            document.getElementById('menuBtn').addEventListener('click', function() {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const expanded = this.getAttribute('aria-expanded') === 'true';
+                
+                this.setAttribute('aria-expanded', !expanded);
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Retry button event listener
+            document.getElementById('retryBtn').addEventListener('click', function() {
+                document.getElementById('error').classList.add('hidden');
+                document.getElementById('loading').style.display = 'flex';
+                
+                const iframe = document.querySelector('iframe');
+                const src = iframe.src;
+                iframe.src = '';
+                setTimeout(() => {
+                    iframe.src = src;
+                }, 100);
+            });
+        </script>
+    </body>
+    </html>

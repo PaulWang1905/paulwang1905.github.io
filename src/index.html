@@ -112,20 +112,25 @@
               </div>
               <div class="p-4">
                 <!-- News content will go here -->
-                <div class="bg-base-300/30 p-3 rounded-lg text-sm">
+                <!-- <div class="bg-base-300/30 p-3 rounded-lg text-sm">
                   <p class="font-medium">March 2025</p>
                   <p>We successfully held the OxAI 2nd Mini-Conference! Grateful to all our speakers, panelists, and attendees for making it an engaging and thought-provoking event. Proud to serve as General Chair—thank you to everyone who contributed. Looking forward to the next one!</p>
-                </div>
-                
-                <!-- <div class="bg-base-300/30 p-3 rounded-lg text-sm mt-3">
-                  <p class="font-medium">March 2025</p>
-                  <p>I will be giving a talk on Semantic Web Technologies at University Name.</p>
-                </div>
-                
+                </div> -->
+                {% for update in updates %}
                 <div class="bg-base-300/30 p-3 rounded-lg text-sm mt-3">
+                  <p class="font-medium">{{ update.date.strftime("%b %d, %Y") }} </p>
+                  <p>{{ update.content }}</p>
+                </div>
+                {% endfor %}
+                <!-- <div class="bg-base-300/30 p-3 rounded-lg text-sm mt-3">
                   <p class="font-medium">February 2025</p>
                   <p>New research project on Language Models and Linked Data started.</p>
                 </div> -->
+
+              
+
+                
+            
               </div>
             </div>
             

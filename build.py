@@ -7,6 +7,9 @@ from datetime import datetime
 import json
 from pathlib import Path
 import shutil
+from updates import UpdateReader
+from datetime import datetime
+
 
 # Function to build CSS using Tailwind CSS
 
@@ -52,6 +55,19 @@ collect_dirs = {
 # Function to build CSS using Tailwind CSS
 def build_css():
     subprocess.run(["npm", "run", "build:css"], check=True)
+
+def get_updates():
+    '''
+    Get updates from the Google Spreadsheet
+    '''
+    spreedsheet_id = meta_data["update_spreedsheet_id"]
+    updates = UpdateReader(
+            spreadsheet_id=spreedsheet_id
+        )
+    
+
+    updates.load_from_spreadsheet()
+    return updates
 
 
 class POST:
@@ -267,6 +283,9 @@ class INDEX:
         '''
         Render the index page
         '''
+        # Get the updates from the Google Spreadsheet       
+        updates = get_updates().get_recent_updates()
+
         rendered_html = index_template.render(
             title=self.meta_data["title"],
             author=self.meta_data["author"],
@@ -276,6 +295,7 @@ class INDEX:
             content=self.content,
             posts=self.posts,
             pages=self.pages,
+            updates=updates
         )
         with open("docs/index.html", "w") as html_file:
             html_file.write(rendered_html)
