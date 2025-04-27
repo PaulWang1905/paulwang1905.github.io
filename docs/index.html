@@ -104,7 +104,7 @@
             <div class="card-body p-0">
               <!-- Top section with semi-transparent background -->
               <div class="bg-base-200 bg-opacity-70 backdrop-blur-sm p-5 rounded-t-box">
-                <div class="flex items-center gap-4">
+                <div class="flex flex-col sm:flex-row items-center gap-4">
                   <!-- Avatar with gradient ring -->
                   <div class="avatar">
                     <div class="w-24 h-24 rounded-full ring ring-offset-2 ring-offset-base-100 ring-primary">
@@ -113,13 +113,16 @@
                   </div>
                   
                   <!-- Name and title with better hierarchy -->
-                  <div class="flex-1">
+                  <div class="flex-1 text-center sm:text-left mt-3 sm:mt-0">
                     <h2 class="text-2xl font-bold">Puyu Wang</h2>
                     <div class="mt-1">
-                      <div class="badge badge-primary badge-outline">DPhil (Ph.D.) Candidate</div>
+                      <!-- Custom styled badge with better mobile support -->
+                      <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md border border-primary text-primary bg-transparent">
+                        DPhil (Ph.D.) Candidate
+                      </div>
                     </div>
                     <!-- Institution with icon -->
-                    <div class="flex items-center gap-1 mt-2 text-sm text-base-content/70">
+                    <div class="flex items-center justify-center sm:justify-start gap-1 mt-2 text-sm text-base-content/70">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                       </svg>
@@ -127,7 +130,6 @@
                     </div>
                   </div>
                 </div>
-                
               </div>
               
               <!-- Main content -->
@@ -151,51 +153,48 @@
                   </div>
                   
                   <div class="flex flex-wrap gap-2">
-                    <div class="badge badge-primary">Knowledge/Data Integration</div>
-                    <div class="badge badge-secondary">Semantic Web / Knowledge Graphs / Linked Open Data</div>
-                    <div class="badge badge-secondary">Digital Humanities</div>
-                    <div class="badge badge-secondary">Ontology Engineering / Mapping</div>
-                    <div class="badge">Large Language Models</div>
-
+                    <!-- Custom badge style for better mobile display -->
+                    <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md bg-primary text-white mb-1">
+                      Knowledge/Data Integration
+                    </div>
+                    <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md bg-secondary text-white mb-1">
+                      Semantic Web / Knowledge Graphs / Linked Open Data
+                    </div>
+                    <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md bg-secondary text-white mb-1">
+                      Digital Humanities
+                    </div>
+                    <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md bg-secondary text-white mb-1">
+                      Ontology Engineering / Mapping
+                    </div>
+                    <div class="inline-block px-2 py-1 text-xs font-semibold rounded-md bg-base-200 text-base-content mb-1">
+                      Large Language Models
+                    </div>
                   </div>
                 </div>
                 
-                <!-- Latest work teaser -->
-                <!-- <div class="flex items-center justify-between text-sm mb-4 pb-3 border-b border-base-300">
-                  <div class="flex items-center gap-2">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                    </svg>
-                    <span class="font-medium">Latest work:</span>
-                    <span class="opacity-80">Knowledge Graph Enhanced LLMs</span>
-                  </div>
-                  <span class="text-xs opacity-60">2024</span>
-                </div>
-                 -->
                 <!-- Social links - simplified without CV button -->
-          <div class="flex gap-2 justify-center">
-            <a href="https://x.com/puyu1001" class="btn btn-circle btn-sm btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-              </svg>
-            </a>
-            <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-sm btn-primary">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-              </svg>
-            </a>
-            <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-sm btn-primary" aria-label="LinkedIn">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-              </svg>
-            </a>
-          </div>
+                <div class="flex gap-2 justify-center">
+                  <a href="https://x.com/puyu1001" class="btn btn-circle btn-sm btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                    </svg>
+                  </a>
+                  <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-sm btn-primary">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                    </svg>
+                  </a>
+                  <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-sm btn-primary" aria-label="LinkedIn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
+                      <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      
       
       <div class="divider"></div>
       <div class="container mx-auto px-4 py-8">
