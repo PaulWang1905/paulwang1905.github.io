@@ -1,10 +1,9 @@
-name: Deploy
+name: Deploy daily 
 
 on:
-  push:
-    branches:
-      - main
-
+  schedule:
+    # This workflow will run every day at 00:00 UTC
+    - cron: '0 0 * * *'
 
 jobs:
   build:
