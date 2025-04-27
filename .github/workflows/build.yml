@@ -46,8 +46,6 @@ jobs:
           git add docs/
           git commit -m "Auto-update folder docs" || echo "No changes to commit"
           git push
-          
-
 
 
       
