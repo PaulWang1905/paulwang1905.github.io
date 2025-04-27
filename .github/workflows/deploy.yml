@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  schedule:
+    # This workflow will run every 10 minutes
+    - cron: '*/10 * * * *'
 
 jobs:
   build:
