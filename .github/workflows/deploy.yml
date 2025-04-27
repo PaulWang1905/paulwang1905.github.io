@@ -1,6 +1,6 @@
-name: Deploy static content to Pages
+name: Deploy to GitHub Pages
 on:
-  # Only trigger after deploy.yml completes
+  # Only trigger after build.yml completes
   workflow_run:
     workflows: ["build.yml"]  # Name of the workflow to trigger on
     types:
