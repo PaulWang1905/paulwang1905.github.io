@@ -1,9 +1,13 @@
-name: Deploy daily 
+name: Build
 
 on:
+  push:
+    branches:
+      - main
   schedule:
     # This workflow will run every day at 00:00 UTC
     - cron: '0 0 * * *'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -42,3 +46,9 @@ jobs:
           git add docs/
           git commit -m "Auto-update folder docs" || echo "No changes to commit"
           git push
+          
+
+
+
+      
+
