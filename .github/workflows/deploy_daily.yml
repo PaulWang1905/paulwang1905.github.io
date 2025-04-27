@@ -35,3 +35,10 @@ jobs:
       #     github_token: ${{ secrets.GITHUB_TOKEN }}
       #     publish_dir: ./docs
 
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions"
+          git config --local user.email "puyu@puyuwang.org"
+          git add docs/
+          git commit -m "Auto-update folder docs" || echo "No changes to commit"
+          git push
