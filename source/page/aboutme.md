@@ -2,7 +2,7 @@ Title:   About Puyu Wang
 Summary: A brief description of myself.
 Authors: Puyu Wang
 Date:    2024-10-12
-Last_modified: 2025-04-05
+Last_modified: 2025-04-27
 Category: Page
 
 # About Puyu Wang
@@ -28,6 +28,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam)
 - Founder of [OxAI Mini-Conference](https://www.oxai.org/mini-conference)
 - Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
+- 🤖 I’m an [AI Ambassador](https://staff.web.ox.ac.uk/digital/services/competency-centres/ai-and-ml) at the University of Oxford 🤖
 
 
 # Links
