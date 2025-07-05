@@ -304,6 +304,58 @@ class INDEX:
 
 
 # Function to convert Markdown files to HTML
+def generate_posts_jsonld(posts, meta_data) -> dict:
+    """
+    Generate JSON-LD structured data for blog posts using Schema.org vocabulary
+    
+    Args:
+        posts: List of POST objects
+        meta_data: Dictionary containing site metadata
+        
+    Returns:
+        dict: JSON-LD structured data
+    """
+    return {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": f"{meta_data['title']} - Blog Posts",
+        "description": f"Collection of blog posts from {meta_data['title']}",
+        "numberOfItems": len(posts),
+        "itemListElement": [
+            {
+                "@type": "BlogPosting",
+                "@id": post.full_link,
+                "headline": post.title,
+                "author": {
+                    "@type": "Person",
+                    "name": post.author
+                },
+                "datePublished": post.date.strftime('%Y-%m-%d'),
+                "dateModified": post.last_modified.strftime('%Y-%m-%d') if post.last_modified else post.date.strftime('%Y-%m-%d'),
+                "description": post.summary,
+                "about": {
+                    "@type": "DefinedTerm",
+                    "name": post.category,
+                    "inDefinedTermSet": {
+                        "@type": "DefinedTermSet",
+                        "name": "Blog Categories"
+                    }
+                },
+                "keywords": post.tags,
+                "url": post.full_link,
+                "publisher": {
+                    "@type": "Organization",
+                    "name": meta_data["title"],
+                    "url": meta_data["link"]
+                },
+                "mainEntityOfPage": {
+                    "@type": "WebPage",
+                    "@id": post.full_link
+                }
+            } for post in posts
+        ]
+    }
+
 def generate_html() -> None:
     '''
     Generate HTML files from Markdown files,
@@ -337,6 +389,13 @@ def generate_html() -> None:
     # sort the order of posts to show the latest post first
     posts.sort(key=lambda post: (-post.date.timestamp(), post.title))
     
+    # Output JSON-LD file with linked data schema for posts
+    json_ld_data = generate_posts_jsonld(posts, meta_data)
+    with open("docs/posts_metadata.jsonld", "w") as json_file:
+        json.dump(json_ld_data, json_file, indent=2, ensure_ascii=False)
+    print(f"Posts metadata written to docs/posts_metadata.jsonld ({len(posts)} posts)")
+    
+    # Blog index page
     blog_index = BLOG_INDEX(meta_data, posts)
     blog_index.render()
     index = INDEX(meta_data, posts, pages)
