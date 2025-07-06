@@ -703,5 +703,36 @@
 </script> 
 
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tagButtons = document.querySelectorAll(".tag-filter");
+  const postCards = document.querySelectorAll(".post-card");
+
+  // Add click event to all tag filter buttons
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      tagButtons.forEach((btn) => btn.classList.remove("btn-primary"));
+      // Add active class to the clicked button
+      button.classList.add("btn-primary");
+
+      const selectedTag = button.getAttribute("data-tag");
+
+      // Show or hide posts based on the selected tag
+      postCards.forEach((postCard) => {
+        const postTags = postCard.getAttribute("data-tags").split(' ');
+        if (selectedTag === "All" || postTags.includes(selectedTag)) {
+          postCard.style.display = "flex"; // Show post
+        } else {
+          postCard.style.display = "none"; // Hide post
+        }
+      });
+    });
+  });
+});
+
+
+</script>
 </html>
          
