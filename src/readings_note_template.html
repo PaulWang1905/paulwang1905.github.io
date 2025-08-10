@@ -166,10 +166,7 @@
                     </div>
                 </div>
 
-                <div class="mt-4 flex items-center justify-between">
-                    <button onclick="app.clearFilters()" class="btn btn-ghost btn-sm">
-                        Clear all filters
-                    </button>
+                <div class="mt-4 flex items-center justify-end">
                     <span class="text-sm opacity-70">
                         Showing <span id="resultCount">0</span> of <span id="totalCount">0</span> readings
                     </span>
@@ -541,7 +538,7 @@
                 const allBtn = this.createTag('All', () => {
                     this.activeSubjects.clear();
                     // Remove active class from all subject tags
-                    document.querySelectorAll('.btn').forEach(tag => {
+                    document.querySelectorAll('#subjectTags .btn').forEach(tag => {
                         tag.classList.remove('btn-primary');
                         tag.classList.add('btn-outline');
                     });
@@ -558,7 +555,7 @@
                 Array.from(this.subjects).sort().forEach(subject => {
                     const btn = this.createTag(subject, () => {
                         // Clear all selections first
-                        document.querySelectorAll('.btn').forEach(tag => {
+                        document.querySelectorAll('#subjectTags .btn').forEach(tag => {
                             tag.classList.remove('btn-primary');
                             tag.classList.add('btn-outline');
                         });
@@ -585,8 +582,8 @@
                 // Add the clicked subject
                 this.activeSubjects.add(subject);
                 
-                // Update UI - remove active class from all tags first
-                document.querySelectorAll('.btn').forEach(tag => {
+                // Update UI - remove active class from all subject tags first
+                document.querySelectorAll('#subjectTags .btn').forEach(tag => {
                     tag.classList.remove('btn-primary');
                     tag.classList.add('btn-outline');
                 });
@@ -681,45 +678,53 @@
                 
                 this.filteredReadings.forEach(reading => {
                     const card = document.createElement('div');
-                    card.className = 'card bg-base-100 shadow-md hover:shadow-lg transition-shadow';
+                    card.className = 'card bg-gradient-to-br from-base-100 to-base-200/50 shadow-lg border border-base-300/50';
                     
                     const formattedReadDate = this.formatDate(reading.readDate);
                     const formattedPaperDate = this.formatDate(reading.paperDate, true);
                     
                     card.innerHTML = `
-                        <div class="card-body">
-                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                        <div class="card-body p-6">
+                            <!-- Header with title and dates -->
+                            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
                                 <div class="flex-1">
-                                    <h3 class="card-title text-lg mb-3">${this.escape(reading.title)}</h3>
-                                    <p class="text-base-content/70 mb-4">${reading.authors.map(a => this.escape(a)).join(', ') || 'Unknown author'}</p>
-                                    
-                                    ${reading.comments ? `
-                                    <div class="bg-base-200 rounded-lg p-4 mb-4">
-                                        <p class="text-base-content italic leading-relaxed">${this.escape(reading.comments)}</p>
+                                    <h3 class="card-title text-xl font-bold text-base-content mb-2 leading-tight">${this.escape(reading.title)}</h3>
+                                    <div class="text-base-content/70 mb-3 font-medium">
+                                        ${reading.authors.map(a => this.escape(a)).join(', ') || 'Unknown author'}
                                     </div>
-                                    ` : ''}
-                                    
-                                    ${reading.subjects.length > 0 ? `
-                                    <div class="flex flex-wrap gap-2 mb-4">
-                                        ${reading.subjects.map(s => `<span class="badge badge-outline text-sm">${this.escape(s)}</span>`).join('')}
-                                    </div>
-                                    ` : ''}
                                 </div>
                                 
-                                <div class="flex flex-col items-end gap-3 md:min-w-[120px]">
-                                    <div class="text-sm opacity-70 text-right">
-                                        <div>Read: ${formattedReadDate}</div>
-                                    </div>
-                                    ${reading.link ? `
-                                    <a href="${this.escape(reading.link)}" target="_blank" class="btn btn-primary btn-sm gap-1">
-                                        <span>View Paper</span>
-                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
-                                        </svg>
-                                    </a>
-                                    ` : ''}
+                                <div class="flex flex-col gap-1 md:items-end text-sm text-base-content/70">
+                                    <div>Read: ${formattedReadDate}</div>
+                                    ${reading.paperDate ? `<div>Published: ${formattedPaperDate}</div>` : ''}
                                 </div>
                             </div>
+
+                            <!-- Subjects -->
+                            ${reading.subjects.length > 0 ? `
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                ${reading.subjects.map(s => `<span class="badge badge-ghost text-xs">${this.escape(s)}</span>`).join('')}
+                            </div>
+                            ` : ''}
+                            
+                            <!-- Comments -->
+                            ${reading.comments ? `
+                            <div class="bg-base-200 rounded-lg p-4 mb-4 border-l-4 border-primary">
+                                <p class="text-base-content/90 leading-relaxed italic">${this.escape(reading.comments)}</p>
+                            </div>
+                            ` : ''}
+
+                            <!-- Action button -->
+                            ${reading.link ? `
+                            <div class="card-actions justify-end">
+                                <a href="${this.escape(reading.link)}" target="_blank" class="btn btn-primary btn-sm gap-2">
+                                    <span>View Paper</span>
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                    </svg>
+                                </a>
+                            </div>
+                            ` : ''}
                         </div>
                     `;
                     
@@ -765,23 +770,6 @@
 
             changeView() {
                 this.renderResults();
-            }
-
-            clearFilters() {
-                this.activeSubjects.clear();
-                document.getElementById('searchInput').value = '';
-                // Reset all filter buttons to outline style
-                document.querySelectorAll('.btn').forEach(tag => {
-                    tag.classList.remove('btn-primary');
-                    tag.classList.add('btn-outline');
-                });
-                // Set "All" button as active
-                const allBtn = document.querySelector('.btn');
-                if (allBtn) {
-                    allBtn.classList.add('btn-primary');
-                    allBtn.classList.remove('btn-outline');
-                }
-                this.applyFilters();
             }
 
             formatDate(dateStr, monthYear = false) {
