@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TTL Parser Test</title>
+</head>
+<body>
+    <h1>Statistics of Readings</h1>
+    <div id="results"></div>
+    
+    <script>
+        async function testParser() {
+            try {
+                const response = await fetch('https://raw.githubusercontent.com/PaulWang1905/Readings/refs/heads/main/RDFs/readings.ttl');
+                const content = await response.text();
+                
+                console.log('Raw content length:', content.length);
+                console.log('First 500 chars:', content.substring(0, 500));
+                
+                // Test line handling
+                const lines = content.split('\n');
+                console.log('Total lines:', lines.length);
+                
+                // Count academic articles
+                const articleCount = (content.match(/bibo:AcademicArticle/g) || []).length;
+                console.log('Academic articles found:', articleCount);
+                
+                // Count authors
+                const authorCount = (content.match(/foaf:Person/g) || []).length;
+                console.log('Authors found:', authorCount);
+                
+                // Test basic parsing
+                const normalizedLines = [];
+                let currentLine = '';
+                
+                for (let line of lines) {
+                    if (line.match(/^\s/) && currentLine) {
+                        currentLine += ' ' + line.trim();
+                    } else {
+                        if (currentLine) {
+                            normalizedLines.push(currentLine.trim());
+                        }
+                        currentLine = line.trim();
+                    }
+                }
+                if (currentLine) {
+                    normalizedLines.push(currentLine.trim());
+                }
+                
+                console.log('Normalized lines:', normalizedLines.length);
+                
+                // Build statements
+                const statements = [];
+                let currentStatement = '';
+                
+                for (let line of normalizedLines) {
+                    if (!line || line.startsWith('#') || line.startsWith('@')) {
+                        continue;
+                    }
+                    
+                    currentStatement += ' ' + line;
+                    
+                    if (line.endsWith('.')) {
+                        statements.push(currentStatement.trim());
+                        currentStatement = '';
+                    }
+                }
+                
+                console.log('Complete statements:', statements.length);
+                
+                // Count entry and author statements
+                const entryStatements = statements.filter(s => s.includes('/entry/') && s.includes('bibo:AcademicArticle'));
+                const authorStatements = statements.filter(s => s.includes('/authors/') && s.includes('foaf:Person'));
+                
+                console.log('Entry statements:', entryStatements.length);
+                console.log('Author statements:', authorStatements.length);
+                
+                // Test parsing one entry
+                if (entryStatements.length > 0) {
+                    const testEntry = entryStatements[0];
+                    console.log('Test entry:', testEntry.substring(0, 200));
+                    
+                    const titleMatch = testEntry.match(/dc:title\s+"([^"]+)"/);
+                    console.log('Title match:', titleMatch ? titleMatch[1] : 'NOT FOUND');
+                }
+                
+                document.getElementById('results').innerHTML = `
+                    <p>Raw content: ${content.length} chars</p>
+                    <p>Articles in content: ${articleCount}</p>
+                    <p>Authors in content: ${authorCount}</p>
+                    <p>Complete statements: ${statements.length}</p>
+                    <p>Entry statements: ${entryStatements.length}</p>
+                    <p>Author statements: ${authorStatements.length}</p>
+                `;
+                
+            } catch (error) {
+                console.error('Test failed:', error);
+                document.getElementById('results').innerHTML = `Error: ${error.message}`;
+            }
+        }
+        
+        testParser();
+    </script>
+</body>
+</html>

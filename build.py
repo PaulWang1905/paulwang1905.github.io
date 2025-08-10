@@ -36,7 +36,7 @@ index_template = env.get_template("index.html")
 category_template = env.get_template("category_template.html")
 # blog index template is used to render the blog index page (for all categories)
 blog_index_template = env.get_template("blog_template.html")
-
+readings_note_template = env.get_template("readings_note_template.html")
 Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes', 'md_in_html', 'extra']   
 
 posts = []
@@ -401,9 +401,7 @@ def generate_html() -> None:
     index = INDEX(meta_data, posts, pages)
     index.parse()
     index.render()
-
-                
-
+    
 def clean_old_files() -> None:
     '''
     Clean old HTML files
@@ -467,8 +465,19 @@ def collect_static_files(static_dirs: dict = None) -> None:
             print(f"Error copying files: {e}")
             raise
 
+def render_reading_notes() -> None:
+    '''
+    Render notes from readings_note.html
+    '''
+    print("Building notes")
+    readings_note_html = readings_note_template.render()
+    with open("docs/readings_note.html", "w") as f:
+        f.write(readings_note_html)
+    print("Notes built successfully")
+
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
+    render_reading_notes()
     collect_static_files(collect_dirs)
     build_css()
