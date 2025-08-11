@@ -470,7 +470,10 @@ def render_reading_notes() -> None:
     Render notes from readings_note.html
     '''
     print("Building notes")
-    readings_note_html = readings_note_template.render()
+    readings_note_html = readings_note_template.render(
+        meta_data=meta_data,
+        phrases=meta_data["phrases"]
+    )
     with open("docs/readings_note.html", "w") as f:
         f.write(readings_note_html)
     print("Notes built successfully")
