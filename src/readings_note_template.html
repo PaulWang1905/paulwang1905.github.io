@@ -377,14 +377,15 @@
                 const paperDateMatch = statement.match(/dc:date\s+"([^"]+)"/);
                 if (paperDateMatch) entry.paperDate = paperDateMatch[1];
 
-                // Extract authors - handle both single and multiple authors
-                // Pattern 1: Multiple authors in dc:creator block
-                const creatorBlockMatch = statement.match(/dc:creator\s+((?:<[^>]+>,?\s*)+)/);
-                if (creatorBlockMatch) {
-                    const authorsBlock = creatorBlockMatch[1];
-                    const authorUris = authorsBlock.match(/<([^>]+)>/g);
+                // Extract authors - prioritize ordered bibo:authorList over unordered dc:creator
+                // Pattern 1: Ordered author list (bibo:authorList) - PRIORITY
+                const authorListMatch = statement.match(/bibo:authorList\s+\(\s*((?:<[^>]+>\s*)+)\s*\)/);
+                if (authorListMatch) {
+                    const authorListBlock = authorListMatch[1];
+                    const authorUris = authorListBlock.match(/<([^>]+)>/g);
                     
                     if (authorUris) {
+                        // Process authors in the exact order they appear in the list
                         authorUris.forEach(uriMatch => {
                             const authorUri = uriMatch.slice(1, -1); // Remove < and >
                             let authorName = this.authors.get(authorUri);
@@ -406,14 +407,51 @@
                                     .replace(/%C3%AA/g, 'ê');
                             }
                             
-                            if (authorName && !entry.authors.includes(authorName)) {
+                            if (authorName) {
                                 entry.authors.push(authorName);
                             }
                         });
                     }
                 }
                 
-                // Pattern 2: Fallback for individual dc:creator statements
+                // Pattern 2: Multiple authors in dc:creator block (fallback when no authorList)
+                if (entry.authors.length === 0) {
+                    const creatorBlockMatch = statement.match(/dc:creator\s+((?:<[^>]+>,?\s*)+)/);
+                    if (creatorBlockMatch) {
+                        const authorsBlock = creatorBlockMatch[1];
+                        const authorUris = authorsBlock.match(/<([^>]+)>/g);
+                        
+                        if (authorUris) {
+                            authorUris.forEach(uriMatch => {
+                                const authorUri = uriMatch.slice(1, -1); // Remove < and >
+                                let authorName = this.authors.get(authorUri);
+                                
+                                if (!authorName) {
+                                    // Fallback: extract name from URI and decode
+                                    authorName = decodeURIComponent(authorUri.split('/').pop())
+                                        .replace(/%20/g, ' ')
+                                        .replace(/%C3%A9/g, 'é')
+                                        .replace(/%C3%B6/g, 'ö')
+                                        .replace(/%C5%A1/g, 'š')
+                                        .replace(/%C4%87/g, 'ć')
+                                        .replace(/%C3%A8/g, 'è')
+                                        .replace(/%C3%BC/g, 'ü')
+                                        .replace(/%C3%A4/g, 'ä')
+                                        .replace(/%C3%A0/g, 'à')
+                                        .replace(/%C3%AD/g, 'í')
+                                        .replace(/%C3%B4/g, 'ô')
+                                        .replace(/%C3%AA/g, 'ê');
+                                }
+                                
+                                if (authorName && !entry.authors.includes(authorName)) {
+                                    entry.authors.push(authorName);
+                                }
+                            });
+                        }
+                    }
+                }
+                
+                // Pattern 3: Fallback for individual dc:creator statements
                 if (entry.authors.length === 0) {
                     const authorMatches = statement.matchAll(/dc:creator\s+<([^>]+)>/g);
                     for (let match of authorMatches) {
