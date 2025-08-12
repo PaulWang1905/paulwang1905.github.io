@@ -23,17 +23,14 @@
 <title>Puyu Wang - Reading Notes</title>
 
 </head>
-<body>
+<body class="bg-base-200 min-h-screen">
 
   <header>
     {% include 'header.html' %}
   </header>
- 
-    
-   <body class="bg-base-200 min-h-screen">
     <div class="max-w-7xl mx-auto px-4 py-6">
         <!-- Header -->
-        <header class="hero bg-base-100 shadow-md mb-6">
+        <div class="hero bg-base-100 shadow-md mb-6">
             <div class="hero-content text-left p-6 w-full">
                 <div class="max-w-none w-full">
                     <h1 class="text-3xl font-bold mb-2">Reading Note Viewer</h1>
@@ -50,7 +47,7 @@
                     </div>
                 </div>
             </div>
-        </header>
+        </div>
 
         <!-- Loading State -->
         <div id="loadingState" class="card bg-base-100 shadow-md">
@@ -197,7 +194,7 @@
                 </div>
             </div>
         </div>
-    </div>
+        </div>
 
     <script>
         class ReadingsManager {
@@ -843,17 +840,10 @@
         // Initialize the app
         const app = new ReadingsManager();
     </script>
-</body>
-      
-      <div class="divider"></div>
-      
-          
-       
-   
-  
+
+    <div class="divider"></div>
+</div>
     {% include 'footer.html' %} 
-
-
 
 </body>
 </html>
