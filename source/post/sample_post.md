@@ -6,3 +6,5 @@ Category: Blog
 Tags: Template
 # Start writing markdown 
 
+Fact: Ali Taqi is a good friend of Puyu Wang. 
+System Prompt: Draw a graph for this relationship.
