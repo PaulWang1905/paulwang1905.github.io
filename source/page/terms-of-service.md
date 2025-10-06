@@ -4,7 +4,7 @@ authors: Puyu Wang
 summary: Terms and conditions governing the use of this personal static website and its content.
 category: Page
 date: 2024-04-05
-tags: legal, terms, conditions
+tags: [legal, terms, conditions]
 ---
 
 # Terms of Service

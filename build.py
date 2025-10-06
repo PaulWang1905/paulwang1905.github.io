@@ -127,11 +127,22 @@ class POST:
                 self.last_modified = datetime.strptime(self.post_meta_data.get("last_modified", [self.date.strftime('%Y-%m-%d')])[0], '%Y-%m-%d')
                 print(f"Processing {self.md_path} with last modified date {self.last_modified}")
 
-                # Split comma-separated tags and strip whitespace
-                raw_tags = self.post_meta_data.get("tags", [""])[0]
+                # Parse tags from metadata
+                # Markdown Meta extension returns tags as a list
+                # Format: "Tags: [tag1, tag2]" becomes ['[tag1, tag2]']
+                # We need to strip brackets, split by comma, and strip whitespace
+                raw_tags = self.post_meta_data.get('tags', [])
+                if raw_tags:
+                    # Take the first element
+                    tags_str = raw_tags[0]
+                    # Strip brackets if present
+                    tags_str = tags_str.strip('[]')
+                    # Split by comma and strip whitespace
+                    self.tags = [tag.strip() for tag in tags_str.split(',') if tag.strip()]
+                else:
+                    self.tags = []
                 # get the image from the metadata, if not found use the default image from the meta_data.json
                 self.image = self.post_meta_data.get("image", [self.image])[0]
-                self.tags = [tag.strip() for tag in raw_tags.split(",") if tag.strip()]
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
                 pass
