@@ -4,7 +4,10 @@ Summary: A brief description of Test Post.
 Authors: Puyu Wang
 Date:    2024-07-20
 Category: Blog
-Tags: Test
+Tags: 
+    - Test
+    - Markdown
+    - CheatSheet
 ---
 # Test Post
 

@@ -5,6 +5,12 @@ Authors: Puyu Wang
 Date:    2024-10-12
 Last_modified: 2025-04-27
 Category: Page
+Tags: 
+    - about me
+    - profile
+    - bio
+    - timeline
+    - links
 ---
 # About Puyu Wang
 

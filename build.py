@@ -9,7 +9,7 @@ from pathlib import Path
 import shutil
 from updates import UpdateReader
 from datetime import datetime
-
+import frontmatter
 
 # Function to build CSS using Tailwind CSS
 
@@ -109,40 +109,37 @@ class POST:
             html_content = md.convert(md_content)
             self.content = html_content
             # get metadata from the md file
-            self.post_meta_data = md.Meta
+            # self.post_meta_data = md.Meta
             
+            self.post_meta_data = frontmatter.loads(md_content).metadata
+            print(self.post_meta_data)
+
             # get the relative link 
             self.link = self.html_path[4:]
             # get the link with domain name
             self.full_link = meta_data["link"] + self.link
             
             try: 
-                self.title = self.post_meta_data["title"][0]
-                self.author = self.post_meta_data["authors"][0]
-                self.summary = self.post_meta_data["summary"][0]
-                self.category = self.post_meta_data["category"][0]
-                self.date = datetime.strptime(self.post_meta_data["date"][0], '%Y-%m-%d')
+                self.title = self.post_meta_data["Title"]
+                self.author = self.post_meta_data["Authors"]
+                self.summary = self.post_meta_data["Summary"]
+                self.category = self.post_meta_data["Category"]
+                self.date = self.post_meta_data['Date']
                 # read metadata for last modified date LastModified is optional
                 # the default last modified date is the date of the post
-                self.last_modified = datetime.strptime(self.post_meta_data.get("last_modified", [self.date.strftime('%Y-%m-%d')])[0], '%Y-%m-%d')
+                
+                self.last_modified = self.post_meta_data.get('Last_modified', self.date)
                 print(f"Processing {self.md_path} with last modified date {self.last_modified}")
-
                 # Parse tags from metadata
                 # Markdown Meta extension returns tags as a list
                 # Format: "Tags: [tag1, tag2]" becomes ['[tag1, tag2]']
                 # We need to strip brackets, split by comma, and strip whitespace
-                raw_tags = self.post_meta_data.get('tags', [])
-                if raw_tags:
-                    # Take the first element
-                    tags_str = raw_tags[0]
-                    # Strip brackets if present
-                    tags_str = tags_str.strip('[]')
-                    # Split by comma and strip whitespace
-                    self.tags = [tag.strip() for tag in tags_str.split(',') if tag.strip()]
-                else:
-                    self.tags = []
+                self.tags = self.post_meta_data.get('Tags', [])
+
+
+                
                 # get the image from the metadata, if not found use the default image from the meta_data.json
-                self.image = self.post_meta_data.get("image", [self.image])[0]
+                self.image = self.post_meta_data.get("Image", self.image)
             except KeyError:
                 print(f"Metadata not found in {self.md_path}")
                 pass
@@ -398,7 +395,12 @@ def generate_html() -> None:
                 pages.append(post)
             post.render()
     # sort the order of posts to show the latest post first
-    posts.sort(key=lambda post: (-post.date.timestamp(), post.title))
+    # posts.sort(key=lambda post: (-post.date.timestamp(), post.title))
+
+    posts.sort(key=lambda post: (
+            -datetime.combine(post.date, datetime.min.time()).timestamp(), 
+            post.title
+        ))
     
     # Output JSON-LD file with linked data schema for posts
     json_ld_data = generate_posts_jsonld(posts, meta_data)

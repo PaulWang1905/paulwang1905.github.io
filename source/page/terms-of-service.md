@@ -1,10 +1,10 @@
 ---
-title: Terms of Service
-authors: Puyu Wang
-summary: Terms and conditions governing the use of this personal static website and its content.
-category: Page
-date: 2024-04-05
-tags: [legal, terms, conditions]
+Title: Terms of Service
+Authors: Puyu Wang
+Summary: Terms and conditions governing the use of this personal static website and its content.
+Category: Page
+Date: 2024-04-05
+Tags: [legal, terms, conditions]
 ---
 
 # Terms of Service

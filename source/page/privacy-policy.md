@@ -1,10 +1,10 @@
 ---
-title: Privacy Policy
-authors: Puyu Wang
-summary: Privacy policy detailing how we use and store your information when visiting this personal static website.
-category: Page
-date: 2025-04-05
-tags: [legal, privacy, data]
+Title: Privacy Policy
+Authors: Puyu Wang
+Summary: Privacy policy detailing how we use and store your information when visiting this personal static website.
+Category: Page
+Date: 2025-04-05
+Tags: [legal, privacy, data]
 ---
 
 # Privacy Policy
