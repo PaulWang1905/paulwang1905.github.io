@@ -3,7 +3,7 @@
   "@type": "ItemList",
   "name": "Puyu Wang - Blog Posts",
   "description": "Collection of blog posts from Puyu Wang",
-  "numberOfItems": 9,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "BlogPosting",
@@ -48,7 +48,7 @@
         "name": "Puyu Wang"
       },
       "datePublished": "2024-07-26",
-      "dateModified": "2024-07-26",
+      "dateModified": "2025-10-15",
       "description": null,
       "about": {
         "@type": "DefinedTerm",
@@ -206,41 +206,6 @@
       "mainEntityOfPage": {
         "@type": "WebPage",
         "@id": "https://puyuwang.org/post/reading202407.html"
-      }
-    },
-    {
-      "@type": "BlogPosting",
-      "@id": "https://puyuwang.org/post/testpost.html",
-      "headline": "Test Post",
-      "author": {
-        "@type": "Person",
-        "name": "Puyu Wang"
-      },
-      "datePublished": "2024-07-20",
-      "dateModified": "2024-07-20",
-      "description": "A brief description of Test Post.",
-      "about": {
-        "@type": "DefinedTerm",
-        "name": "Blog",
-        "inDefinedTermSet": {
-          "@type": "DefinedTermSet",
-          "name": "Blog Categories"
-        }
-      },
-      "keywords": [
-        "Test",
-        "Markdown",
-        "CheatSheet"
-      ],
-      "url": "https://puyuwang.org/post/testpost.html",
-      "publisher": {
-        "@type": "Organization",
-        "name": "Puyu Wang",
-        "url": "https://puyuwang.org"
-      },
-      "mainEntityOfPage": {
-        "@type": "WebPage",
-        "@id": "https://puyuwang.org/post/testpost.html"
       }
     },
     {
