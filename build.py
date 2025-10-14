@@ -112,7 +112,7 @@ class POST:
             # self.post_meta_data = md.Meta
             
             self.post_meta_data = frontmatter.loads(md_content).metadata
-            print(self.post_meta_data)
+            # print(self.post_meta_data)
 
             # get the relative link 
             self.link = self.html_path[4:]
