@@ -104,7 +104,7 @@
     <div class="collapse-content">
       <p>By Puyu Wang</p>
       <p>Published on Friday 2024-07-26 </p>
-      <p>Last Modified on Monday 2025-10-20 </p>
+      <p>Last Modified on Saturday 2025-11-01 </p>
     </div>
   </div>
 
@@ -120,17 +120,6 @@
       <h1>How to Set Up WireGuard Server</h1>
 <h2>Introduction</h2>
 <p>This is step-by-step guide to set up a WireGuard server.</p>
-<h2>Table of Contents</h2>
-<ol>
-<li><a href="#understanding-wireguard-basics">Understanding WireGuard Basics</a></li>
-<li><a href="#installing-wireguard">Installing WireGuard</a></li>
-<li><a href="#generating-keys">Generating Keys</a></li>
-<li><a href="#configuring-the-server">Configuring the Server</a></li>
-<li><a href="#configuring-clients">Configuring Clients</a></li>
-<li><a href="#network-and-firewall-setup">Network and Firewall Setup</a></li>
-<li><a href="#testing-your-vpn">Testing Your VPN</a></li>
-<li><a href="#troubleshooting">Troubleshooting</a></li>
-</ol>
 <hr />
 <h2>Understanding WireGuard Basics</h2>
 <h3>How WireGuard Works</h3>
@@ -321,7 +310,7 @@ PersistentKeepalive = 25
 <pre><code class="language-bash"># Allow WireGuard port
 sudo ufw allow 51820/udp
 
-# Allow SSH (important!)
+# Allow SSH (important! if you use SSH at port 22 to manage the server)
 sudo ufw allow 22/tcp
 
 # Enable firewall
@@ -354,12 +343,11 @@ peer: &lt;peer1_public_key&gt;
 </code></pre>
 <hr />
 <h2>Security Best Practices</h2>
-<ol>
-<li><strong>Key Management</strong>:</li>
+<ul>
 <li>Never share private keys</li>
 <li>Regenerate keys if compromised</li>
 <li>Use preshared keys for additional security</li>
-</ol>
+</ul>
 <hr />
 <h2>Advanced Configuration</h2>
 <h3>Split Tunneling</h3>
