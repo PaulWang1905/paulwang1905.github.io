@@ -176,18 +176,7 @@ wg pubkey &lt; privatekey &gt; publickey
 wg genkey | tee server_privatekey | wg pubkey &gt; server_publickey
 </code></pre>
 <h3>Client Keys (Automated Script)</h3>
-<pre><code class="language-bash">#!/bin/bash
-umask 077
-
-# Define your peers (customize this list)
-peers=(&quot;peerPaulineDell&quot; &quot;peeriPhone&quot; &quot;peeriPad&quot; &quot;peerThinkpad&quot; &quot;peerXiaoxin&quot;)
-
-# Generate keys for each peer
-For multiple peer, use this script to generate all keys at once:
-
-```bash
-
-
+<pre><code class="language-bash">
 #!/bin/bash
 
 umask = 077
