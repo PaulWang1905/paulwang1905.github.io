@@ -117,23 +117,9 @@
    
     <article class="prose lg:prose-xl max-w-none">
      
-      <h1>Setting Up Wireguard</h1>
-<h1>How to Set Up WireGuard as a VPN Server and Connect All Your Devices</h1>
+      <h1>How to Set Up WireGuard Server</h1>
 <h2>Introduction</h2>
-<p>WireGuard is a modern, fast, and secure VPN protocol that's significantly simpler to configure than traditional VPN solutions like OpenVPN or IPSec. In this guide, you'll learn how to set up a WireGuard VPN server and connect all your devices to create a secure, unified network.</p>
-<h2>What You'll Achieve</h2>
-<p>By the end of this tutorial, you'll have:
-- A WireGuard VPN server running on a Linux machine
-- Multiple devices (phones, tablets, laptops) connected to your private network
-- Secure encrypted communication between all devices
-- The ability to access your home network remotely</p>
-<h2>Prerequisites</h2>
-<ul>
-<li>A Linux server (Ubuntu/Debian recommended) with root access</li>
-<li>A static public IP address or dynamic DNS service</li>
-<li>Port forwarding capability on your router</li>
-<li>Basic command-line knowledge</li>
-</ul>
+<p>This is step-by-step guide to set up a WireGuard server.</p>
 <h2>Table of Contents</h2>
 <ol>
 <li><a href="#understanding-wireguard-basics">Understanding WireGuard Basics</a></li>
@@ -169,12 +155,6 @@ sudo apt install wireguard
 # Verify installation
 wg --version
 </code></pre>
-<h3>On Other Systems</h3>
-<ul>
-<li><strong>Arch Linux</strong>: <code>sudo pacman -S wireguard-tools</code></li>
-<li><strong>Fedora/CentOS</strong>: <code>sudo dnf install wireguard-tools</code></li>
-<li><strong>macOS</strong>: <code>brew install wireguard-tools</code></li>
-</ul>
 <hr />
 <h2>Generating Keys</h2>
 <h3>Understanding Key Security</h3>
@@ -186,15 +166,16 @@ wg --version
 <pre><code class="language-bash"># Navigate to WireGuard directory
 cd /etc/wireguard/
 
-# Generate server private and public keys
-wg genkey | tee server_privatekey | wg pubkey &gt; server_publickey
 
-# View the keys (note them down securely)
-cat server_privatekey
-cat server_publickey
+# Generate privatekey
+wg genkey &gt; privatekey
+# Generate publickey from the private key
+wg pubkey &lt; privatekey &gt; publickey
+
+# Generate a pair of  private and public keys with one command
+wg genkey | tee server_privatekey | wg pubkey &gt; server_publickey
 </code></pre>
 <h3>Client Keys (Automated Script)</h3>
-<p>For multiple clients, use this script to generate all keys at once:</p>
 <pre><code class="language-bash">#!/bin/bash
 umask 077
 
@@ -202,18 +183,29 @@ umask 077
 peers=(&quot;peerPaulineDell&quot; &quot;peeriPhone&quot; &quot;peeriPad&quot; &quot;peerThinkpad&quot; &quot;peerXiaoxin&quot;)
 
 # Generate keys for each peer
+For multiple peer, use this script to generate all keys at once:
+
+```bash
+
+
+#!/bin/bash
+
+umask = 077
+
+peers=(&quot;peerServer&quot; &quot;peerA&quot; &quot;peerB&quot; &quot;peerC&quot;)
+
 for peer in &quot;${peers[@]}&quot;; do
   wg genkey | tee &quot;${peer}_privatekey&quot; | wg pubkey &gt; &quot;${peer}_publickey&quot;
+
   wg genpsk &gt; &quot;${peer}_presharedkey&quot;
 
   echo &quot;Keys generated for ${peer}:&quot;
   echo &quot;  - Private Key: ${peer}_privatekey&quot;
   echo &quot;  - Public Key: ${peer}_publickey&quot;
   echo &quot;  - Preshared Key: ${peer}_presharedkey&quot;
-  echo &quot;&quot;
+
 done
 
-echo &quot;All keys generated successfully!&quot;
 </code></pre>
 <p>Save this script as <code>generate_peer_keys.sh</code>, make it executable, and run it:</p>
 <pre><code class="language-bash">chmod +x generate_peer_keys.sh
@@ -229,54 +221,35 @@ echo &quot;All keys generated successfully!&quot;
 PrivateKey = &lt;SERVER_PRIVATE_KEY&gt;
 
 # Server IP address in the VPN network
-Address = 10.0.0.1/24
+Address = 10.0.0.1/32 [or other subnet]
 
 # UDP port for WireGuard (default: 51820)
 ListenPort = 51820
 
-# Enable IP forwarding
+# Enable IP forwarding you can also enable it permanently in /etc/sysctl.conf
 PostUp = sysctl -w net.ipv4.ip_forward=1
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
-PostUp = iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
 
-# Disable IP forwarding on shutdown
-PostDown = iptables -D FORWARD -i wg0 -j ACCEPT
-PostDown = iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
+PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
 
-### Peer 1: Pauline's Dell Laptop ###
+
+### Peers Configuration ###
 [Peer]
 # Client's public key
-PublicKey = &lt;PEER_PAULINE_DELL_PUBLIC_KEY&gt;
+PublicKey = &lt;Peer A PUBLIC KEY&gt;
 
 # Optional: Preshared key for additional security
-PresharedKey = &lt;PEER_PAULINE_DELL_PRESHARED_KEY&gt;
+PresharedKey = &lt;Peer A PRESHARED KEY&gt;
 
 # IP address assigned to this peer
 AllowedIPs = 10.0.0.2/32
 
-### Peer 2: iPhone ###
+### Peer B Configuration ###
 [Peer]
-PublicKey = &lt;PEER_IPHONE_PUBLIC_KEY&gt;
-PresharedKey = &lt;PEER_IPHONE_PRESHARED_KEY&gt;
+PublicKey = &lt;Peer B PUBLIC KEY&gt;
+PresharedKey = &lt;Peer B PRESHARED KEY&gt;
 AllowedIPs = 10.0.0.3/32
 
-### Peer 3: iPad ###
-[Peer]
-PublicKey = &lt;PEER_IPAD_PUBLIC_KEY&gt;
-PresharedKey = &lt;PEER_IPAD_PRESHARED_KEY&gt;
-AllowedIPs = 10.0.0.4/32
-
-### Peer 4: Thinkpad ###
-[Peer]
-PublicKey = &lt;PEER_THINKPAD_PUBLIC_KEY&gt;
-PresharedKey = &lt;PEER_THINKPAD_PRESHARED_KEY&gt;
-AllowedIPs = 10.0.0.5/32
-
-### Peer 5: Xiaoxin ###
-[Peer]
-PublicKey = &lt;PEER_XIAOXIN_PUBLIC_KEY&gt;
-PresharedKey = &lt;PEER_XIAOXIN_PRESHARED_KEY&gt;
-AllowedIPs = 10.0.0.6/32
 </code></pre>
 <p><strong>Note</strong>: Replace <code>eth0</code> with your actual network interface name. Find it using <code>ip link show</code>.</p>
 <h3>Set Proper Permissions</h3>
@@ -304,8 +277,8 @@ sudo wg show
 </code></pre>
 <hr />
 <h2>Configuring Clients</h2>
-<h3>Linux/macOS Client Configuration</h3>
-<p>Create <code>/etc/wireguard/wg0.conf</code> on each client:</p>
+<h3>Client Configuration</h3>
+<p>Create <code>wg0.conf</code> for each client:</p>
 <pre><code class="language-ini">[Interface]
 # Client's private key
 PrivateKey = &lt;PEER_PRIVATE_KEY&gt;
@@ -341,36 +314,6 @@ PersistentKeepalive = 25
 <p>Start the client:</p>
 <pre><code class="language-bash">sudo wg-quick up wg0
 </code></pre>
-<h3>iOS Configuration</h3>
-<ol>
-<li>Install <strong>WireGuard</strong> from the App Store</li>
-<li>Tap <strong>Add a tunnel</strong> → <strong>Create from scratch</strong></li>
-<li>Enter configuration:</li>
-<li><strong>Name</strong>: Home VPN</li>
-<li><strong>Private Key</strong>: Generate or paste peer private key</li>
-<li><strong>Addresses</strong>: <code>10.0.0.3/32</code></li>
-<li><strong>DNS Servers</strong>: <code>1.1.1.1, 8.8.8.8</code></li>
-<li><strong>Public Key</strong>: Server's public key</li>
-<li><strong>Preshared Key</strong>: Peer's preshared key</li>
-<li><strong>Endpoint</strong>: <code>&lt;SERVER_PUBLIC_IP&gt;:51820</code></li>
-<li><strong>Allowed IPs</strong>: <code>0.0.0.0/0, ::/0</code></li>
-<li><strong>Persistent Keepalive</strong>: <code>25</code></li>
-<li>Save and toggle on</li>
-</ol>
-<h3>Android Configuration</h3>
-<ol>
-<li>Install <strong>WireGuard</strong> from Google Play</li>
-<li>Tap <strong>+</strong> → <strong>Create from scratch</strong></li>
-<li>Follow similar steps as iOS configuration</li>
-<li>Save and activate</li>
-</ol>
-<h3>Windows Configuration</h3>
-<ol>
-<li>Download and install WireGuard from <a href="https://www.wireguard.com/install/">wireguard.com</a></li>
-<li>Click <strong>Add Tunnel</strong> → <strong>Add empty tunnel</strong></li>
-<li>Paste the client configuration</li>
-<li>Click <strong>Save</strong> and <strong>Activate</strong></li>
-</ol>
 <hr />
 <h2>Network and Firewall Setup</h2>
 <h3>Router Configuration</h3>
@@ -381,10 +324,9 @@ PersistentKeepalive = 25
 <p>Example: External <code>51820</code> → Internal <code>192.168.1.100:51820</code></p>
 </li>
 <li>
-<p><strong>Dynamic DNS</strong> (if you don't have a static IP):</p>
+<p><strong>Dynamic DNS</strong>:
+   If your ISP provides a dynamic IP, set up Dynamic DNS (DDNS) to map a domain name to your changing IP. I am not able to do this as I am using eduroam for most of the time.</p>
 </li>
-<li>Use services like No-IP, DuckDNS, or Cloudflare</li>
-<li>Update your client configs with the dynamic DNS hostname</li>
 </ol>
 <h3>Firewall Configuration (UFW)</h3>
 <pre><code class="language-bash"># Allow WireGuard port
@@ -398,21 +340,6 @@ sudo ufw enable
 
 # Check status
 sudo ufw status
-</code></pre>
-<h3>Firewall Configuration (iptables)</h3>
-<p>If you're using iptables directly:</p>
-<pre><code class="language-bash"># Allow WireGuard
-sudo iptables -A INPUT -p udp --dport 51820 -j ACCEPT
-
-# Allow forwarding for VPN subnet
-sudo iptables -A FORWARD -i wg0 -j ACCEPT
-sudo iptables -A FORWARD -o wg0 -j ACCEPT
-
-# Enable NAT
-sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-
-# Save rules
-sudo netfilter-persistent save
 </code></pre>
 <hr />
 <h2>Testing Your VPN</h2>
@@ -436,103 +363,13 @@ peer: &lt;peer1_public_key&gt;
   latest handshake: 30 seconds ago
   transfer: 15.2 MiB received, 8.4 MiB sent
 </code></pre>
-<h3>Test Connectivity from Client</h3>
-<pre><code class="language-bash"># Ping the server
-ping 10.0.0.1
-
-# Ping another peer
-ping 10.0.0.3
-
-# Check your public IP (should show server's IP)
-curl ifconfig.me
-</code></pre>
-<h3>Test Peer-to-Peer Communication</h3>
-<p>From one client, ping another:</p>
-<pre><code class="language-bash"># From iPhone (10.0.0.3) to Thinkpad (10.0.0.5)
-ping 10.0.0.5
-</code></pre>
-<hr />
-<h2>Troubleshooting</h2>
-<h3>Common Issues</h3>
-<p><strong>1. Can't Connect to Server</strong></p>
-<p>Check firewall and port forwarding:</p>
-<pre><code class="language-bash"># On server, verify listening port
-sudo ss -tulpn | grep 51820
-
-# Test port from outside
-nmap -sU -p 51820 &lt;SERVER_PUBLIC_IP&gt;
-</code></pre>
-<p><strong>2. Connected but No Internet</strong></p>
-<p>Verify IP forwarding:</p>
-<pre><code class="language-bash"># Check if enabled
-sysctl net.ipv4.ip_forward
-
-# Enable if needed
-sudo sysctl -w net.ipv4.ip_forward=1
-</code></pre>
-<p>Check NAT/masquerading:</p>
-<pre><code class="language-bash">sudo iptables -t nat -L POSTROUTING -v
-</code></pre>
-<p><strong>3. Peers Can't See Each Other</strong></p>
-<p>Ensure <code>AllowedIPs</code> on server includes each peer's IP:</p>
-<pre><code class="language-ini">[Peer]
-AllowedIPs = 10.0.0.2/32  # Must match client's Address
-</code></pre>
-<p><strong>4. Frequent Disconnections</strong></p>
-<p>Increase keepalive interval in client config:</p>
-<pre><code class="language-ini">PersistentKeepalive = 25
-</code></pre>
-<p><strong>5. DNS Not Working</strong></p>
-<p>Add DNS servers to client config:</p>
-<pre><code class="language-ini">[Interface]
-DNS = 1.1.1.1, 8.8.8.8
-</code></pre>
-<h3>Debugging Commands</h3>
-<pre><code class="language-bash"># View detailed WireGuard status
-sudo wg show all
-
-# Monitor WireGuard logs
-sudo journalctl -u wg-quick@wg0 -f
-
-# Check routing table
-ip route show table all
-
-# Test DNS resolution
-nslookup google.com
-</code></pre>
 <hr />
 <h2>Security Best Practices</h2>
 <ol>
 <li><strong>Key Management</strong>:</li>
 <li>Never share private keys</li>
 <li>Regenerate keys if compromised</li>
-<li>
-<p>Use preshared keys for additional security</p>
-</li>
-<li>
-<p><strong>Regular Updates</strong>:
-   <code>bash
-   sudo apt update &amp;&amp; sudo apt upgrade -y</code></p>
-</li>
-<li>
-<p><strong>Limit Server Access</strong>:</p>
-</li>
-<li>Use SSH key authentication only</li>
-<li>Disable password authentication</li>
-<li>
-<p>Use fail2ban to prevent brute force attacks</p>
-</li>
-<li>
-<p><strong>Monitor Connections</strong>:
-   <code>bash
-   # Script to monitor active peers
-   watch -n 5 'sudo wg show wg0'</code></p>
-</li>
-<li>
-<p><strong>Backup Configuration</strong>:
-   <code>bash
-   sudo cp -r /etc/wireguard/ ~/wireguard-backup/</code></p>
-</li>
+<li>Use preshared keys for additional security</li>
 </ol>
 <hr />
 <h2>Advanced Configuration</h2>
@@ -543,92 +380,7 @@ nslookup google.com
 # Only route home network traffic through VPN
 AllowedIPs = 10.0.0.0/24, 192.168.1.0/24
 </code></pre>
-<h3>DNS-Based Ad Blocking</h3>
-<p>Use Pi-hole as your VPN DNS server:</p>
-<p>Server configuration:</p>
-<pre><code class="language-ini">[Interface]
-PostUp = iptables -A FORWARD -i wg0 -j ACCEPT
-PostUp = iptables -A FORWARD -o wg0 -j ACCEPT
-</code></pre>
-<p>Client configuration:</p>
-<pre><code class="language-ini">[Interface]
-DNS = 10.0.0.1  # Server running Pi-hole
-</code></pre>
-<h3>Quality of Service (QoS)</h3>
-<p>Prioritize certain traffic types:</p>
-<pre><code class="language-bash">sudo tc qdisc add dev wg0 root fq_codel
-</code></pre>
 <hr />
-<h2>Useful Scripts</h2>
-<h3>Automatic Key Generation and Config Creator</h3>
-<pre><code class="language-bash">#!/bin/bash
-# save as: create_peer.sh
-
-PEER_NAME=$1
-SERVER_PUBLIC_IP=$2
-SERVER_PUBLIC_KEY=$3
-
-if [ -z &quot;$PEER_NAME&quot; ] || [ -z &quot;$SERVER_PUBLIC_IP&quot; ] || [ -z &quot;$SERVER_PUBLIC_KEY&quot; ]; then
-    echo &quot;Usage: ./create_peer.sh &lt;peer_name&gt; &lt;server_public_ip&gt; &lt;server_public_key&gt;&quot;
-    exit 1
-fi
-
-umask 077
-
-# Generate keys
-PRIVATE_KEY=$(wg genkey)
-PUBLIC_KEY=$(echo &quot;$PRIVATE_KEY&quot; | wg pubkey)
-PRESHARED_KEY=$(wg genpsk)
-
-# Create client config
-cat &gt; &quot;${PEER_NAME}.conf&quot; &lt;&lt;EOF
-[Interface]
-PrivateKey = ${PRIVATE_KEY}
-Address = 10.0.0.X/32
-DNS = 1.1.1.1, 8.8.8.8
-
-[Peer]
-PublicKey = ${SERVER_PUBLIC_KEY}
-PresharedKey = ${PRESHARED_KEY}
-Endpoint = ${SERVER_PUBLIC_IP}:51820
-AllowedIPs = 0.0.0.0/0, ::/0
-PersistentKeepalive = 25
-EOF
-
-echo &quot;Client config created: ${PEER_NAME}.conf&quot;
-echo &quot;&quot;
-echo &quot;Add this to your server config:&quot;
-echo &quot;[Peer]&quot;
-echo &quot;PublicKey = ${PUBLIC_KEY}&quot;
-echo &quot;PresharedKey = ${PRESHARED_KEY}&quot;
-echo &quot;AllowedIPs = 10.0.0.X/32&quot;
-</code></pre>
-<hr />
-<h2>Conclusion</h2>
-<p>You now have a fully functional WireGuard VPN server connecting all your devices! This setup provides:</p>
-<ul>
-<li><strong>Security</strong>: All traffic is encrypted end-to-end</li>
-<li><strong>Privacy</strong>: Your internet traffic appears to come from your server</li>
-<li><strong>Flexibility</strong>: Access your home network from anywhere</li>
-<li><strong>Performance</strong>: WireGuard is extremely fast and efficient</li>
-</ul>
-<h3>Next Steps</h3>
-<ul>
-<li>Set up automatic backups of your configuration</li>
-<li>Implement monitoring with Prometheus and Grafana</li>
-<li>Configure split tunneling for optimal performance</li>
-<li>Add more advanced firewall rules</li>
-<li>Explore WireGuard mesh networks for peer-to-peer connectivity</li>
-</ul>
-<h3>Additional Resources</h3>
-<ul>
-<li><a href="https://www.wireguard.com/">Official WireGuard Documentation</a></li>
-<li><a href="https://www.wireguard.com/quickstart/">WireGuard Quick Start</a></li>
-<li><a href="https://github.com/cedrickchee/awesome-wireguard">Awesome WireGuard</a></li>
-</ul>
-<hr />
-<p><strong>Questions or Issues?</strong> Feel free to leave a comment below or check the troubleshooting section above.</p>
-<p>Happy VPN-ing! 🔒🌐</p>
     </article>
       </div>
     
