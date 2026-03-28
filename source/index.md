@@ -16,14 +16,18 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Large Language Models 
 - Digital Humanities
 
-## Teaching Assistants
+## Teaching and Tutoring
 - **Hilary Term 2025**: Class Tutor for *Knowledge Representation & Reasoning:  2024-2025* at the Department of Computer Science, University of Oxford.
+- **Hilary Term 2026**: Class Tutor for *Knowledge Representation & Reasoning:  2025-2026* at the Department of Computer Science, University of Oxford.
+- I have also had the opportunity to share my research and expertise on topics related to Linked Data and Digital Humanities/Scholarship to students in various courses, including:
+  - MSc Generative Artificial Intelligence, University of Exeter
+  - MSc in Digital Scholarship, University of Oxford
 
-
-## Commiunity Service & Activities
+## Community Service & Activities
 - Sub-Dean & Peer Supporter of Reuben College
-- Treasurer of Oxford AI Society
+- Treasurer of Oxford AI Society (2024-2026)
 - Team member of the  [*Reuby*](https://reuben.ox.ac.uk/reuby-student-magazine) - Student Magazine at Reuben College 
+- Inaugural Vice-President and IT Officerof the Oxford Digital Scholarship Society (2025-2026)
 
 ## Hobbies
 - Movies
