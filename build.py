@@ -232,6 +232,7 @@ class BLOG_INDEX:
             title=self.meta_data["title"],
             phrases=self.meta_data["phrases"],
             categories=categories,
+            posts=sorted(self.posts, key=lambda p: p.date, reverse=True),
         )
         with open("docs/blog_index.html", "w") as html_file:
             html_file.write(rendered_html)

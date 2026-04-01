@@ -32,81 +32,186 @@
     {% include 'header.html' %}
   </header>
 
-<!-- Redesigned Categories Section with Card-Based Layout -->
-<section class="py-16 bg-gradient-to-b from-base-100 to-base-200">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Section Header -->
-    <div class="text-center mb-12">
-      <h2 class="text-4xl font-bold mb-2 relative inline-block">
-        <span class="relative z-10">Explore Categories</span>
-        <span class="absolute -bottom-2 left-0 right-0 h-1 bg-primary rounded-full transform scale-x-75"></span>
-      </h2>
-      <p class="text-base-content/70 max-w-xl mx-auto">Discover articles organized by topics</p>
+<!-- Blog Index Section -->
+<section class="py-10 bg-gradient-to-b from-base-100 to-base-200">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+
+    <!-- Page heading -->
+    <div class="mb-8">
+      <h2 class="text-3xl font-bold">Explore Categories</h2>
+      <p class="text-base-content/50 mt-1 text-sm">Discover articles organised by topics</p>
     </div>
-    
-    <!-- Categories Grid with Hover Effects -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+    <!-- Tab switcher -->
+    <div class="flex gap-1 mb-7 bg-base-200 rounded-xl p-1 w-fit">
+      <button id="tab-categories" onclick="switchTab('categories')"
+        class="tab-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-base-100 shadow-sm text-base-content">
+        Categories
+      </button>
+      <button id="tab-allposts" onclick="switchTab('allposts')"
+        class="tab-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-base-content/50 hover:text-base-content">
+        All Posts <span class="ml-1 text-xs font-normal text-base-content/40">{{ posts | length }}</span>
+      </button>
+    </div>
+
+    <!-- Tab: Categories -->
+    <div id="panel-categories" class="space-y-4">
       {% for category in categories %}
-      <div class="group h-full">
-        <div class="h-full flex flex-col bg-base-100 rounded-xl overflow-hidden shadow-lg transition-all duration-300 hover:shadow-xl border border-base-300/50">
-          <!-- Category Header with Gradient -->
-          <div class="bg-gradient-to-r from-primary/10 to-secondary/10 p-5">
-            <div class="flex justify-between items-center">
-              <h3 class="text-xl font-bold text-base-content group-hover:text-primary transition-colors duration-300">
-                {{ category.category }}
-              </h3>
-              <span class="flex items-center justify-center h-8 w-8 rounded-full bg-primary/20 text-primary text-sm font-semibold">
-                {{ category.count }}
-              </span>
-            </div>
+      <a href="{{ category.link }}"
+        class="flex flex-col bg-base-100 rounded-xl shadow-sm overflow-hidden border border-base-300 hover:border-base-content/20 hover:shadow-md transition-all duration-200 group">
+
+        <div class="px-5 pt-5 pb-4">
+          <!-- Header: name + post count -->
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-lg font-bold text-base-content group-hover:text-primary transition-colors">{{ category.category }}</h3>
+            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-base-200 text-base-content/60">
+              {{ category.count }} post{{ 's' if category.count != 1 }}
+            </span>
           </div>
-          
-          <!-- Category Content -->
-          <div class="p-5 flex flex-col h-full">
-            <!-- Latest Post -->
-            <div class="mb-5">
-              <div class="text-xs uppercase tracking-wider text-base-content/60 mb-1">Latest Post</div>
-              <div class="font-medium text-base-content hover:text-primary transition-colors">
-                {{ category.last_post.title }}
-              </div>
-            </div>
-            
-            <!-- Tags Cloud - Single Line with Ellipsis -->
-            <div class="flex items-center gap-2 mb-5 h-8 overflow-hidden relative">
-              {% for tag in category.tags %}
-                {% if loop.index <= 3 %}
-                <span class="px-3 py-1 text-xs rounded-full bg-base-200 text-base-content/80 hover:bg-secondary/20 hover:text-secondary transition-colors duration-200 cursor-pointer whitespace-nowrap">
-                  {{ tag }}
-                </span>
-                {% elif loop.index == 4 %}
-                <span class="px-3 py-1 text-xs rounded-full bg-base-200 text-base-content/80 transition-colors duration-200 cursor-pointer whitespace-nowrap">
-                  ...
-                </span>
-                {% endif %}
-              {% endfor %}
-            </div>
-            
-            <!-- Spacer to push button to bottom -->
-            <div class="flex-grow"></div>
-            
-            <!-- Action Button - Now aligned at bottom -->
-            <a href="{{ category.link }}" class="block w-full mt-auto">
-              <div class="relative overflow-hidden rounded-lg group-hover:bg-primary group-hover:text-primary-content bg-base-200 text-base-content transition-colors duration-300">
-                <div class="px-4 py-3 flex items-center justify-between">
-                  <span class="font-medium">{{ category.category }}</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 20 20" fill="currentColor">
-                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-            </a>
+
+          <!-- Latest post -->
+          <div class="mb-3">
+            <p class="text-xs font-semibold uppercase tracking-widest text-base-content/40 mb-1">Latest post</p>
+            <p class="text-sm font-medium text-base-content leading-snug line-clamp-2">{{ category.last_post.title }}</p>
+          </div>
+
+          <!-- Tags -->
+          <div class="flex items-center gap-1.5 flex-wrap">
+            {% for tag in category.tags %}
+              {% if loop.index <= 3 %}
+              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/70">{{ tag }}</span>
+              {% elif loop.index == 4 %}
+              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/40">···</span>
+              {% endif %}
+            {% endfor %}
           </div>
         </div>
-      </div>
+
+        <!-- Card footer -->
+        <div class="px-5 py-2.5 bg-base-200/50 border-t border-base-200 flex items-center justify-between">
+          <span class="text-xs text-base-content/50">Updated {{ category.last_post.date.strftime("%b %d, %Y") }}</span>
+          <span class="text-xs font-semibold text-base-content/40 group-hover:text-primary transition-colors flex items-center gap-1">
+            Browse all
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </div>
+
+      </a>
       {% endfor %}
     </div>
+
+    <!-- Tab: All Posts -->
+    <div id="panel-allposts" class="hidden">
+
+      <!-- Post list -->
+      <div class="bg-base-100 rounded-xl shadow-sm border border-base-300 overflow-hidden mb-5">
+        {% for post in posts %}
+        <a href="{{ post.link }}"
+          class="post-item flex items-center gap-4 px-5 py-4 border-b border-base-200 last:border-0 hover:bg-base-200/40 transition-colors group">
+
+          <!-- Date block -->
+          <div class="flex-shrink-0 w-14 text-center">
+            <div class="text-lg font-bold text-base-content/70 leading-none tabular-nums">{{ post.date.strftime("%d") }}</div>
+            <div class="text-xs text-base-content/40 uppercase tracking-wide mt-0.5">{{ post.date.strftime("%b %y") }}</div>
+          </div>
+
+          <!-- Vertical divider -->
+          <div class="w-px h-8 bg-base-300 flex-shrink-0"></div>
+
+          <!-- Title + category -->
+          <div class="flex-1 min-w-0">
+            <h3 class="text-sm font-semibold text-base-content group-hover:text-primary transition-colors leading-snug truncate">
+              {{ post.title }}
+            </h3>
+            <span class="text-xs text-base-content/45 mt-0.5">{{ post.category }}</span>
+          </div>
+
+          <!-- Arrow -->
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-base-content/20 group-hover:text-primary group-hover:translate-x-0.5 transition-all flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+
+        </a>
+        {% endfor %}
+      </div>
+
+      <!-- Pagination -->
+      <div id="pagination" class="flex items-center justify-center gap-2">
+        <button id="btn-prev" onclick="changePage(-1)"
+          class="btn btn-sm btn-ghost border border-base-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <div id="page-numbers" class="flex gap-1"></div>
+        <button id="btn-next" onclick="changePage(1)"
+          class="btn btn-sm btn-ghost border border-base-300">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+
+    </div>
+
   </div>
 </section>
+
+<script>
+  const POSTS_PER_PAGE = 10;
+  let currentPage = 0;
+
+  function getItems() {
+    return Array.from(document.querySelectorAll('.post-item'));
+  }
+
+  function totalPages() {
+    return Math.ceil(getItems().length / POSTS_PER_PAGE);
+  }
+
+  function renderPage(page) {
+    currentPage = page;
+    const items = getItems();
+    items.forEach((el, i) => {
+      el.classList.toggle('hidden', Math.floor(i / POSTS_PER_PAGE) !== page);
+    });
+
+    // Prev / Next
+    document.getElementById('btn-prev').disabled = page === 0;
+    document.getElementById('btn-next').disabled = page >= totalPages() - 1;
+
+    // Numbered page buttons
+    const container = document.getElementById('page-numbers');
+    container.innerHTML = '';
+    for (let i = 0; i < totalPages(); i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i + 1;
+      btn.className = 'btn btn-sm border ' + (i === page
+        ? 'btn-primary border-primary'
+        : 'btn-ghost border-base-300');
+      btn.onclick = () => renderPage(i);
+      container.appendChild(btn);
+    }
+  }
+
+  function switchTab(tab) {
+    const isCategories = tab === 'categories';
+    document.getElementById('panel-categories').classList.toggle('hidden', !isCategories);
+    document.getElementById('panel-allposts').classList.toggle('hidden', isCategories);
+
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      const active = btn.id === 'tab-' + tab;
+      btn.classList.toggle('bg-base-100', active);
+      btn.classList.toggle('shadow-sm', active);
+      btn.classList.toggle('text-base-content', active);
+      btn.classList.toggle('text-base-content/50', !active);
+    });
+
+    if (!isCategories) renderPage(0);
+  }
+</script>
   <!-- <div class="divider"></div> -->
 
   
