@@ -33,45 +33,52 @@
   </header>
 
 <!-- Blog Index Section -->
-<section class="py-10 bg-gradient-to-b from-base-100 to-base-200">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+<section class="py-10">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
 
     <!-- Page heading -->
-    <div class="mb-8">
-      <h2 class="text-3xl font-bold">Explore Categories</h2>
-      <p class="text-base-content/50 mt-1 text-sm">Discover articles organised by topics</p>
+    <div class="mb-6">
+      <h1 class="text-3xl font-bold tracking-tight">Explore Categories</h1>
+      <div class="flex items-center gap-3 mt-2">
+        <p class="text-base-content/50 text-sm">Discover articles organised by topics</p>
+        <span class="text-base-content/20">·</span>
+        <span class="text-xs text-base-content/45">{{ categories | length }} categories</span>
+        <span class="text-base-content/20">·</span>
+        <span class="text-xs text-base-content/45">{{ posts | length }} posts</span>
+      </div>
     </div>
 
     <!-- Tab switcher -->
-    <div class="flex gap-1 mb-7 bg-base-200 rounded-xl p-1 w-fit">
+    <div class="flex gap-1 mb-8 bg-base-200 rounded-xl p-1 w-fit">
       <button id="tab-categories" onclick="switchTab('categories')"
         class="tab-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 bg-base-100 shadow-sm text-base-content">
         Categories
       </button>
       <button id="tab-allposts" onclick="switchTab('allposts')"
         class="tab-btn px-5 py-2 rounded-lg text-sm font-semibold transition-all duration-200 text-base-content/50 hover:text-base-content">
-        All Posts <span class="ml-1 text-xs font-normal text-base-content/40">{{ posts | length }}</span>
+        All Posts <span class="ml-1.5 text-xs font-normal text-base-content/40">{{ posts | length }}</span>
       </button>
     </div>
 
-    <!-- Tab: Categories -->
-    <div id="panel-categories" class="space-y-4">
+
+    <!-- Tab: Categories — 2-col grid on desktop -->
+    <div id="panel-categories" class="grid grid-cols-1 md:grid-cols-2 gap-5">
       {% for category in categories %}
       <a href="{{ category.link }}"
-        class="flex flex-col bg-base-100 rounded-xl shadow-sm overflow-hidden border border-base-300 hover:border-base-content/20 hover:shadow-md transition-all duration-200 group">
+        class="flex flex-col bg-base-100 rounded-xl shadow-sm overflow-hidden border border-base-300 hover:border-base-content/25 hover:shadow-md transition-all duration-200 group">
 
-        <div class="px-5 pt-5 pb-4">
-          <!-- Header: name + post count -->
-          <div class="flex items-center justify-between mb-3">
-            <h3 class="text-lg font-bold text-base-content group-hover:text-primary transition-colors">{{ category.category }}</h3>
-            <span class="text-xs font-semibold px-2.5 py-1 rounded-full bg-base-200 text-base-content/60">
+        <div class="px-6 pt-6 pb-4 flex-1">
+          <!-- Header: name + count -->
+          <div class="flex items-start justify-between gap-3 mb-4">
+            <h3 class="text-xl font-bold text-base-content group-hover:text-primary transition-colors leading-tight">{{ category.category }}</h3>
+            <span class="flex-shrink-0 text-xs font-semibold px-2.5 py-1 rounded-full bg-base-200 text-base-content/60 mt-0.5">
               {{ category.count }} post{{ 's' if category.count != 1 }}
             </span>
           </div>
 
           <!-- Latest post -->
-          <div class="mb-3">
-            <p class="text-xs font-semibold uppercase tracking-widest text-base-content/40 mb-1">Latest post</p>
+          <div class="mb-4">
+            <p class="text-xs font-bold uppercase tracking-widest text-base-content/35 mb-1.5">Latest post</p>
             <p class="text-sm font-medium text-base-content leading-snug line-clamp-2">{{ category.last_post.title }}</p>
           </div>
 
@@ -79,18 +86,18 @@
           <div class="flex items-center gap-1.5 flex-wrap">
             {% for tag in category.tags %}
               {% if loop.index <= 3 %}
-              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/70">{{ tag }}</span>
+              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/65">{{ tag }}</span>
               {% elif loop.index == 4 %}
-              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/40">···</span>
+              <span class="px-2 py-0.5 text-xs rounded-full bg-base-200 text-base-content/35">···</span>
               {% endif %}
             {% endfor %}
           </div>
         </div>
 
         <!-- Card footer -->
-        <div class="px-5 py-2.5 bg-base-200/50 border-t border-base-200 flex items-center justify-between">
-          <span class="text-xs text-base-content/50">Updated {{ category.last_post.date.strftime("%b %d, %Y") }}</span>
-          <span class="text-xs font-semibold text-base-content/40 group-hover:text-primary transition-colors flex items-center gap-1">
+        <div class="px-6 py-3 bg-base-200/50 border-t border-base-200 flex items-center justify-between mt-auto">
+          <span class="text-xs text-base-content/45">Updated {{ category.last_post.date.strftime("%b %d, %Y") }}</span>
+          <span class="text-xs font-semibold text-base-content/35 group-hover:text-primary transition-colors flex items-center gap-1">
             Browse all
             <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
@@ -105,13 +112,12 @@
     <!-- Tab: All Posts -->
     <div id="panel-allposts" class="hidden">
 
-      <!-- Post list -->
       <div class="space-y-3 mb-5">
         {% for post in posts %}
         <a href="{{ post.link }}"
           class="post-item flex flex-col bg-base-100 rounded-xl border border-base-300 px-5 py-4 shadow-sm hover:border-base-content/20 hover:shadow-md transition-all duration-200 group">
 
-          <!-- Meta row: date + category + tags -->
+          <!-- Meta row -->
           <div class="flex items-center gap-2 mb-2 flex-wrap">
             <time class="text-xs text-base-content/45 tabular-nums">{{ post.date.strftime("%d %b %Y") }}</time>
             <span class="text-base-content/20">·</span>
@@ -128,12 +134,10 @@
             {% endif %}
           </div>
 
-          <!-- Title -->
           <h3 class="text-sm font-semibold text-base-content group-hover:text-primary transition-colors leading-snug mb-1">
             {{ post.title }}
           </h3>
 
-          <!-- Summary -->
           {% if post.summary %}
           <p class="text-xs text-base-content/55 leading-relaxed line-clamp-2">{{ post.summary }}</p>
           {% endif %}
@@ -144,15 +148,13 @@
 
       <!-- Pagination -->
       <div id="pagination" class="flex items-center justify-center gap-2">
-        <button id="btn-prev" onclick="changePage(-1)"
-          class="btn btn-sm btn-ghost border border-base-300">
+        <button id="btn-prev" onclick="changePage(-1)" class="btn btn-sm btn-ghost border border-base-300">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
           </svg>
         </button>
         <div id="page-numbers" class="flex gap-1"></div>
-        <button id="btn-next" onclick="changePage(1)"
-          class="btn btn-sm btn-ghost border border-base-300">
+        <button id="btn-next" onclick="changePage(1)" class="btn btn-sm btn-ghost border border-base-300">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
