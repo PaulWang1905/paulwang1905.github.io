@@ -3,8 +3,76 @@
   "@type": "ItemList",
   "name": "Puyu Wang - Blog Posts",
   "description": "Collection of blog posts from Puyu Wang",
-  "numberOfItems": 9,
+  "numberOfItems": 11,
   "itemListElement": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://puyuwang.org/post/hosting_RMS.html",
+      "headline": "Hosting RMS at Oxford",
+      "author": {
+        "@type": "Person",
+        "name": "Puyu Wang"
+      },
+      "datePublished": "2026-04-06",
+      "dateModified": "2026-04-06",
+      "description": "This post describes the experience of hosting the Richard Stallman at Oxford, including the preparations, the event itself, and what I have learned.",
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "Blog",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "Blog Categories"
+        }
+      },
+      "keywords": [
+        "OXAI",
+        "Richard_Stallman"
+      ],
+      "url": "https://puyuwang.org/post/hosting_RMS.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Puyu Wang",
+        "url": "https://puyuwang.org"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://puyuwang.org/post/hosting_RMS.html"
+      }
+    },
+    {
+      "@type": "BlogPosting",
+      "@id": "https://puyuwang.org/post/20260404.html",
+      "headline": "Founding a Conferene at Oxford",
+      "author": {
+        "@type": "Person",
+        "name": "Puyu Wang"
+      },
+      "datePublished": "2026-04-04",
+      "dateModified": "2026-04-04",
+      "description": "This post describes the process of creating a conference for Oxford students, including the challenges faced and the solutions implemented.",
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "Blog",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "Blog Categories"
+        }
+      },
+      "keywords": [
+        "OXAI",
+        "Conference"
+      ],
+      "url": "https://puyuwang.org/post/20260404.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Puyu Wang",
+        "url": "https://puyuwang.org"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://puyuwang.org/post/20260404.html"
+      }
+    },
     {
       "@type": "BlogPosting",
       "@id": "https://puyuwang.org/post/math_test.html",
