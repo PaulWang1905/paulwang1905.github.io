@@ -5413,10 +5413,6 @@ details.collapse summary::-webkit-details-marker {
   border-left-width: 2px;
 }
 
-.border-l-4 {
-  border-left-width: 4px;
-}
-
 .border-t {
   border-top-width: 1px;
 }
@@ -5476,10 +5472,6 @@ details.collapse summary::-webkit-details-marker {
 
 .border-primary\/25 {
   border-color: var(--fallback-p,oklch(var(--p)/0.25));
-}
-
-.border-primary\/40 {
-  border-color: var(--fallback-p,oklch(var(--p)/0.4));
 }
 
 .border-red-200 {
