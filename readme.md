@@ -95,9 +95,22 @@ Node.js dependencies (see `package.json`):
 4. **Serve the site:**
    - Open `docs/index.html` in your browser, or use a static file server.
 
+## Templates (`src/`)
+
+| Template | Output | Purpose |
+|---|---|---|
+| `index.html` | `docs/index.html` | Homepage — hero card, recent updates sidebar, recent posts, pages list, and main about content |
+| `blog_template.html` | `docs/blog_index.html` | Blog index — tabbed view of categories (with latest post + tags) and all posts (paginated) |
+| `category_template.html` | `docs/blog_<category>.html` | Per-category post listing page |
+| `template.html` | `docs/post/*.html`, `docs/page/*.html` | Individual blog post and static page layout |
+| `readings_note_template.html` | readings note pages | Layout for reading note entries |
+| `readings_statistics.html` | readings statistics page | Reading statistics visualisation |
+| `header.html` | included in all pages | Site-wide navigation bar with theme toggle |
+| `footer.html` | included in all pages | Site-wide footer |
+
 ## Customization
 
-- Edit templates in `src/`
+- Edit templates in `src/` (see table above)
 - Add or edit Markdown files in `source/post/` and `source/page/`
 - Update site metadata in `src/meta_data.json`
 - Configure Tailwind in `tailwind.config.js`
