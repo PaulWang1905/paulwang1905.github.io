@@ -5,7 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
+  <link href="../pygments.css" rel="stylesheet">
   <title>Reading</title>
+  <style>
+    .highlight { position: relative; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+    .highlight pre { margin: 0; background: transparent; }
+    .prose pre { padding: 0; background: transparent; border-radius: 0; }
+    .prose code::before, .prose code::after { content: none; }
+    .copy-btn {
+      position: absolute; top: 0.5rem; right: 0.5rem;
+      padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem;
+      background: rgba(255,255,255,0.15); color: #ccc; border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer; opacity: 0; transition: opacity 0.2s;
+    }
+    .highlight:hover .copy-btn { opacity: 1; }
+    .copy-btn.copied { background: rgba(100,200,100,0.3); color: #9f9; }
+  </style>
   <script>
     window.MathJax = {
       tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
@@ -470,7 +485,24 @@ Mencius went to see king Hui of Liang. The king said, 'Venerable sir, since you 
             document.addEventListener('DOMContentLoaded', initialize);
         }
     })();
-</script> 
+</script>
+
+<script>
+  document.querySelectorAll('.highlight').forEach(block => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    block.appendChild(btn);
+    btn.addEventListener('click', () => {
+      const code = block.querySelector('pre').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

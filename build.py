@@ -1,6 +1,7 @@
 import subprocess
 import os
 import markdown
+from pygments.formatters import HtmlFormatter
 from jinja2 import Template, Environment, FileSystemLoader
 from markupsafe import Markup, escape
 from datetime import datetime
@@ -37,11 +38,19 @@ category_template = env.get_template("category_template.html")
 # blog index template is used to render the blog index page (for all categories)
 blog_index_template = env.get_template("blog_template.html")
 readings_note_template = env.get_template("readings_note_template.html")
-Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes', 'md_in_html', 'extra', 'pymdownx.arithmatex']
+Markdown_Extenstions = [
+    'pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes',
+    'md_in_html', 'extra',
+    'pymdownx.arithmatex', 'pymdownx.highlight', 'pymdownx.superfences',
+]
 Markdown_Extension_Configs = {
     'pymdownx.arithmatex': {
         'generic': True
-    }
+    },
+    'pymdownx.highlight': {
+        'use_pygments': True,
+        'noclasses': False,
+    },
 }
 
 posts = []
@@ -497,9 +506,19 @@ def render_reading_notes() -> None:
         f.write(readings_note_html)
     print("Notes built successfully")
 
+def build_pygments_css(style: str = 'default') -> None:
+    '''
+    Generate Pygments syntax highlighting CSS and write to docs/pygments.css
+    '''
+    css = HtmlFormatter(style=style).get_style_defs('.highlight')
+    with open('docs/pygments.css', 'w') as f:
+        f.write(css)
+    print(f"Pygments CSS generated with style '{style}'")
+
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
     render_reading_notes()
     collect_static_files(collect_dirs)
     build_css()
+    build_pygments_css('github-dark')

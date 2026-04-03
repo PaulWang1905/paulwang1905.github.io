@@ -5,7 +5,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
+  <link href="../pygments.css" rel="stylesheet">
   <title>Setup Wireguard</title>
+  <style>
+    .highlight { position: relative; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+    .highlight pre { margin: 0; background: transparent; }
+    .prose pre { padding: 0; background: transparent; border-radius: 0; }
+    .prose code::before, .prose code::after { content: none; }
+    .copy-btn {
+      position: absolute; top: 0.5rem; right: 0.5rem;
+      padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem;
+      background: rgba(255,255,255,0.15); color: #ccc; border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer; opacity: 0; transition: opacity 0.2s;
+    }
+    .highlight:hover .copy-btn { opacity: 1; }
+    .copy-btn.copied { background: rgba(100,200,100,0.3); color: #9f9; }
+  </style>
   <script>
     window.MathJax = {
       tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
@@ -136,154 +151,151 @@
 <hr />
 <h2>Installing WireGuard</h2>
 <h3>On Ubuntu/Debian Server</h3>
-<pre><code class="language-bash"># Update package list
-sudo apt update
+<div class="highlight"><pre><span></span><code><span class="c1"># Update package list</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>update
 
-# Install WireGuard
-sudo apt install wireguard
+<span class="c1"># Install WireGuard</span>
+sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>wireguard
 
-# Verify installation
-wg --version
-</code></pre>
+<span class="c1"># Verify installation</span>
+wg<span class="w"> </span>--version
+</code></pre></div>
 <hr />
 <h2>Generating Keys</h2>
 <h3>Understanding Key Security</h3>
 <p>Before generating keys, set the proper umask to ensure your private keys are only readable by you:</p>
-<pre><code class="language-bash">umask 077
-</code></pre>
+<div class="highlight"><pre><span></span><code><span class="nb">umask</span><span class="w"> </span><span class="m">077</span>
+</code></pre></div>
 <h3>Server Keys</h3>
 <p>Generate keys for your WireGuard server:</p>
-<pre><code class="language-bash"># Navigate to WireGuard directory
-cd /etc/wireguard/
+<div class="highlight"><pre><span></span><code><span class="c1"># Navigate to WireGuard directory</span>
+<span class="nb">cd</span><span class="w"> </span>/etc/wireguard/
 
 
-# Generate privatekey
-wg genkey &gt; privatekey
-# Generate publickey from the private key
-wg pubkey &lt; privatekey &gt; publickey
+<span class="c1"># Generate privatekey</span>
+wg<span class="w"> </span>genkey<span class="w"> </span>&gt;<span class="w"> </span>privatekey
+<span class="c1"># Generate publickey from the private key</span>
+wg<span class="w"> </span>pubkey<span class="w"> </span>&lt;<span class="w"> </span>privatekey<span class="w"> </span>&gt;<span class="w"> </span>publickey
 
-# Generate a pair of  private and public keys with one command
-wg genkey | tee server_privatekey | wg pubkey &gt; server_publickey
-</code></pre>
+<span class="c1"># Generate a pair of  private and public keys with one command</span>
+wg<span class="w"> </span>genkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span>server_privatekey<span class="w"> </span><span class="p">|</span><span class="w"> </span>wg<span class="w"> </span>pubkey<span class="w"> </span>&gt;<span class="w"> </span>server_publickey
+</code></pre></div>
 <h3>Client Keys (Automated Script)</h3>
-<pre><code class="language-bash">
-#!/bin/bash
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
 
-umask = 077
+<span class="nb">umask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">077</span>
 
-peers=(&quot;peerServer&quot; &quot;peerA&quot; &quot;peerB&quot; &quot;peerC&quot;)
+<span class="nv">peers</span><span class="o">=(</span><span class="s2">&quot;peerServer&quot;</span><span class="w"> </span><span class="s2">&quot;peerA&quot;</span><span class="w"> </span><span class="s2">&quot;peerB&quot;</span><span class="w"> </span><span class="s2">&quot;peerC&quot;</span><span class="o">)</span>
 
-for peer in &quot;${peers[@]}&quot;; do
-  wg genkey | tee &quot;${peer}_privatekey&quot; | wg pubkey &gt; &quot;${peer}_publickey&quot;
+<span class="k">for</span><span class="w"> </span>peer<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">peers</span><span class="p">[@]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
+<span class="w">  </span>wg<span class="w"> </span>genkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>tee<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_privatekey&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>wg<span class="w"> </span>pubkey<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_publickey&quot;</span>
 
-  wg genpsk &gt; &quot;${peer}_presharedkey&quot;
+<span class="w">  </span>wg<span class="w"> </span>genpsk<span class="w"> </span>&gt;<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_presharedkey&quot;</span>
 
-  echo &quot;Keys generated for ${peer}:&quot;
-  echo &quot;  - Private Key: ${peer}_privatekey&quot;
-  echo &quot;  - Public Key: ${peer}_publickey&quot;
-  echo &quot;  - Preshared Key: ${peer}_presharedkey&quot;
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Keys generated for </span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">:&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  - Private Key: </span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_privatekey&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  - Public Key: </span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_publickey&quot;</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;  - Preshared Key: </span><span class="si">${</span><span class="nv">peer</span><span class="si">}</span><span class="s2">_presharedkey&quot;</span>
 
-done
-
-</code></pre>
+<span class="k">done</span>
+</code></pre></div>
 <p>Save this script as <code>generate_peer_keys.sh</code>, make it executable, and run it:</p>
-<pre><code class="language-bash">chmod +x generate_peer_keys.sh
+<div class="highlight"><pre><span></span><code>chmod<span class="w"> </span>+x<span class="w"> </span>generate_peer_keys.sh
 ./generate_peer_keys.sh
-</code></pre>
+</code></pre></div>
 <p><strong>Important</strong>: Store these keys securely! Anyone with a private key can access your VPN.</p>
 <hr />
 <h2>Configuring the Server</h2>
 <h3>Create Server Configuration</h3>
 <p>Create <code>/etc/wireguard/wg0.conf</code>:</p>
-<pre><code class="language-ini">[Interface]
-# Server private key
-PrivateKey = &lt;SERVER_PRIVATE_KEY&gt;
+<div class="highlight"><pre><span></span><code><span class="k">[Interface]</span>
+<span class="c1"># Server private key</span>
+<span class="na">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;SERVER_PRIVATE_KEY&gt;</span>
 
-# Server IP address in the VPN network
-Address = 10.0.0.1/32 [or other subnet]
+<span class="c1"># Server IP address in the VPN network</span>
+<span class="na">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.0.0.1/32 [or other subnet]</span>
 
-# UDP port for WireGuard (default: 51820)
-ListenPort = 51820
+<span class="c1"># UDP port for WireGuard (default: 51820)</span>
+<span class="na">ListenPort</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">51820</span>
 
-# Enable IP forwarding you can also enable it permanently in /etc/sysctl.conf
-PostUp = sysctl -w net.ipv4.ip_forward=1
+<span class="c1"># Enable IP forwarding you can also enable it permanently in /etc/sysctl.conf</span>
+<span class="na">PostUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">sysctl -w net.ipv4.ip_forward=1</span>
 
-PostUp = iptables -A FORWARD -i %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
-PostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE
+<span class="na">PostUp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">iptables -A FORWARD -i %i -j ACCEPT</span><span class="c1">; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE</span>
+<span class="na">PostDown</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">iptables -D FORWARD -i %i -j ACCEPT</span><span class="c1">; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE</span>
 
 
-### Peers Configuration ###
-[Peer]
-# Client's public key
-PublicKey = &lt;Peer A PUBLIC KEY&gt;
+<span class="c1">### Peers Configuration ###</span>
+<span class="k">[Peer]</span>
+<span class="c1"># Client&#39;s public key</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;Peer A PUBLIC KEY&gt;</span>
 
-# Optional: Preshared key for additional security
-PresharedKey = &lt;Peer A PRESHARED KEY&gt;
+<span class="c1"># Optional: Preshared key for additional security</span>
+<span class="na">PresharedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;Peer A PRESHARED KEY&gt;</span>
 
-# IP address assigned to this peer
-AllowedIPs = 10.0.0.2/32
+<span class="c1"># IP address assigned to this peer</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.0.0.2/32</span>
 
-### Peer B Configuration ###
-[Peer]
-PublicKey = &lt;Peer B PUBLIC KEY&gt;
-PresharedKey = &lt;Peer B PRESHARED KEY&gt;
-AllowedIPs = 10.0.0.3/32
-
-</code></pre>
+<span class="c1">### Peer B Configuration ###</span>
+<span class="k">[Peer]</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;Peer B PUBLIC KEY&gt;</span>
+<span class="na">PresharedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;Peer B PRESHARED KEY&gt;</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.0.0.3/32</span>
+</code></pre></div>
 <p><strong>Note</strong>: Replace <code>eth0</code> with your actual network interface name. Find it using <code>ip link show</code>.</p>
 <h3>Set Proper Permissions</h3>
-<pre><code class="language-bash">sudo chmod 600 /etc/wireguard/wg0.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/etc/wireguard/wg0.conf
+</code></pre></div>
 <h3>Enable IP Forwarding Permanently</h3>
 <p>Edit <code>/etc/sysctl.conf</code>:</p>
-<pre><code class="language-bash">sudo nano /etc/sysctl.conf
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>nano<span class="w"> </span>/etc/sysctl.conf
+</code></pre></div>
 <p>Add or uncomment:</p>
-<pre><code>net.ipv4.ip_forward=1
-</code></pre>
+<div class="highlight"><pre><span></span><code>net.ipv4.ip_forward=1
+</code></pre></div>
 <p>Apply changes:</p>
-<pre><code class="language-bash">sudo sysctl -p
-</code></pre>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>sysctl<span class="w"> </span>-p
+</code></pre></div>
 <h3>Start WireGuard Server</h3>
-<pre><code class="language-bash"># Start the VPN
-sudo wg-quick up wg0
+<div class="highlight"><pre><span></span><code><span class="c1"># Start the VPN</span>
+sudo<span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
 
-# Enable automatic startup on boot
-sudo systemctl enable wg-quick@wg0
+<span class="c1"># Enable automatic startup on boot</span>
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>wg-quick@wg0
 
-# Check status
-sudo wg show
-</code></pre>
+<span class="c1"># Check status</span>
+sudo<span class="w"> </span>wg<span class="w"> </span>show
+</code></pre></div>
 <hr />
 <h2>Configuring Clients</h2>
 <h3>Client Configuration</h3>
 <p>Create <code>wg0.conf</code> for each client:</p>
-<pre><code class="language-ini">[Interface]
-# Client's private key
-PrivateKey = &lt;PEER_PRIVATE_KEY&gt;
+<div class="highlight"><pre><span></span><code><span class="k">[Interface]</span>
+<span class="c1"># Client&#39;s private key</span>
+<span class="na">PrivateKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PEER_PRIVATE_KEY&gt;</span>
 
-# Client's VPN IP address
-Address = 10.0.0.2/32
+<span class="c1"># Client&#39;s VPN IP address</span>
+<span class="na">Address</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.0.0.2/32</span>
 
-# Optional: DNS servers to use when connected
-DNS = 1.1.1.1, 8.8.8.8
+<span class="c1"># Optional: DNS servers to use when connected</span>
+<span class="na">DNS</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">1.1.1.1, 8.8.8.8</span>
 
-[Peer]
-# Server's public key
-PublicKey = &lt;SERVER_PUBLIC_KEY&gt;
+<span class="k">[Peer]</span>
+<span class="c1"># Server&#39;s public key</span>
+<span class="na">PublicKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;SERVER_PUBLIC_KEY&gt;</span>
 
-# Preshared key
-PresharedKey = &lt;PEER_PRESHARED_KEY&gt;
+<span class="c1"># Preshared key</span>
+<span class="na">PresharedKey</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;PEER_PRESHARED_KEY&gt;</span>
 
-# Server's public IP and port
-Endpoint = &lt;SERVER_PUBLIC_IP&gt;:51820
+<span class="c1"># Server&#39;s public IP and port</span>
+<span class="na">Endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&lt;SERVER_PUBLIC_IP&gt;:51820</span>
 
-# Route all traffic through VPN (full tunnel)
-AllowedIPs = 0.0.0.0/0, ::/0
+<span class="c1"># Route all traffic through VPN (full tunnel)</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">0.0.0.0/0, ::/0</span>
 
-# Keep connection alive (important for mobile)
-PersistentKeepalive = 25
-</code></pre>
+<span class="c1"># Keep connection alive (important for mobile)</span>
+<span class="na">PersistentKeepalive</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">25</span>
+</code></pre></div>
 <p><strong>Configuration Options Explained</strong>:</p>
 <ul>
 <li><strong>AllowedIPs = 0.0.0.0/0</strong>: Routes all traffic through VPN (full tunnel)</li>
@@ -291,9 +303,8 @@ PersistentKeepalive = 25
 <li><strong>PersistentKeepalive = 25</strong>: Sends keepalive packets every 25 seconds to maintain NAT mappings</li>
 </ul>
 <p>Start the client:</p>
-<pre><code class="language-bash">sudo wg-quick up wg0
-</code></pre>
-<hr />
+<h2><div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>wg-quick<span class="w"> </span>up<span class="w"> </span>wg0
+</code></pre></div></h2>
 <h2>Network and Firewall Setup</h2>
 <h3>Router Configuration</h3>
 <ol>
@@ -308,29 +319,29 @@ PersistentKeepalive = 25
 </li>
 </ol>
 <h3>Firewall Configuration (UFW)</h3>
-<pre><code class="language-bash"># Allow WireGuard port
-sudo ufw allow 51820/udp
+<div class="highlight"><pre><span></span><code><span class="c1"># Allow WireGuard port</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">51820</span>/udp
 
-# Allow SSH (important! if you use SSH at port 22 to manage the server)
-sudo ufw allow 22/tcp
+<span class="c1"># Allow SSH (important! if you use SSH at port 22 to manage the server)</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>allow<span class="w"> </span><span class="m">22</span>/tcp
 
-# Enable firewall
-sudo ufw enable
+<span class="c1"># Enable firewall</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span><span class="nb">enable</span>
 
-# Check status
-sudo ufw status
-</code></pre>
+<span class="c1"># Check status</span>
+sudo<span class="w"> </span>ufw<span class="w"> </span>status
+</code></pre></div>
 <hr />
 <h2>Testing Your VPN</h2>
 <h3>Verify Server Status</h3>
-<pre><code class="language-bash"># Check if WireGuard is running
-sudo wg show
+<div class="highlight"><pre><span></span><code><span class="c1"># Check if WireGuard is running</span>
+sudo<span class="w"> </span>wg<span class="w"> </span>show
 
-# Should show connected peers
-sudo wg show wg0
-</code></pre>
-<p>Expected output:</p>
-<pre><code>interface: wg0
+<span class="c1"># Should show connected peers</span>
+sudo<span class="w"> </span>wg<span class="w"> </span>show<span class="w"> </span>wg0
+</code></pre></div>
+<p>Expected output:
+<div class="highlight"><pre><span></span><code>interface: wg0
   public key: &lt;server_public_key&gt;
   private key: (hidden)
   listening port: 51820
@@ -341,7 +352,7 @@ peer: &lt;peer1_public_key&gt;
   allowed ips: 10.0.0.2/32
   latest handshake: 30 seconds ago
   transfer: 15.2 MiB received, 8.4 MiB sent
-</code></pre>
+</code></pre></div></p>
 <hr />
 <h2>Security Best Practices</h2>
 <ul>
@@ -353,11 +364,11 @@ peer: &lt;peer1_public_key&gt;
 <h2>Advanced Configuration</h2>
 <h3>Split Tunneling</h3>
 <p>To route only specific traffic through VPN (e.g., home network only):</p>
-<p>Client configuration:</p>
-<pre><code class="language-ini">[Peer]
-# Only route home network traffic through VPN
-AllowedIPs = 10.0.0.0/24, 192.168.1.0/24
-</code></pre>
+<p>Client configuration:
+<div class="highlight"><pre><span></span><code><span class="k">[Peer]</span>
+<span class="c1"># Only route home network traffic through VPN</span>
+<span class="na">AllowedIPs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10.0.0.0/24, 192.168.1.0/24</span>
+</code></pre></div></p>
 <hr />
     </article>
   </div>
@@ -700,7 +711,24 @@ AllowedIPs = 10.0.0.0/24, 192.168.1.0/24
             document.addEventListener('DOMContentLoaded', initialize);
         }
     })();
-</script> 
+</script>
+
+<script>
+  document.querySelectorAll('.highlight').forEach(block => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    block.appendChild(btn);
+    btn.addEventListener('click', () => {
+      const code = block.querySelector('pre').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -42,3 +42,33 @@ Given a probability distribution $p(x)$, the entropy is defined as:
 $$H(X) = -\sum_{x \in \mathcal{X}} p(x) \log p(x)$$
 
 For continuous distributions, this becomes $H(X) = -\int p(x) \log p(x)\, dx$.
+
+## Code Highlighting
+
+Python:
+
+```python
+def fibonacci(n: int) -> int:
+    if n <= 1:
+        return n
+    return fibonacci(n - 1) + fibonacci(n - 2)
+
+print(fibonacci(10))  # 55
+```
+
+JavaScript:
+
+```javascript
+const greet = (name) => `Hello, ${name}!`;
+console.log(greet("World"));
+```
+
+SPARQL:
+
+```sparql
+SELECT ?subject ?predicate ?object
+WHERE {
+  ?subject ?predicate ?object .
+  FILTER(?subject = <http://example.org/resource>)
+}
+```

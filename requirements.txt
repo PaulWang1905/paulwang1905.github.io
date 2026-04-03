@@ -3,4 +3,4 @@ Markdown==3.10.2
 pymdown-extensions==10.21.2
 MarkupSafe
 pandas
-python-frontmatter
+python-frontmatter==1.1.0
