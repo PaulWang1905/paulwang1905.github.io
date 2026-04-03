@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../styles.css" rel="stylesheet">
-  <title>Note for 24-07-24</title>
+  <title>Math Rendering Test</title>
   <script>
     window.MathJax = {
       tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
@@ -91,22 +91,26 @@
         <ul>
           
           <li><a href="/blog_index.html">Blog</a></li>
-          <li><a href="/blog_Blog.html">Blog</a></li>
-          <li><a href="/post/20240724.html"> Note for 24-07-24 </a> </li>
+          <li><a href="/blog_Test.html">Test</a></li>
+          <li><a href="/post/math_test.html"> Math Rendering Test </a> </li>
           
         </ul>
       </div>
-     <h1 class="text-2xl font-bold py-2"> Note for 24-07-24 </h1>
+     <h1 class="text-2xl font-bold py-2"> Math Rendering Test </h1>
      
-     <span class="badge">RandomThoughts</span>
+     <span class="badge">math</span>
      
-    <p class="py-2 text-sm opacity-90">Note for 24-07-24 updates</p>
+     <span class="badge">test</span>
+     
+     <span class="badge">latex</span>
+     
+    <p class="py-2 text-sm opacity-90">A test post for LaTeX math formula rendering.</p>
     </div>
 
     <div class="collapse-content text-sm">
       <p>By Puyu Wang</p>
-      <p>Published on Wednesday 2024-07-24 </p>
-      <p>Last Modified on Wednesday 2024-07-24 </p>
+      <p>Published on Friday 2026-04-03 </p>
+      <p>Last Modified on Friday 2026-04-03 </p>
     </div>
   </div>
 
@@ -116,15 +120,24 @@
 
   <div class="bg-base-200 p-5 rounded-lg">
     <article class="prose prose-base max-w-none">
-      <h1>Note for 24-07-24</h1>
-<h2>Recent thought on who I am</h2>
-<p>Am I a Kantian? If I am, what kind of Kantian am I? I cannot claim to be knowledgeable about Kantian philosophy. 
-However, I truely believe that it is, by default, the duty of human to do good things. 
-Yet, I do not have confidence in the autonomy of individuals. 
-My skepticism arises from the fact that I often find people are not truly free.</p>
-<h2>Video by Zizek</h2>
-<p>I found this video interesting. </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eQmc039N0jE?si=sco-mwXbbWFArVik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      <h1>Math Rendering Test</h1>
+<h2>Inline Math</h2>
+<p>Einstein's famous equation: <span class="arithmatex">\(E = mc^2\)</span></p>
+<p>The quadratic formula: <span class="arithmatex">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\)</span></p>
+<p>Euler's identity: <span class="arithmatex">\(e^{i\pi} + 1 = 0\)</span></p>
+<h2>Display Math</h2>
+<p>Gaussian integral:</p>
+<div class="arithmatex">\[\int_{-\infty}^{\infty} e^{-x^2} dx = \sqrt{\pi}\]</div>
+<p>Maxwell's equations (Gauss's law):</p>
+<div class="arithmatex">\[\nabla \cdot \mathbf{E} = \frac{\rho}{\varepsilon_0}\]</div>
+<p>A matrix:</p>
+<div class="arithmatex">\[A = \begin{pmatrix} a &amp; b \\ c &amp; d \end{pmatrix}\]</div>
+<p>Taylor series expansion:</p>
+<div class="arithmatex">\[f(x) = \sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x - a)^n\]</div>
+<h2>Mixed Content</h2>
+<p>Given a probability distribution <span class="arithmatex">\(p(x)\)</span>, the entropy is defined as:</p>
+<div class="arithmatex">\[H(X) = -\sum_{x \in \mathcal{X}} p(x) \log p(x)\]</div>
+<p>For continuous distributions, this becomes <span class="arithmatex">\(H(X) = -\int p(x) \log p(x)\, dx\)</span>.</p>
     </article>
   </div>
 

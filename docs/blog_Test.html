@@ -1,23 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="en" data-theme="winter">
+<html data-theme="winter">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="../styles.css" rel="stylesheet">
-  <title>Note for 24-07-24</title>
-  <script>
-    window.MathJax = {
-      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
-    };
-  </script>
-  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="./styles.css" rel="stylesheet">
+
+<style>
+  
+
+    .color-box::before {
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+    #phrase {
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+    .color-box {
+        display: inline-block;
+        position: relative;
+        transition: opacity 1s; /* Extend transition duration for smoother effect */
+    }
+
+</style>
+
+<title>Puyu Wang</title>
+
 </head>
-
-
 <body>
 
-
+ 
   <header>
     <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="navbar-start">
@@ -80,58 +90,150 @@
     </div>  
   
   </div>
-</header>
+  </header>
 
+  <div class="md:container mx-auto px-5 p-4">
+    
 
-<div class="container mx-auto px-5 p-4 max-w-6xl">
-
-  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
-    <div class="collapse-title">
-      <div class="breadcrumbs max-w-xs text-sm">
-        <ul>
-          
-          <li><a href="/blog_index.html">Blog</a></li>
-          <li><a href="/blog_Blog.html">Blog</a></li>
-          <li><a href="/post/20240724.html"> Note for 24-07-24 </a> </li>
-          
-        </ul>
+    
+    <div class="stats shadow hidden md:grid">
+      
+      <div class="stat bg-pink-50">
+        <div class="px-8 flex justify-center items-center relative">
+          <h1 
+            class="text-6xl font-extrabold uppercase bg-clip-text text-transparent"
+            style="background-image: url('/image/wave-texture.png'); background-size: cover; background-position: center;">
+            Test
+          </h1>
+        </div>
       </div>
-     <h1 class="text-2xl font-bold py-2"> Note for 24-07-24 </h1>
-     
-     <span class="badge">RandomThoughts</span>
-     
-    <p class="py-2 text-sm opacity-90">Note for 24-07-24 updates</p>
-    </div>
+      
+      
+      
 
-    <div class="collapse-content text-sm">
-      <p>By Puyu Wang</p>
-      <p>Published on Wednesday 2024-07-24 </p>
-      <p>Last Modified on Wednesday 2024-07-24 </p>
+      <div class="stat">      
+        <div class="stat-figure text-primary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-8 w-8 stroke-current">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <div class="stat-title">Total Posts</div>
+        <div class="stat-value text-primary">1</div>
+        <div class="stat-desc"></div>
+      </div>
+    
+      <div class="stat">
+        <div class="stat-figure text-secondary">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block h-8 w-8 stroke-current">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <div class="stat-title">Tags</div>
+        <div class="stat-value text-secondary">3</div>
+        <div class="stat-desc">
+         
+        </div>  
+      </div>
+    
+      <div class="stat">
+        <div class="stat-figure text-secondary">
+          <div class="avatar online">
+            <div class="w-16 rounded-full">
+              <img src="/image/profile.png" />
+            </div>
+          </div>
+        </div>
+        <div class="stat-title">Last Upate</div>
+        <div class="stat-value">2026-04-03</div>
+       
+        <div class="stat-desc text-secondary"><a href="/post/math_test.html">Math Rendering Test</a></div>
+      </div>
     </div>
+    
   </div>
-
   
 
-  <div class="divider"></div>
 
-  <div class="bg-base-200 p-5 rounded-lg">
-    <article class="prose prose-base max-w-none">
-      <h1>Note for 24-07-24</h1>
-<h2>Recent thought on who I am</h2>
-<p>Am I a Kantian? If I am, what kind of Kantian am I? I cannot claim to be knowledgeable about Kantian philosophy. 
-However, I truely believe that it is, by default, the duty of human to do good things. 
-Yet, I do not have confidence in the autonomy of individuals. 
-My skepticism arises from the fact that I often find people are not truly free.</p>
-<h2>Video by Zizek</h2>
-<p>I found this video interesting. </p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/eQmc039N0jE?si=sco-mwXbbWFArVik" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    </article>
-  </div>
+    
+    <div class="md:container mx-auto px-5">
 
-</div>
+       <!-- Tag Filter Sidebar -->
+       <div class="hidden md:block w-48 flex-shrink-0">
+        <div class="flex gap-2 sticky top-4">
+          <button class="btn btn-sm btn-primary tag-filter" data-tag="All">All</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="math">math</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="test">test</button>
+          
+          <button class="btn btn-sm tag-filter" data-tag="latex">latex</button>
+          
+        </div>
+      </div>
 
-<!-- <div class="divider"></div> -->
+      
+      <div class="divider"></div>
 
+      
+      <div class="flex flex-col space-y-4">
+        
+        <div class="group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags="math test latex">
+          <!-- Post Image -->
+          <div class="flex-shrink-0 mb-3 sm:mb-0">
+            <a href="/post/math_test.html" class="block relative overflow-hidden rounded-lg sm:rounded-xl">
+              <img src="image/default.png" alt="Math Rendering Test" class="w-full sm:w-24 sm:h-24 md:w-32 md:h-32 object-cover group-hover:scale-105 transition-transform duration-300">
+            </a>
+          </div>
+          
+          <!-- Post Content -->
+          <div class="flex-grow sm:px-4 flex flex-col">
+            <div class="flex items-center text-xs text-gray-500 mb-1">
+              <time datetime="2026-04-03">Apr 03, 2026</time>
+            </div>
+            
+            <h3 class="text-lg font-bold tracking-tight leading-snug mb-1">
+              <a href="/post/math_test.html" class="hover:text-primary transition-colors duration-200">Math Rendering Test</a>
+            </h3>
+            
+            <p class="text-sm text-gray-600 mb-2 line-clamp-2">A test post for LaTeX math formula rendering.</p>
+            
+            
+            <div class="flex flex-wrap gap-1.5 mt-auto">
+              
+              <span class="badge badge-sm badge-outline">math</span>
+              
+              <span class="badge badge-sm badge-outline">test</span>
+              
+              <span class="badge badge-sm badge-outline">latex</span>
+              
+            </div>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+          
+    
+  <!-- <div class="divider"></div> -->
+
+  
 <!-- <blockquote class="text-xl font-semibold italic text-center text-slate-900">
     <span class="before:block before:absolute before:-inset-1 before:-skew-y-3 before:bg-pink-500 relative inline-block color-box">
       <span class="relative text-white" id="phrase"></span>
@@ -469,5 +571,36 @@ My skepticism arises from the fact that I often find people are not truly free.<
 </script> 
 
 </body>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const tagButtons = document.querySelectorAll(".tag-filter");
+  const postCards = document.querySelectorAll(".post-card");
+
+  // Add click event to all tag filter buttons
+  tagButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      // Remove active class from all buttons
+      tagButtons.forEach((btn) => btn.classList.remove("btn-primary"));
+      // Add active class to the clicked button
+      button.classList.add("btn-primary");
+
+      const selectedTag = button.getAttribute("data-tag");
+
+      // Show or hide posts based on the selected tag
+      postCards.forEach((postCard) => {
+        const postTags = postCard.getAttribute("data-tags").split(' ');
+        if (selectedTag === "All" || postTags.includes(selectedTag)) {
+          postCard.style.display = "flex"; // Show post
+        } else {
+          postCard.style.display = "none"; // Hide post
+        }
+      });
+    });
+  });
+});
+
+
+</script>
 </html>
-               
+         

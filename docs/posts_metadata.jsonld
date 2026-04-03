@@ -3,8 +3,43 @@
   "@type": "ItemList",
   "name": "Puyu Wang - Blog Posts",
   "description": "Collection of blog posts from Puyu Wang",
-  "numberOfItems": 8,
+  "numberOfItems": 9,
   "itemListElement": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://puyuwang.org/post/math_test.html",
+      "headline": "Math Rendering Test",
+      "author": {
+        "@type": "Person",
+        "name": "Puyu Wang"
+      },
+      "datePublished": "2026-04-03",
+      "dateModified": "2026-04-03",
+      "description": "A test post for LaTeX math formula rendering.",
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "Test",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "Blog Categories"
+        }
+      },
+      "keywords": [
+        "math",
+        "test",
+        "latex"
+      ],
+      "url": "https://puyuwang.org/post/math_test.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Puyu Wang",
+        "url": "https://puyuwang.org"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://puyuwang.org/post/math_test.html"
+      }
+    },
     {
       "@type": "BlogPosting",
       "@id": "https://puyuwang.org/post/20241125.html",

@@ -37,7 +37,12 @@ category_template = env.get_template("category_template.html")
 # blog index template is used to render the blog index page (for all categories)
 blog_index_template = env.get_template("blog_template.html")
 readings_note_template = env.get_template("readings_note_template.html")
-Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes', 'md_in_html', 'extra']   
+Markdown_Extenstions = ['pymdownx.tilde', 'pymdownx.emoji', 'tables', 'meta', 'footnotes', 'md_in_html', 'extra', 'pymdownx.arithmatex']
+Markdown_Extension_Configs = {
+    'pymdownx.arithmatex': {
+        'generic': True
+    }
+}
 
 posts = []
 pages = []
@@ -105,7 +110,7 @@ class POST:
             # not using markupsafe to escape html content for the moment because it will escape the blockquote in markdown. 
             # I will find a way to escape the html content in the future.
             md_content = md_file.read()
-            md = markdown.Markdown(extensions = Markdown_Extenstions)
+            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs)
             html_content = md.convert(md_content)
             self.content = html_content
             # get metadata from the md file
@@ -270,7 +275,7 @@ class INDEX:
         '''
         with open("source/index.md", 'r') as md_file:
             md_content = md_file.read()
-            md = markdown.Markdown(extensions = Markdown_Extenstions)
+            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs)
             html_content = md.convert(md_content)
             # get metadata from the md file
             self.post_meta_data = md.Meta
