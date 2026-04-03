@@ -28,6 +28,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Treasurer of Oxford AI Society (2024-2026)
 - Team member of the  [*Reuby*](https://reuben.ox.ac.uk/reuby-student-magazine) - Student Magazine at Reuben College 
 - Inaugural Vice-President and IT Officer of the Oxford Digital Scholarship Society (2025-2026)
+- Co-lead of Task 1.3 "Integration and interlinking of KGs", [Working Group 1](https://goblin-cost.eu/working-group-1-knowledge-graphs-engineering/), [GOBLIN COST Action](https://goblin-cost.eu/)  
 
 ## Hobbies
 - Movies
