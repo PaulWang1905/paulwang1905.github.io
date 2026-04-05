@@ -1,6 +1,7 @@
 import subprocess
 import os
 import markdown
+from PIL import Image
 from pygments.formatters import HtmlFormatter
 from jinja2 import Template, Environment, FileSystemLoader
 from markupsafe import Markup, escape
@@ -448,9 +449,7 @@ def clean_old_files() -> None:
     # Remove image directory if it exists
     images_dir = docs_dir / "image"
     if images_dir.exists():
-        for image in images_dir.rglob('*'):
-            image.unlink()
-        images_dir.rmdir()
+        shutil.rmtree(images_dir)
         print("images directory removed")
 
 
@@ -506,6 +505,98 @@ def render_reading_notes() -> None:
         f.write(readings_note_html)
     print("Notes built successfully")
 
+def resolve_photo_src(src: str, md_filepath: str) -> str:
+    '''
+    Resolve an image path written relative to the .md file into a path
+    relative to docs/ (i.e. the web root).
+    e.g. ../image/photo/file.jpg (relative to source/photo/) → image/photo/file.jpg
+    '''
+    md_dir = Path(md_filepath).parent
+    resolved = (md_dir / src).resolve()
+    source_root = Path('source').resolve()
+    return str(resolved.relative_to(source_root))
+
+
+def parse_photos_md(filepath: str) -> list:
+    '''
+    Parse photos.md into a list of albums.
+    Each album has a name and a list of photos with src, alt, and description.
+
+    Supported format:
+        ## Album Name
+
+        ![alt text](image/path.jpg)
+        Optional description paragraph on the next line.
+    '''
+    albums = []
+    current_album = {'name': None, 'photos': []}
+    current_photo = None
+
+    with open(filepath, 'r') as f:
+        lines = f.readlines()
+
+    for line in lines:
+        line = line.rstrip('\n')
+
+        # Album heading
+        if line.startswith('## '):
+            if current_photo:
+                current_album['photos'].append(current_photo)
+                current_photo = None
+            if current_album['photos'] or current_album['name']:
+                albums.append(current_album)
+            current_album = {'name': line[3:].strip(), 'photos': []}
+
+        # Image line
+        elif line.startswith('!['):
+            if current_photo:
+                current_album['photos'].append(current_photo)
+            import re
+            m = re.match(r'!\[([^\]]*)\]\(([^)]+)\)', line)
+            if m:
+                web_src = resolve_photo_src(m.group(2), filepath)
+                current_photo = {'alt': m.group(1), 'src': web_src, 'description': ''}
+
+        # Description: non-empty line after an image, not a heading or image itself
+        elif current_photo and line.strip() and not line.startswith('#') and not line.startswith('!['):
+            current_photo['description'] = line.strip()
+
+        # Blank line flushes the current photo
+        elif not line.strip() and current_photo:
+            current_album['photos'].append(current_photo)
+            current_photo = None
+
+    # Flush remaining
+    if current_photo:
+        current_album['photos'].append(current_photo)
+    if current_album['photos'] or current_album['name']:
+        albums.append(current_album)
+
+    return albums
+
+
+def render_photography_page() -> None:
+    '''
+    Render photography_page. Parses source/photo/photos.md into structured
+    album/photo data and passes it directly to the Jinja template.
+    '''
+    photography_template = env.get_template("photography_template.html")
+    albums = parse_photos_md("source/photo/photos.md")
+    all_photos = []
+    for album in albums:
+        for photo in album['photos']:
+            filename = photo['src'].split('/')[-1]
+            thumb_src = photo['src'].replace(filename, f'thumb/{filename}')
+            all_photos.append({'album': album['name'], 'thumb': thumb_src, **photo})
+    rendered_html = photography_template.render(
+        meta_data=meta_data,
+        phrases=meta_data["phrases"],
+        albums=albums,
+        all_photos=all_photos,
+    )
+    with open("docs/photography.html", "w") as html_file:
+        html_file.write(rendered_html)
+
 def build_pygments_css(style: str = 'default') -> None:
     '''
     Generate Pygments syntax highlighting CSS and write to docs/pygments.css
@@ -515,10 +606,36 @@ def build_pygments_css(style: str = 'default') -> None:
         f.write(css)
     print(f"Pygments CSS generated with style '{style}'")
 
+def generate_thumbnails(photo_dir: str = 'docs/image/photo', thumb_width: int = 600) -> None:
+    '''
+    Generate thumbnails for all images in photo_dir.
+    Thumbnails are written to photo_dir/thumb/ at thumb_width pixels wide,
+    preserving aspect ratio. Skips non-image files.
+    '''
+    photo_path = Path(photo_dir)
+    thumb_path = photo_path / 'thumb'
+    thumb_path.mkdir(parents=True, exist_ok=True)
+
+    image_exts = {'.jpg', '.jpeg', '.png', '.webp', '.gif'}
+    for img_file in photo_path.iterdir():
+        if img_file.suffix.lower() not in image_exts:
+            continue
+        dest = thumb_path / img_file.name
+        with Image.open(img_file) as img:
+            img = img.convert('RGB')
+            ratio = thumb_width / img.width
+            new_size = (thumb_width, int(img.height * ratio))
+            thumb = img.resize(new_size, Image.LANCZOS)
+            thumb.save(dest, quality=80, optimize=True)
+    print(f"Thumbnails written to {thumb_path}")
+
+
 if __name__ == "__main__":
     clean_old_files()
     generate_html()
     render_reading_notes()
+    render_photography_page()
     collect_static_files(collect_dirs)
+    generate_thumbnails()
     build_css()
     build_pygments_css('github-dark')
