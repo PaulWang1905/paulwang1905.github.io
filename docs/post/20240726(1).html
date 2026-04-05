@@ -310,10 +310,12 @@ sudo<span class="w"> </span>wg<span class="w"> </span>show
 <h2>Network and Firewall Setup</h2>
 <h3>Router Configuration</h3>
 <ol>
-<li><strong>Port Forwarding</strong>:</li>
-<li>Forward UDP port <code>51820</code> to your server's local IP</li>
 <li>
-<p>Example: External <code>51820</code> → Internal <code>192.168.1.100:51820</code></p>
+<p><strong>Port Forwarding</strong>:</p>
+<ul>
+<li>Forward UDP port <code>51820</code> to your server's local IP</li>
+<li>Example: External <code>51820</code> → Internal <code>192.168.1.100:51820</code></li>
+</ul>
 </li>
 <li>
 <p><strong>Dynamic DNS</strong>:
@@ -357,11 +359,10 @@ peer: &lt;peer1_public_key&gt;
 </code></pre></div></p>
 <hr />
 <h2>Security Best Practices</h2>
-<ul>
-<li>Never share private keys</li>
-<li>Regenerate keys if compromised</li>
-<li>Use preshared keys for additional security</li>
-</ul>
+<div class="highlight"><pre><span></span><code> - Never share private keys
+ - Regenerate keys if compromised
+ - Use preshared keys for additional security
+</code></pre></div>
 <hr />
 <h2>Advanced Configuration</h2>
 <h3>Split Tunneling</h3>

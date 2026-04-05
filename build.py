@@ -120,13 +120,11 @@ class POST:
             # not using markupsafe to escape html content for the moment because it will escape the blockquote in markdown. 
             # I will find a way to escape the html content in the future.
             md_content = md_file.read()
-            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs)
-            html_content = md.convert(md_content)
+            post = frontmatter.loads(md_content)
+            self.post_meta_data = post.metadata
+            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs, tab_length=2)
+            html_content = md.convert(post.content)
             self.content = html_content
-            # get metadata from the md file
-            # self.post_meta_data = md.Meta
-            
-            self.post_meta_data = frontmatter.loads(md_content).metadata
             # print(self.post_meta_data)
 
             # get the relative link 
@@ -285,7 +283,7 @@ class INDEX:
         '''
         with open("source/index.md", 'r') as md_file:
             md_content = md_file.read()
-            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs)
+            md = markdown.Markdown(extensions = Markdown_Extenstions, extension_configs = Markdown_Extension_Configs, tab_length=2)
             html_content = md.convert(md_content)
             # get metadata from the md file
             self.post_meta_data = md.Meta
