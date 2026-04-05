@@ -205,7 +205,7 @@
 
     <!-- Image — fixed height so modal doesn't resize between photos -->
     <div class="flex items-center justify-center bg-base-300 h-[65vh]">
-      <img id="lb-img" src="" alt="" class="w-full h-full object-contain">
+      <img id="lb-img" src="" alt="" class="w-full h-full object-contain transition-opacity duration-200">
     </div>
 
     <!-- Caption + nav -->
@@ -258,8 +258,18 @@ function stepLightbox(dir) {
 function syncLightbox() {
   const visible = visiblePhotos();
   const p = visible[lbIndex];
-  document.getElementById('lb-img').src = p.src;
-  document.getElementById('lb-img').alt = p.alt;
+  const img = document.getElementById('lb-img');
+
+  // Fade out, swap src, fade in only once loaded
+  img.style.opacity = '0';
+  const newImg = new Image();
+  newImg.onload = () => {
+    img.src = newImg.src;
+    img.style.opacity = '1';
+  };
+  newImg.src = p.src;
+
+  img.alt = p.alt;
   document.getElementById('lb-caption').textContent = p.alt;
   document.getElementById('lb-desc').textContent = p.description || '';
   document.getElementById('lb-counter').textContent = `${lbIndex + 1} / ${visible.length}`;
