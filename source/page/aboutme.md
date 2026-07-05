@@ -32,9 +32,9 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Peer Supporter / Sub-Dean at Reuben College, University of Oxford
 - Memberof '_The Reuby_' - Student Magazine of Reuben College
 - Podcaster for [Voices in Research Podcast](https://www.voicesinresearch.co.uk/)
-- Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam)
-- Founder of [OxAI Mini-Conference](https://www.oxai.org/mini-conference)
-- Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2025](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
+- Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam) (2023-2026)
+- Founder of [OXAI Conference](https://conference.oxai.org/)
+- Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2026](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
 - 🤖 I’m an [AI Ambassador](https://staff.web.ox.ac.uk/digital/services/competency-centres/ai-and-ml) at the University of Oxford 🤖
 
 
