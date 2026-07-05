@@ -30,11 +30,11 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Doing several things at the same time
 - Love to learn new things
 - Peer Supporter / Sub-Dean at Reuben College, University of Oxford
-- Memberof '_The Reuby_' - Student Magazine of Reuben College
+- Member of '_The Reuby_' - Student Magazine of Reuben College
 - Podcaster for [Voices in Research Podcast](https://www.voicesinresearch.co.uk/)
-- Treasurer at [Oxford ArtificiaI Intelligence Society (OxAI)](https://www.oxai.org/theteam) (2023-2026)
+- Treasurer at [Oxford Artificial Intelligence Society (OxAI)](https://www.oxai.org/) (2023-2026)
 - Founder of [OXAI Conference](https://conference.oxai.org/)
-- Class Tutor (TA) at Department of Computer Science, Univeresity of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2026](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
+- Class Tutor (TA) at Department of Computer Science, University of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2026](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
 - 🤖 I’m an [AI Ambassador](https://staff.web.ox.ac.uk/digital/services/competency-centres/ai-and-ml) at the University of Oxford 🤖
 
 
@@ -44,7 +44,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 
 # Short Bio
 
-Born in the 1990s in a small county in Henan, I began my academic journey in 2014 by enrolling in the Musicology program at Zhengzhou Normal University. In 2019, I pursued a Master of Arts degree at Shanghai Normal University, where my research focused on the performance practice of 18th-century concertos, particularly exploring solo parts, orchestral accompaniment, and improvisational elements such as cadenzas. During a lockdown lasting about three month, I graduated in May 2022 without a formal ceremony.
+Born in the 1990s in a small county in Henan, I began my academic journey in 2014 by enrolling in the Musicology program at Zhengzhou Normal University. In 2019, I pursued a Master of Arts degree at Shanghai Normal University, where my research focused on the performance practice of 18th-century concertos, particularly exploring solo parts, orchestral accompaniment, and improvisational elements such as cadenzas. During a lockdown lasting about three months, I graduated in May 2022 without a formal ceremony.
 
 Later in 2022, I transitioned to the University of Oxford to pursue a PhD in Engineering Science. While I have a strong background in music—playing the double bass, guitar, and some piano—my interest in coding and Linux has developed as a personal hobby. My initial focus was helping computers understand the structure of music and even generate it.
 
