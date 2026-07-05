@@ -17,6 +17,6 @@ module.exports = {
     require('daisyui'),
   ],
   daisyui: {
-    themes: ["winter", "light", "dark"], // Include your desired themes
+    themes: ["winter", "dark"], // winter = default (light), dark = toggle target
   },
 };
