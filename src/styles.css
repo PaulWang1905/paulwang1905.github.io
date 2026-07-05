@@ -2,3 +2,97 @@
 @tailwind components;
 @tailwind utilities;
 @import "daisyui";
+
+/* ============================================================
+   CV timeline (About page)
+
+   Plain CSS on top of DaisyUI's theme variables (oklch). Kept
+   out of @layer / @apply on purpose:
+     - never purged, regardless of build order;
+     - no marker-class or "utility doesn't exist" pitfalls;
+     - adapts to both the winter (light) and dark themes for free.
+   ============================================================ */
+.cv-timeline {
+  list-style: none;
+  max-width: 44rem;
+  margin: 2rem auto;
+  padding: 0;
+  position: relative;
+}
+
+/* the vertical rail */
+.cv-timeline::before {
+  content: "";
+  position: absolute;
+  left: 7px;
+  top: 0.6rem;
+  bottom: 0.6rem;
+  width: 2px;
+  background: oklch(var(--b3));
+}
+
+.cv-item {
+  position: relative;
+  padding: 0 0 2rem 2.5rem;
+}
+
+.cv-item:last-child {
+  padding-bottom: 0;
+}
+
+/* the dot */
+.cv-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.3rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 9999px;
+  background: oklch(var(--p));
+  border: 3px solid oklch(var(--b1));
+  box-shadow: 0 0 0 1px oklch(var(--b3));
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cv-item:hover::before {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 4px oklch(var(--p) / 0.15);
+}
+
+.cv-date {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: oklch(var(--a));
+  border: 1px solid oklch(var(--a) / 0.35);
+  border-radius: 9999px;
+  padding: 0.12rem 0.65rem;
+  margin-bottom: 0.45rem;
+}
+
+.cv-label {
+  display: block;
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  color: oklch(var(--p));
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.cv-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: oklch(var(--bc));
+  margin: 0.1rem 0 0;
+  line-height: 1.35;
+}
+
+.cv-desc {
+  color: oklch(var(--bc) / 0.72);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  margin: 0.45rem 0 0;
+}
