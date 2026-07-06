@@ -1,5 +1,5 @@
 
-<footer class="metro-footer bg-neutral text-neutral-content mt-8 border-t border-primary/30">
+<footer class="metro-footer bg-base-200 text-base-content mt-8 border-t border-primary/30">
   <div class="max-w-5xl mx-auto px-4 py-12">
 
     <!-- ===================== Metro tile grid ===================== -->
@@ -171,7 +171,7 @@
         flex: 1 1 auto;
         min-height: 7rem;
         overflow: hidden;
-        background: oklch(var(--n));       /* dark backing, seen edge-on mid-flip */
+        background: oklch(var(--b3));      /* theme-matching backing, seen edge-on mid-flip */
         perspective: 900px;
     }
     .metro-face {
@@ -231,9 +231,9 @@
         justify-content: space-between;
         margin-top: 1.5rem;
         padding-top: 1.25rem;
-        border-top: 1px solid oklch(var(--nc) / 0.2);
+        border-top: 1px solid oklch(var(--bc) / 0.2);
         font-size: 0.82rem;
-        color: oklch(var(--nc) / 0.6);
+        color: oklch(var(--bc) / 0.6);
     }
     @media (min-width: 640px) { .metro-bottom { flex-direction: row; } }
 
@@ -243,7 +243,7 @@
         letter-spacing: 0.08em;
         font-size: 0.7rem;
         font-weight: 700;
-        color: oklch(var(--nc) / 0.7);
+        color: oklch(var(--bc) / 0.7);
         transition: color 0.2s ease;
     }
     .metro-links a:hover { color: oklch(var(--p)); }
