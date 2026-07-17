@@ -8,14 +8,14 @@
     {
       "@type": "BlogPosting",
       "@id": "https://puyuwang.org/post/silver_age.html",
-      "headline": "Short Story",
+      "headline": "Silver Age",
       "author": {
         "@type": "Person",
         "name": "Puyu Wang"
       },
       "datePublished": "2026-07-17",
       "dateModified": "2026-07-17",
-      "description": null,
+      "description": "A short story about a deduplication officer in a world where reality can duplicate, exploring themes of memory, choice, and the nature of reality.",
       "about": {
         "@type": "DefinedTerm",
         "name": "Story",
