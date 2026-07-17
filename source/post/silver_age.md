@@ -1,6 +1,6 @@
 ---
-Title:   Short Story
-Summary: 
+Title:   Silver Age
+Summary: A short story about a deduplication officer in a world where reality can duplicate, exploring themes of memory, choice, and the nature of reality.
 Authors: Puyu Wang
 Date:    2026-07-17
 Category: Story
