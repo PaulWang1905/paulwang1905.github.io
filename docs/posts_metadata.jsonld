@@ -3,8 +3,41 @@
   "@type": "ItemList",
   "name": "Puyu Wang - Blog Posts",
   "description": "Collection of blog posts from Puyu Wang",
-  "numberOfItems": 9,
+  "numberOfItems": 10,
   "itemListElement": [
+    {
+      "@type": "BlogPosting",
+      "@id": "https://puyuwang.org/post/silver_age.html",
+      "headline": "Short Story",
+      "author": {
+        "@type": "Person",
+        "name": "Puyu Wang"
+      },
+      "datePublished": "2026-07-17",
+      "dateModified": "2026-07-17",
+      "description": null,
+      "about": {
+        "@type": "DefinedTerm",
+        "name": "Story",
+        "inDefinedTermSet": {
+          "@type": "DefinedTermSet",
+          "name": "Blog Categories"
+        }
+      },
+      "keywords": [
+        "Story"
+      ],
+      "url": "https://puyuwang.org/post/silver_age.html",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Puyu Wang",
+        "url": "https://puyuwang.org"
+      },
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://puyuwang.org/post/silver_age.html"
+      }
+    },
     {
       "@type": "BlogPosting",
       "@id": "https://puyuwang.org/post/math_test.html",

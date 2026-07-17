@@ -1,0 +1,524 @@
+
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../styles.css" rel="stylesheet">
+  <link href="../pygments.css" rel="stylesheet">
+  <title>Short Story</title>
+  <style>
+    .highlight { position: relative; border-radius: 0.5rem; padding: 1rem; overflow-x: auto; margin: 1rem 0; }
+    .highlight pre { margin: 0; background: transparent; }
+    .prose pre { padding: 0; background: transparent; border-radius: 0; }
+    .prose code::before, .prose code::after { content: none; }
+    .copy-btn {
+      position: absolute; top: 0.5rem; right: 0.5rem;
+      padding: 0.2rem 0.6rem; font-size: 0.75rem; border-radius: 0.25rem;
+      background: rgba(255,255,255,0.15); color: #ccc; border: 1px solid rgba(255,255,255,0.2);
+      cursor: pointer; opacity: 0; transition: opacity 0.2s;
+    }
+    .highlight:hover .copy-btn { opacity: 1; }
+    .copy-btn.copied { background: rgba(100,200,100,0.3); color: #9f9; }
+  </style>
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['\\(', '\\)']], displayMath: [['\\[', '\\]']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+</head>
+
+
+<body>
+
+
+  <header>
+    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <div class="navbar-start">
+      <!--- The dropdown menu is hidden on large screens -->
+      <!-- Mobile menu button -->
+      <div class="dropdown lg:hidden">
+        <label tabindex="0" class="btn btn-ghost btn-circle hover:bg-base-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+          </svg>
+        </label>
+        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 p-2 shadow-lg bg-base-100 rounded-box w-52 z-50">
+          <li><a class="hover:text-primary transition-colors duration-200" href="/page/aboutme.html">About</a></li>
+          <li><a class="hover:text-primary transition-colors duration-200" href="https://eng.ox.ac.uk/people/puyu-wang/">Contact</a></li>
+          <li><a class="hover:text-primary transition-colors duration-200" href="/blog_index.html">Blog</a></li>
+          <li><a class="hover:text-primary transition-colors duration-200" href="/photography.html">Photography</a></li>
+        </ul>
+      </div>
+     
+      <!-- Site title with animated gradient -->
+      <a class="btn btn-ghost normal-case text-xl hover:scale-105 transition-transform duration-200" href="/index.html">
+        <span class="box-decoration-clone bg-gradient-to-r from-indigo-600 to-pink-500 text-white px-2">
+          Puyu Wang
+        </span>
+      </a>
+      <div class="hidden lg:flex">
+        <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="/page/aboutme.html">About</a>
+        <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="https://eng.ox.ac.uk/people/puyu-wang/">Contact</a>
+        <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="/blog_index.html">Blog</a>
+        <a class="btn btn-ghost text-xl hover:scale-105 transition-transform duration-200" href="/photography.html">Photography</a>
+      </div>
+    
+    </div>
+    
+    <div class="navbar-end">
+             
+
+      <!-- Theme toggle button with hover effect -->
+      <label class="swap swap-rotate hover:scale-110 transition-transform duration-200">
+        <input type="checkbox" class="theme-controller" value="dark" />
+        <!-- Sun icon -->
+        <svg
+          class="swap-off h-10 w-10 fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24">
+          <path
+            d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+        </svg>
+      
+        <!-- Moon icon -->
+        <svg
+        class="swap-on h-10 w-10 fill-current"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24">
+        <path
+          d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+      </svg>
+      </label>
+
+      
+  
+    </div>  
+  
+  </div>
+</header>
+
+
+<div class="container mx-auto px-5 p-4 max-w-6xl">
+
+  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
+    <div class="collapse-title">
+      <div class="breadcrumbs max-w-4xl text-sm">
+        <ul>
+          
+          <li><a href="/blog_index.html">Blog</a></li>
+          <li><a href="/blog_Story.html">Story</a></li>
+          <li><a href="/post/silver_age.html"> Short Story </a> </li>
+          
+        </ul>
+      </div>
+     <h1 class="text-2xl font-bold py-2"> Short Story </h1>
+     
+     <span class="badge">Story</span>
+     
+    <p class="py-2 text-sm opacity-90">None</p>
+    </div>
+
+    <div class="collapse-content text-sm">
+      <p>By Puyu Wang</p>
+      <p>Published on Friday 2026-07-17 </p>
+      <p>Last Modified on Friday 2026-07-17 </p>
+    </div>
+  </div>
+
+  
+
+  <div class="divider"></div>
+
+  <div class="bg-base-200 p-5 rounded-lg">
+    <article class="prose prose-base max-w-none">
+      <h1>Silver Age</h1>
+<h2>Puyu Wang</h2>
+<h3>1</h3>
+<p>In the spring 2050 a new file landed on my desk, covered with a stamp in red: DOUBLED. “DOUBLED” means the same event occurred twice. My job is to review these two versions of reality, and figure out which is real, and send them to the archive. The real one gets stamped as REAL. The other stamped as SHADOW.</p>
+<p>My name is Zhang San, 39, a deduplication officer. My mother thinks I am a civil servant. In a way, I am. Civil servants manage reality. I create the reality for them to manage. My occupation only came into being around 2048. A young occupation like this usually does not pay well, except mine actually does. No one really wants to do this. On average you visit a psychiatrist once every three years in this job. I've only been twice, exactly average. </p>
+<p>Duplication began around 2046. A Beijing driver delivered the same bowl of soup to the same customer twice. The restaurant owner saw the driver took the soup, but 37 minutes later, the driver showed up, and the soup was still on the counter. He delivered it again. The chef remembered making one bowl of soup. The driver remembered delivering it once. Yet, there were two orders on the platform, two bowls of soup at the customer door step. </p>
+<p>Soon it spread everywhere. An office worker drank the same coffee twice; the cup was cleared, then reappeared with coffee, hot. Police fined the same person twice for speeding, same time, same vehicle and same location. A couple got married twice, at the same venue, with the same guests, just on different dates. Everyone claimed there was only one wedding, however, no one can be certain which one was the one they went to.  </p>
+<p>At first people assumed it was a data error. It wasn’t. Reality had begun to stutter — and a thing could repeat months, even a year, after. The State realized the danger. The laws might break down for it. If a marriage certificate is issued twice, is it one marriage or two? If a crime is committed twice, is it one crime or two? They have to only recognize one. The Calibration and Integrity Agency was founded, with three offices: Detection, which finds doubles; Deduplication, mine, which reviews and selects; and Archive. We maintain the archives simply because no one knows what else to do with them.</p>
+<p>My wife works in the Archive. Her job is simple: receive files and seal them. She is not supposed to read them. But my wife reads. Actually, all archivists read. No one can resist not to steal a glance. She does not talk it. The principle of Agency applies at our house as well – see it but don’t say it. But once she broke the rule. It was a snowy winter in Beijing. She came home, sat down on the sofa, and mentioned she sealed a wedding. She said, “But in the one version, the father never showed up.”
+I asked if that was the real one, she said yes.  “...but in the shadow one — one day later than the real one — the father showed up.” After a long silence she continued, “The shadow one is better.” I said nothing. But I didn't sleep well that night. </p>
+<h3>2</h3>
+<p>Deduplication is about being correct rather than being better. Our Director Liang never made errors. He is 60 and retiring soon. Every day, 9 AM, he shows up, makes Goji Tea, turns on his computer and looks at the screen for the whole morning. He continues to look at the screen after lunch, until 6PM. He approves every report, agrees with every meeting, nods at every SHADOW ruling, “That makes a lot of sense.” he always says. He is a perfect civil servant who never errs. </p>
+<p>But he has mysteries.  One winter night I worked until 10PM. Passing his office, I saw the door ajar. Through the gap I can see the room was empty — not just unoccupied but bare. No desk, no chair, no computer, nothing. It was a completely bare empty room. I was shocked but I told myself it was just the light. The next morning, everything was normal, his chair, desk, computer, and himself. “Morning,” I said. I cannot say what I saw. </p>
+<p>Deputy Director Jiang was a completely different sort of person. He is 44, looking for promotion. He needs achievements, improvements, results. However, at Deduplication, some improvements are not intended—the more shadows we send to the Archive, the more chaos it reveals in reality. That is a mark against stability. The only improveable statistic for him is accuracy. Often he asks, "Zhang San, made any wrong rulings lately?" and I say no, and he leaves disappointed.  </p>
+<h3>3</h3>
+<p>Our work on ruling has threefold principles: how many people remember each version; how many digital traces there are; and the subject's own conviction — which version they would rather believe. These principles form the basis of our induction manual. The manual ends with a small print: Where conclusion can not be made, deduplication officer decides. Some people call it the conscience clause. 
+An internal metric, the Ruling Accuracy, is reported to the Central Committee but never made public. It should stand at 100% — once a ruling is stamped, it becomes truth. However, the record shows about eighty-two percent of our REAL rulings are correct; fifteen percent are wrong — we stamped the true one SHADOW and the shadow REAL; and the remaining three percent are undecidable. Eighty-two, fifteen, three, added to exactly one hundred. 
+Sometimes I think the figures are too clean. Once I said this to my wife. "That's a good thing," she said. "It means someone's maintaining the decimal point." I asked who it was. She thought for a while, and said, "Just someone." Ever since, I often feel someone is there.
+Fifteen percent wrong. That means of the two hundred-odd cases I rule each year, about thirty are wrong. I learned not to be curious about them. But a year ago I had a new colleague, Li Si, who is a bit different. He had a mathematics degree and could get into any department at the Agency. But he chose Deduplication because he said he wanted to know what makes things real. I told him he'd given up knowing the moment he came here. </p>
+<h3>4</h3>
+<p>Li Si’s first case is a man with two identical childhoods, in both of which there was a classmate, Xiao Fang, whom he never spoke to. Xiao Fang died in a car crash in one version; in the other she went to Shanghai and got married. 
+The evidence was perfectly balanced. Xiao Fang died. But Xiao Fang is also living. He was stuck for two weeks. I said he had to make a decision now. "But whichever one I pick is real?" he asked. "On what grounds?" I said: you're a deduplication officer. 
+Eventually he chose “went to Shanghai”, and wrote: “maybe the subject could meet Xiao Fang again. ” Director Liang read the report and clicked “Approve.”
+Months later Li Si asked me if our work was actually about choosing a more meaningful life. I said, “No, we are choosing a more helpful one.” 
+“Helpful for whom?” he asked. I did not answer. I do not know who needs to be helpful. He then asked, “Who do you think is making this happen?”  I said, “ I do not know.” He then asked if I would like to know. I told him the conversation was not helpful.
+Li Si moved to another department shortly after a year. When I asked Director Liang about it, he said, “I did not see it”. 
+My wife asked me the same question that day. “I don’t know,” I said. “Director Liang did not see it.”</p>
+<h3>5</h3>
+<p>The case on my desk is from Mr. Wong of Nanjing. He remembered his father died of cancer in 2047 in Nanjing Hospital. Yet later he found a collection of photos showing his father receiving final treatment at Peking Union Hospital in 2048, where he died of the same disease. Only one version should be real. He submitted the case to us. 
+I asked him which one he remembered the best. He could not tell. He remembered spending an entire year in Nanjing caring for his father. Yet he also remembered being in Beijing. “Am I getting crazy?” he asked. 
+He was not. Both hospitals had complete records, including death certificates bearing the same ID: “104”. 
+“Which one do you wish to be real?”
+ “I…don't know,” he said. “they are both real.”
+But I had to choose. I stamped the real 2048 record. It was just closer to him. </p>
+<h3>6</h3>
+<p>I have never told anyone, not even my wife, about the number 104. I am almost certain I have seen it in another case. But I learned long ago not to be too curious. Then, a few weeks ago, an old man stopped me outside a teahouse. It was just after dusk and I had a long shift. He looks around 60, wearing a Sun Yat-sen suit. He asked me if I was “Comrade Zhang San” and I said I was and asked how I could help. 
+He answered, “You ruled on my daughter's case. You thought she went to Shanghai. You were wrong.” I remember the case. It is Li Si’s first. “It wasn't me, Sir,” I said. “My colleague handled it. You can apply for reassessment.” 
+“No, it was you. I only wanted to tell you that you were wrong,” he said. “I do not need a reassessment.” I tried to explain that his daughter is alive in Shanghai. “She is not my daughter!” he snapped, cutting me off. “But I just wanted to tell you that you were wrong.” 
+He shook my hand and walked away. That night I mentioned it to my wife. “Maybe Li Si made a mistake,” I said.
+“Li Si who?” she asked.</p>
+<h3>7</h3>
+<p>104 really feels like a seed lodged in my mind. I just cannot remember where I could have seen it over and over again. The sense of familiarity grew stronger and stronger.<br />
+Then one day a notification appeared on my screen: No. 104 Nanjing – Mr Wong – Request for Reassessment. That moment hit me. I suddenly remembered. It was a few weeks before I joined the Agency. Sitting in a teahouse, I had seen an old man in a Sun Yat-sen suit speaking to a young man outside a teahouse. They shook hands and parted ways. I was at table 104. Then I realized why Director Liang never makes mistakes, why he only approves, and why his office is empty. It is the only useful thing to do. 
+That night I just could not stop thinking about what it all meant. I wonder if I have ever been in some notifications. I wonder if I am helpful. 
+“Still awake?” My wife murmured. “You should really get some sleep.” –  then she drifted back into dreams. I listened to her breathing in the darkness. Gentle. Even. Steady. 
+The next morning, she was up before me, cooking congee. It was an ordinary morning. Outside the window, the Beijing sky was a clear, washed-clean blue. “Can you help me with the pancake?” she asked. 
+And for that moment, it felt a little real—not because I knew it was real, but because it was ours.</p>
+    </article>
+  </div>
+
+</div>
+
+<!-- <div class="divider"></div> -->
+
+<footer class="metro-footer bg-base-200 text-base-content mt-8 border-t border-primary/30">
+  <div class="max-w-5xl mx-auto px-4 py-12">
+
+    <!-- ===================== Metro tile grid ===================== -->
+    <div class="metro-grid">
+
+      <!-- Profile (left, with social links folded in) -->
+      <div class="mtile mtile--p metro-profile">
+        <img class="metro-avatar" src="/image/profile.png" alt="Puyu Wang" loading="lazy" />
+        <div class="metro-id">
+          <div class="metro-name">Puyu Wang</div>
+          <div class="mtile__sub">DPhil Student &middot; University of Oxford</div>
+        </div>
+        <div class="metro-socials">
+          <a href="https://x.com/puyu1001" aria-label="X (Twitter)">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </a>
+          <a href="https://github.com/paulwang1905" aria-label="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/></svg>
+          </a>
+          <a href="https://linkedin.com/in/puyu-wang" aria-label="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          </a>
+          <a href="https://eng.ox.ac.uk/people/puyu-wang/" aria-label="Oxford profile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"><path d="M3.654 1.328a.678.678 0 0 0-1.015-.063L1.605 2.3c-.483.484-.661 1.169-.45 1.77a17.568 17.568 0 0 0 4.168 6.608 17.569 17.569 0 0 0 6.608 4.168c.601.211 1.286.033 1.77-.45l1.034-1.034a.678.678 0 0 0-.063-1.015l-2.307-1.794a.678.678 0 0 0-.58-.122l-2.19.547a1.745 1.745 0 0 1-1.657-.459L5.482 8.062a1.745 1.745 0 0 1-.46-1.657l.548-2.19a.678.678 0 0 0-.122-.58L3.654 1.328z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Right column: aphorism tile + three nav tiles beneath it -->
+      <div class="metro-right">
+
+        <!-- Rotating quote (live tile) -->
+        <div class="metro-quote-tile">
+          <div class="metro-face c0">
+            <span class="mtile__label">Aphorism</span>
+            <blockquote class="metro-phrase"><span id="phrase"></span></blockquote>
+            <span class="metro-mark" aria-hidden="true">&#10078;</span>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="metro-nav">
+          <a href="/index.html" class="mtile mtile--s" aria-label="Home">
+            <span class="mtile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L8 2.207l6.646 6.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.707 1.5Z"/>
+                <path d="m8 3.293 6 6V13.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5V9.293l6-6Z"/>
+              </svg>
+            </span>
+            <span class="mtile__title">Home</span>
+          </a>
+
+          <a href="/blog_index.html" class="mtile mtile--a" aria-label="Blog">
+            <span class="mtile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M5 10.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm0-2a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5z"/>
+                <path d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3z"/>
+              </svg>
+            </span>
+            <span class="mtile__title">Blog</span>
+          </a>
+
+          <a href="/page/aboutme.html" class="mtile mtile--n" aria-label="About">
+            <span class="mtile__icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor">
+                <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+              </svg>
+            </span>
+            <span class="mtile__title">About</span>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ===================== Bottom bar ===================== -->
+    <div class="metro-bottom">
+      <p>&copy; <span id="footer-year">2025</span> Puyu Wang &mdash; All rights reserved</p>
+      <nav class="metro-links">
+        <a href="/page/privacy-policy.html">Privacy</a>
+        <a href="/page/terms-of-service.html">Terms</a>
+        <a href="#top" class="metro-toplink" aria-label="Back to top">
+          Top
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+          </svg>
+        </a>
+      </nav>
+    </div>
+
+  </div>
+</footer>
+
+
+<style>
+    /* ===== Metro (Modern UI) footer ===== */
+    .metro-footer {
+        font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .metro-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0.6rem;
+    }
+    @media (min-width: 768px) {
+        .metro-grid { grid-template-columns: 1fr 1.7fr; align-items: stretch; }
+    }
+
+    /* right column stacks the quote tile over the three nav tiles */
+    .metro-right { display: flex; flex-direction: column; gap: 0.6rem; height: 100%; }
+    .metro-nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.6rem; }
+
+    /* --- base tile --- */
+    .mtile {
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.9rem 1.1rem;
+        border-radius: 0;                 /* Metro = sharp corners */
+        text-decoration: none;
+        transition: filter 0.15s ease, transform 0.1s ease;
+    }
+    .mtile:hover { filter: brightness(1.08); }
+    a.mtile:active { transform: scale(0.97); }        /* Metro press */
+
+    /* --- tile colours, straight from the DaisyUI theme palette --- */
+    .mtile--p { background: oklch(var(--p)); color: oklch(var(--pc)); }
+    .mtile--s { background: oklch(var(--s)); color: oklch(var(--sc)); }
+    .mtile--a { background: oklch(var(--a)); color: oklch(var(--ac)); }
+    .mtile--n { background: oklch(var(--b3)); color: oklch(var(--bc)); }
+
+    /* --- tile content --- */
+    .mtile__icon { line-height: 0; }
+    .mtile__icon svg { width: 24px; height: 24px; }
+    .mtile__title { font-weight: 600; font-size: 1rem; }
+    .mtile__sub   { font-size: 0.74rem; opacity: 0.85; margin-top: 0.15rem; }
+    .mtile__label {
+        font-size: 0.6rem;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        opacity: 0.78;
+    }
+
+    /* --- profile tile --- */
+    .metro-profile { min-height: 13rem; }
+    .metro-avatar {
+        width: 3.75rem;
+        height: 3.75rem;
+        object-fit: cover;
+        border-radius: 0;                 /* square, true to Metro */
+    }
+    .metro-name { font-size: 1.4rem; font-weight: 700; line-height: 1.15; }
+    .metro-socials { display: flex; gap: 0.9rem; }
+    .metro-socials a { line-height: 0; opacity: 0.85; transition: opacity 0.15s ease, transform 0.15s ease; }
+    .metro-socials a:hover { opacity: 1; transform: translateY(-2px); }
+    .metro-socials svg { width: 20px; height: 20px; }
+
+    /* --- nav tiles --- */
+    .metro-nav .mtile { min-height: 5rem; }
+
+    /* --- quote live tile: Windows 8 face flip --- */
+    .metro-quote-tile {
+        position: relative;
+        flex: 1 1 auto;
+        min-height: 7rem;
+        overflow: hidden;
+        background: oklch(var(--b3));      /* theme-matching backing, seen edge-on mid-flip */
+        perspective: 900px;
+    }
+    .metro-face {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0.9rem 1.1rem;
+        transform-origin: center center;
+        backface-visibility: hidden;
+        will-change: transform;
+    }
+    .metro-quote-tile:hover .metro-face { filter: brightness(1.08); }
+    .metro-face.c0 { background: oklch(var(--p)); color: oklch(var(--pc)); }
+    .metro-face.c1 { background: oklch(var(--s)); color: oklch(var(--sc)); }
+    .metro-face.c2 { background: oklch(var(--a)); color: oklch(var(--ac)); }
+
+    /* the flap tumbles forward: old face rotates up & away, new face drops in */
+    .metro-face.flip-out { animation: metroFlipOut 0.32s ease-in forwards; }
+    .metro-face.flip-in  { animation: metroFlipIn 0.5s cubic-bezier(0.2, 0.75, 0.2, 1) forwards; }
+    @keyframes metroFlipOut {
+        from { transform: rotateX(0deg); }
+        to   { transform: rotateX(90deg); }
+    }
+    @keyframes metroFlipIn {
+        from { transform: rotateX(-90deg); }
+        to   { transform: rotateX(0deg); }
+    }
+
+    .metro-phrase { margin: 0; }
+    #phrase { display: inline-block; font-weight: 600; font-size: 1.15rem; line-height: 1.3; }
+
+    .metro-mark {
+        position: absolute;
+        right: 0.4rem;
+        bottom: -0.9rem;
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 4.25rem;
+        line-height: 1;
+        font-weight: 700;
+        opacity: 0.16;
+        pointer-events: none;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .metro-face.flip-out, .metro-face.flip-in { animation: none; }
+        .mtile { transition: none; }
+    }
+
+    /* --- bottom bar --- */
+    .metro-bottom {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid oklch(var(--bc) / 0.2);
+        font-size: 0.82rem;
+        color: oklch(var(--bc) / 0.6);
+    }
+    @media (min-width: 640px) { .metro-bottom { flex-direction: row; } }
+
+    .metro-links { display: flex; align-items: center; gap: 1.25rem; }
+    .metro-links a {
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: oklch(var(--bc) / 0.7);
+        transition: color 0.2s ease;
+    }
+    .metro-links a:hover { color: oklch(var(--p)); }
+    .metro-toplink { display: inline-flex; align-items: center; gap: 0.35rem; }
+</style>
+
+<script>
+    (function() {
+        // Configuration
+        const config = {
+            displayTime: 4500,
+            fadeTime: 320        // matches the flip-out duration below
+        };
+
+        // Phrases (rendered as proper JSON by the build; falls back if empty)
+        const phrases = ["\u5929\u4e4b\u84bc\u84bc\uff0c\u5176\u6b63\u8272\u90aa", "\u543e\u65e5\u4e09\u7701\u543e\u8eab", "\u77e5\u884c\u5408\u4e00", "\u884c\u6709\u9918\u529b\uff0c\u5247\u4ee5\u5b78\u6587", "\u601d\u7121\u90aa", "\u5148\u884c\u5176\u8a00\uff0c\u800c\u5f8c\u5f9e\u4e4b", "\u76e1\u7f8e\u77e3\uff0c\u53c8\u76e1\u5584\u4e5f", "\u597d\u4ec1\u8005\uff0c\u7121\u4ee5\u5c1a\u4e4b", "\u7121\u6240\u5f9e\u4f86\uff0c\u4ea6\u7121\u6240\u53bb", "\u6240\u8b02\u4f5b\u6cd5\u8005\uff0c\u5373\u975e\u4f5b\u6cd5", "\u9053\u6cd5\u81ea\u7136", "\u5929\u4e0b\u5927\u4e8b\uff0c\u5fc5\u4f5c\u65bc\u7d30", "\u70ba\u7121\u70ba\uff0c\u4e8b\u7121\u4e8b\uff0c\u5473\u7121\u5473", "\u5468\u96d6\u820a\u90a6,\u5176\u547d\u7dad\u65b0", "\u5fb7\u4e0d\u5b64\uff0c\u5fc5\u6709\u9130", "\u4e14\u6709\u771f\u4eba\uff0c\u800c\u5f8c\u6709\u771f\u77e5"] || ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
+        let currentIndex = 0;
+        let colorIndex = 0;
+
+        // Elements
+        const phraseElement = document.getElementById('phrase');
+        const face = phraseElement ? phraseElement.closest('.metro-face') : null;
+        const tileColors = ['c0', 'c1', 'c2'];
+
+        // Repaint the tile face with the next palette colour
+        function paintFace() {
+            if (!face) return;
+            face.classList.remove('c0', 'c1', 'c2');
+            face.classList.add(tileColors[colorIndex]);
+        }
+
+        // Flip the face out, swap text + colour, then flip the new face in
+        function showNextQuote() {
+            if (!face) return;
+            face.classList.remove('flip-in');
+            face.classList.add('flip-out');
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % phrases.length;
+                colorIndex = (colorIndex + 1) % tileColors.length;
+                phraseElement.textContent = phrases[currentIndex];
+                paintFace();
+                face.classList.remove('flip-out');
+                void face.offsetWidth;            // reflow so flip-in restarts cleanly
+                face.classList.add('flip-in');
+            }, config.fadeTime);
+        }
+
+        // Initialize
+        function initialize() {
+            // Keep the copyright year current
+            const yearEl = document.getElementById('footer-year');
+            if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+            if (!phraseElement || !phrases.length) return;
+
+            // Show the first phrase, then rotate (only if there is more than one)
+            phraseElement.textContent = phrases[0];
+            paintFace();
+            if (phrases.length > 1) setInterval(showNextQuote, config.displayTime);
+        }
+
+        // Start when document is loaded
+        if (document.readyState !== 'loading') {
+            initialize();
+        } else {
+            document.addEventListener('DOMContentLoaded', initialize);
+        }
+    })();
+</script>
+
+<script>
+  document.querySelectorAll('.highlight').forEach(block => {
+    const btn = document.createElement('button');
+    btn.className = 'copy-btn';
+    btn.textContent = 'Copy';
+    block.appendChild(btn);
+    btn.addEventListener('click', () => {
+      const code = block.querySelector('pre').innerText;
+      navigator.clipboard.writeText(code).then(() => {
+        btn.textContent = 'Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
+               
