@@ -4,3 +4,6 @@ __pycache__/
 node_modules/
 node_modules/*
 node_modules/**
+.venv/
+HANDOFF.md
+OXIE_MIGRATION.md
