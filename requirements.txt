@@ -1,4 +1,9 @@
-oxie[sheets]==0.4.1
+oxie==0.5.0
+
+# Backup: recent updates now come from source/updates.yaml, so the Google
+# Sheet extra (pandas, numpy) is no longer needed. To go back to the sheet,
+# delete source/updates.yaml and restore this line:
+# oxie[sheets]==0.4.1
 
 # Backup: the pins used by build_legacy.py before the switch to oxie.
 # oxie pulls in all of these as its own dependencies.
