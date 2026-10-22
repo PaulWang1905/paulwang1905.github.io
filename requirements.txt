@@ -1,10 +1,14 @@
-Jinja2==3.1.6
-pillow>=11.0.0
-Markdown==3.10.2
-pymdown-extensions==10.21.2
-pandas
-python-frontmatter==1.1.0
-Pygments==2.20.0
-python-dateutil==2.9.0.post0
-PyYAML==6.0.3
-six==1.17.0
+oxie[sheets]==0.4.1
+
+# Backup: the pins used by build_legacy.py before the switch to oxie.
+# oxie pulls in all of these as its own dependencies.
+# Jinja2==3.1.6
+# pillow>=11.0.0
+# Markdown==3.10.2
+# pymdown-extensions==10.21.2
+# pandas
+# python-frontmatter==1.1.0
+# Pygments==2.20.0
+# python-dateutil==2.9.0.post0
+# PyYAML==6.0.3
+# six==1.17.0
