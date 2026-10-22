@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Talks, events and news from {{ meta_data.title }}.">
+<link rel="canonical" href="{{ canonical }}">
+<link href="./styles.css" rel="stylesheet">
+<title>Updates — {{ meta_data.title }}</title>
+</head>
+<body>
+
+<header>{% include 'header.html' %}</header>
+
+<!-- Hero -->
+<section class="py-16 border-b border-base-200">
+  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+    <h1 class="text-5xl font-semibold tracking-tighter mb-3">Updates</h1>
+    <p class="text-base-content/50 text-sm tracking-wide">
+      What am I up to? &middot;
+      {{ updates | length }} update{{ 's' if updates | length != 1 }}
+    </p>
+  </div>
+</section>
+
+<!-- Timeline, newest first, grouped by year -->
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl py-10">
+  {% if updates %}
+  {% for year, items in updates | groupby('date.year') | reverse %}
+  <section class="mb-8" aria-labelledby="year-{{ year }}">
+    <h2 id="year-{{ year }}" class="text-xs font-bold uppercase tracking-widest text-base-content/40 mb-4">{{ year }}</h2>
+    <ol>
+      {% for update in items %}
+      {# id is the target of the links in the home page's Recent updates box;
+         scroll-mt keeps the entry clear of the sticky header #}
+      <li id="update-{{ update.date.strftime('%Y-%m-%d') }}" class="flex gap-4 group scroll-mt-24 -mx-3 px-3 rounded-xl target:bg-base-200">
+        <div class="flex flex-col items-center pt-2 flex-shrink-0">
+          <div class="w-2.5 h-2.5 rounded-full bg-accent/60"></div>
+          <div class="w-px flex-1 bg-base-300 mt-1 group-last:hidden"></div>
+        </div>
+        <div class="pb-7 min-w-0">
+          <time datetime="{{ update.date.strftime('%Y-%m-%d') }}" class="text-xs font-semibold text-base-content/40">{{ update.date.strftime("%b %d, %Y") }}</time>
+          <div class="mt-1 text-base leading-relaxed text-base-content/85 [&_a]:font-medium [&_a]:underline [&_a]:decoration-base-content/30 [&_a]:underline-offset-2 [&_a:hover]:text-primary [&_a]:transition-colors">{{ update.content }}</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endfor %}
+  {% else %}
+  <p class="text-base-content/50">No updates yet.</p>
+  {% endif %}
+</main>
+
+{% include 'footer.html' %}
+
+</body>
+</html>
