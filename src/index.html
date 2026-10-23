@@ -1,248 +1,215 @@
 <!DOCTYPE html>
-<html data-theme="winter">
+<html lang="en" data-theme="winter">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="google-adsense-account" content="ca-pub-9133490777581705">
+{% set page_description = "Puyu Wang is a DPhil student at the Oxford e-Research Centre, University of Oxford, working on semantic web technologies, knowledge graphs, data integration and large language models." %}
+<title>{{ meta_data.title }}</title>
+<meta name="description" content="{{ page_description }}">
+{% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+<meta property="og:type" content="profile">
+<meta property="og:title" content="{{ meta_data.title }}">
+<meta property="og:description" content="{{ page_description }}">
+{% if canonical %}<meta property="og:url" content="{{ canonical }}">{% endif %}
+<meta property="og:image" content="{{ site_url }}/image/profile.png">
+<meta name="twitter:card" content="summary">
+{% if feed_url %}<link rel="alternate" type="application/rss+xml" title="{{ meta_data.title }}" href="{{ feed_url }}">{% endif %}
 <link href="./styles.css" rel="stylesheet">
-
-<title>Puyu Wang</title>
-
+{% if jsonld %}<script type="application/ld+json">
+{{ jsonld }}
+</script>{% endif %}
 </head>
 <body>
 
   <header>
     {% include 'header.html' %}
   </header>
- 
-    
-    <div class="md:container mx-auto px-5 p-4">
-        
-    
 
-      <div class="relative bg-cover bg-center py-12 px-6 rounded-xl overflow-hidden" style="background-image: url('image/background.jpg')">
-        <!-- Dark overlay to enhance the moody background -->
-        <div class="absolute inset-0 bg-gradient-to-br from-black/40 via-black/25 to-black/10"></div>
+  <!-- One container for the whole page, so the hero and the grid share edges -->
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
 
-        <div class="relative flex justify-center">
-          <!-- Wider card -->
-          <div class="card w-full max-w-2xl bg-base-100 bg-opacity-75 backdrop-blur-md shadow-2xl">
-            <div class="card-body p-0">
-              <!-- Top section: avatar + identity + social links -->
-              <div class="bg-base-200 bg-opacity-70 backdrop-blur-sm p-6 rounded-t-box">
-                <div class="flex flex-col sm:flex-row items-center gap-5">
-                  <!-- Avatar -->
-                  <div class="avatar flex-shrink-0">
-                    <div class="w-28 rounded-full ring-2 ring-base-content/40 ring-offset-2 ring-offset-transparent shadow-lg">
-                      <img src="image/profile.png" alt="Puyu Wang" />
-                    </div>
-                  </div>
+    <!-- Hero: a short photo band, with the profile card overlapping its bottom edge -->
+    <section aria-label="Profile">
+      <div class="relative h-36 sm:h-48 lg:h-56 rounded-2xl overflow-hidden bg-base-300">
+        <img src="image/background.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
+      </div>
 
-                  <!-- Name, title, institution -->
-                  <div class="flex-1 text-center sm:text-left">
-                    <h1 class="text-3xl font-bold tracking-tight">Puyu Wang</h1>
-                    <div class="mt-2 pt-2 border-t border-base-content/10">
-                      <p class="text-sm font-semibold text-base-content/75 tracking-wide">DPhil (Ph.D.) Candidate</p>
-                      <div class="flex items-center justify-center sm:justify-start gap-1.5 mt-0.5 text-xs text-base-content/50">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-                        </svg>
-                        <span class="tracking-wide">University of Oxford</span>
-                      </div>
-                    </div>
-                  </div>
+      <div class="relative -mt-14 sm:-mt-20 mx-1 sm:mx-6 lg:mx-10 rounded-2xl bg-base-100 border border-base-300/70 shadow-xl p-5 sm:p-7">
+        <div class="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6">
 
-                  <!-- Social links — top-right, stacked on desktop -->
-                  <div class="flex sm:flex-col gap-2">
-                    <a href="https://x.com/puyu1001" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content hover:text-base-content" aria-label="X / Twitter">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                      </svg>
-                    </a>
-                    <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content hover:text-base-content" aria-label="Email">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                      </svg>
-                    </a>
-                    <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content hover:text-base-content" aria-label="LinkedIn">
-                      <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
+          <!-- Avatar: pulled up over the card's top edge on phones -->
+          <div class="avatar flex-shrink-0 -mt-14 sm:mt-0">
+            <div class="w-24 sm:w-28 rounded-full ring-4 ring-base-100 shadow-md">
+              <img src="image/profile-256.jpg" alt="Puyu Wang" width="112" height="112">
+            </div>
+          </div>
+
+          <div class="flex-1 min-w-0 text-center sm:text-left">
+            <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-start sm:justify-between">
+              <div>
+                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Puyu Wang</h1>
+                <!-- One line with a separator on wider screens, stacked on phones -->
+                <p class="mt-1 text-sm sm:text-base text-base-content/70">
+                  <span class="block sm:inline">DPhil (Ph.D.) Candidate</span>
+                  <span class="hidden sm:inline mx-1 text-base-content/30" aria-hidden="true">·</span>
+                  <span class="whitespace-nowrap">Oxford e-Research Centre,</span>
+                  <span class="whitespace-nowrap">University of Oxford</span>
+                </p>
               </div>
 
-              <!-- Bottom: quote + research interests -->
-              <div class="p-6 space-y-5">
-                <!-- Left-border blockquote — cleaner than a nested card -->
-                <blockquote class="border-l-2 border-base-content/30 pl-4 py-0.5">
-                  <p class="text-sm italic text-base-content/70">
-                    ...exploring the intersection of semantic technologies and language models...for a more linked world...
-                  </p>
-                </blockquote>
+              <!-- Elsewhere -->
+              <nav class="flex gap-2 flex-shrink-0" aria-label="Elsewhere">
+                <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="Email">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                  </svg>
+                </a>
+                <a href="https://github.com/paulwang1905" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="GitHub">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="LinkedIn">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                  </svg>
+                </a>
+                <a href="https://x.com/puyu1001" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="X (Twitter)">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                  </svg>
+                </a>
+              </nav>
+            </div>
 
-                <!-- Research interests -->
-                <div>
-                  <div class="flex items-center gap-2 mb-3">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-base-content/60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                    <h3 class="text-xs font-bold text-base-content/60 uppercase tracking-widest">Research Interests</h3>
-                  </div>
-                  <div class="flex flex-wrap gap-2">
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-primary/15 text-primary border border-primary/25">
-                      Knowledge/Data Integration
-                    </span>
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">
-                      Semantic Web / Knowledge Graphs / Linked Open Data
-                    </span>
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">
-                      Digital Humanities
-                    </span>
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">
-                      Ontology Engineering / Mapping
-                    </span>
-                    <span class="px-2.5 py-1 text-xs font-medium rounded-full bg-accent/15 text-accent border border-accent/25">
-                      Large Language Models
-                    </span>
-                  </div>
-                </div>
-              </div>
+            <blockquote class="mt-5 sm:border-l-2 sm:border-primary/40 sm:pl-4 text-sm sm:text-base italic text-base-content/70">
+              ...exploring the intersection of semantic technologies and language models...for a more linked world...
+            </blockquote>
+
+            <div class="mt-5">
+              <p class="mb-2.5 text-xs font-bold uppercase tracking-widest text-base-content/50">Research interests</p>
+              <ul class="flex flex-wrap justify-center sm:justify-start gap-2">
+                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-primary/15 text-primary border border-primary/25">Knowledge/Data Integration</li>
+                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Semantic Web / Knowledge Graphs / Linked Open Data</li>
+                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Digital Humanities</li>
+                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Ontology Engineering / Mapping</li>
+                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-accent/15 text-accent border border-accent/25">Large Language Models</li>
+              </ul>
             </div>
           </div>
         </div>
       </div>
-      
-      <div class="divider"></div>
-      <div class="container mx-auto px-4 py-8">
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <!-- Sidebar -->
-          <aside class="space-y-5">
+    </section>
 
-            <!-- Recent Updates -->
-            <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
-              <div class="px-5 pt-5 pb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                </svg>
-                <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Recent Updates</h2>
-              </div>
-              <div class="border-t border-base-300 mx-5"></div>
-              {% if updates %}
-              <ul class="divide-y divide-base-300/60">
-                {% for update in updates %}
-                {# The date link stretches over the whole row (after:inset-0), so
-                   clicking anywhere opens the full update; links inside the
-                   text sit above it (relative z-10) and still work. #}
-                <li class="relative px-5 py-3.5 hover:bg-base-300/50 focus-within:bg-base-300/50 transition-colors">
-                  <div class="flex items-center gap-2 mb-1">
-                    <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 {{ 'bg-accent' if loop.first else 'bg-base-content/25' }}" aria-hidden="true"></span>
-                    <a href="/updates.html#update-{{ update.date.strftime('%Y-%m-%d') }}" class="text-xs font-semibold text-base-content/45 focus:outline-none after:absolute after:inset-0" aria-label="Full update from {{ update.date.strftime('%b %d, %Y') }}">
-                      <time datetime="{{ update.date.strftime('%Y-%m-%d') }}">{{ update.date.strftime("%b %d, %Y") }}</time>
-                    </a>
-                    {% if loop.first %}<span class="text-[10px] font-bold uppercase tracking-wider text-accent">Latest</span>{% endif %}
-                  </div>
-                  <div class="text-sm leading-snug text-base-content/80 line-clamp-3 [&_a]:relative [&_a]:z-10 [&_a]:font-medium [&_a]:underline [&_a]:decoration-base-content/30 [&_a]:underline-offset-2 [&_a:hover]:text-primary [&_a]:transition-colors">{{ update.content }}</div>
-                </li>
-                {% endfor %}
-              </ul>
-              {% else %}
-              <div class="px-5 py-4 text-sm text-base-content/50">No updates yet.</div>
-              {% endif %}
-              <div class="px-5 py-3 border-t border-base-300/60">
-                <a href="/updates.html" class="text-xs font-semibold text-primary/70 hover:text-primary transition-colors tracking-wide">All updates →</a>
-              </div>
-            </div>
+    <div class="grid grid-cols-1 gap-10 py-10 sm:py-14 lg:grid-cols-3 lg:gap-12">
 
-            <!-- Recent Posts -->
-            <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
-              <div class="px-5 pt-5 pb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
-                </svg>
-                <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Recent Posts</h2>
-              </div>
-              <div class="border-t border-base-300 mx-5"></div>
-              {% if posts %}
-              <ul class="divide-y divide-base-300/60">
-                {% for post in posts[:3] %}
-                <li>
-                  <a href="{{ post.link }}" class="flex items-start justify-between gap-3 px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
-                    <h3 class="text-sm font-medium group-hover:text-primary transition-colors leading-snug">{{ post.title }}</h3>
-                    <span class="text-xs text-base-content/35 whitespace-nowrap mt-0.5 flex-shrink-0">{{ post.date.strftime("%b '%y") }}</span>
-                  </a>
-                </li>
-                {% endfor %}
-              </ul>
-              {% else %}
-              <div class="px-5 py-4 text-sm text-base-content/50">No posts yet.</div>
-              {% endif %}
-              <div class="px-5 py-3 border-t border-base-300/60">
-                <a href="/blog_index.html" class="text-xs font-semibold text-primary/70 hover:text-primary transition-colors tracking-wide">All posts →</a>
-              </div>
-            </div>
+      <!-- About: the main column. First in the page so phones show it before the sidebar. -->
+      <main class="min-w-0 lg:col-span-2">
+        <article class="prose max-w-none [&>h2:first-child]:mt-0 prose-headings:tracking-tight prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-3 prose-h2:pb-2 prose-h2:border-b prose-h2:border-base-300 prose-li:my-1 [&_a]:underline-offset-2 [&_a]:decoration-base-content/30 [&_a:hover]:text-primary [&_a]:transition-colors">
+          {{ content }}
+        </article>
+      </main>
 
-            <!-- Pages -->
-            <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
-              <div class="px-5 pt-5 pb-3 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Pages</h2>
-              </div>
-              <div class="border-t border-base-300 mx-5"></div>
-              {% if pages %}
-              <ul class="divide-y divide-base-300/60">
-                {% for page in pages %}
-                <li>
-                  <a href="{{ page.link }}" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
-                    <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">{{ page.title }}</h3>
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-base-content/25 group-hover:text-secondary/60 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </a>
-                </li>
-                {% endfor %}
-              </ul>
-              {% else %}
-              <div class="px-5 py-4 text-sm text-base-content/50">No pages yet.</div>
-              {% endif %}
-            </div>
+      <!-- Sidebar -->
+      <aside class="space-y-5">
 
-          </aside>
-
-          <!-- Main Content -->
-          <main class="lg:col-span-2">
-            <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
-              <div class="px-5 pt-4 pb-2 flex items-center gap-2">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-base-content/40 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-                <span class="text-xs font-bold uppercase tracking-widest text-base-content/40">About</span>
+        <!-- Recent Updates -->
+        <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-5 pt-5 pb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-accent flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+            </svg>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Recent Updates</h2>
+          </div>
+          <div class="border-t border-base-300 mx-5"></div>
+          {% if updates %}
+          <ul class="divide-y divide-base-300/60">
+            {% for update in updates %}
+            {# The date link stretches over the whole row (after:inset-0), so
+               clicking anywhere opens the full update; links inside the
+               text sit above it (relative z-10) and still work. #}
+            <li class="relative px-5 py-3.5 hover:bg-base-300/50 focus-within:bg-base-300/50 transition-colors">
+              <div class="flex items-center gap-2 mb-1">
+                <span class="w-1.5 h-1.5 rounded-full flex-shrink-0 {{ 'bg-accent' if loop.first else 'bg-base-content/25' }}" aria-hidden="true"></span>
+                <a href="/updates.html#update-{{ update.date.strftime('%Y-%m-%d') }}" class="text-xs font-semibold text-base-content/45 focus:outline-none after:absolute after:inset-0" aria-label="Full update from {{ update.date.strftime('%b %d, %Y') }}">
+                  <time datetime="{{ update.date.strftime('%Y-%m-%d') }}">{{ update.date.strftime("%b %d, %Y") }}</time>
+                </a>
+                {% if loop.first %}<span class="text-[10px] font-bold uppercase tracking-wider text-accent">Latest</span>{% endif %}
               </div>
-              <div class="border-t border-base-300 mx-5 mb-1"></div>
-              <div class="px-5 py-3">
-                <article class="prose prose-sm leading-snug max-w-none">
-                  {{ content }}
-                </article>
-              </div>
-            </div>
-          </main>
+              <div class="text-sm leading-snug text-base-content/80 line-clamp-3 [&_a]:relative [&_a]:z-10 [&_a]:font-medium [&_a]:underline [&_a]:decoration-base-content/30 [&_a]:underline-offset-2 [&_a:hover]:text-primary [&_a]:transition-colors">{{ update.content }}</div>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="px-5 py-4 text-sm text-base-content/50">No updates yet.</div>
+          {% endif %}
+          <div class="px-5 py-3 border-t border-base-300/60">
+            <a href="/updates.html" class="text-xs font-semibold text-primary/70 hover:text-primary transition-colors tracking-wide">All updates →</a>
+          </div>
         </div>
-      </div>
-     
-  
-    
-     
 
+        <!-- Recent Posts -->
+        <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-5 pt-5 pb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-primary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+            </svg>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Recent Posts</h2>
+          </div>
+          <div class="border-t border-base-300 mx-5"></div>
+          {% if posts %}
+          <ul class="divide-y divide-base-300/60">
+            {% for post in posts[:3] %}
+            <li>
+              <a href="{{ post.link }}" class="flex items-start justify-between gap-3 px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
+                <h3 class="text-sm font-medium group-hover:text-primary transition-colors leading-snug">{{ post.title }}</h3>
+                <span class="text-xs text-base-content/35 whitespace-nowrap mt-0.5 flex-shrink-0">{{ post.date.strftime("%b '%y") }}</span>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="px-5 py-4 text-sm text-base-content/50">No posts yet.</div>
+          {% endif %}
+          <div class="px-5 py-3 border-t border-base-300/60">
+            <a href="/blog_index.html" class="text-xs font-semibold text-primary/70 hover:text-primary transition-colors tracking-wide">All posts →</a>
+          </div>
+        </div>
 
+        <!-- Pages -->
+        <div class="bg-base-200 rounded-xl shadow-sm overflow-hidden">
+          <div class="px-5 pt-5 pb-3 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-secondary flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <h2 class="text-xs font-bold uppercase tracking-widest text-base-content/50">Pages</h2>
+          </div>
+          <div class="border-t border-base-300 mx-5"></div>
+          {% if pages %}
+          <ul class="divide-y divide-base-300/60">
+            {% for page in pages %}
+            <li>
+              <a href="{{ page.link }}" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
+                <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">{{ page.title }}</h3>
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-base-content/25 group-hover:text-secondary/60 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </li>
+            {% endfor %}
+          </ul>
+          {% else %}
+          <div class="px-5 py-4 text-sm text-base-content/50">No pages yet.</div>
+          {% endif %}
+        </div>
+
+      </aside>
     </div>
+  </div>
 
-    {% include 'footer.html' %}
-
-
+  {% include 'footer.html' %}
 
 </body>
 </html>
-         
