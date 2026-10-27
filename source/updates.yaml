@@ -9,6 +9,21 @@
 #
 # Migrated from the Google Sheet's Date and Content columns.
 
+- date: 2026-10-26
+  content: >-
+    I presented our short paper, <i>From Triples to Cards: A Web Component for
+    Human-Readable Linked Open Data</i>, at the
+    <a href="https://data-driven-storytelling-workshop.replit.app/">Data-Driven Storytelling Workshop (DDS 2026)</a>
+    at ISWC 2026 in Bari, Italy. See the
+    <a href="https://drive.google.com/file/d/19B1UWmZxGmS8N6dBJZ3njPp-BmrsKOki/view?usp=sharing">presentation slides</a>.
+
+- date: 2026-09-13
+  content: >-
+    The arXiv draft of a recent work,
+    <a href="https://arxiv.org/abs/2609.14739"><i>Building Legal Reward Models
+    for Grounding and Abstention</i></a>, is now available. It was presented
+    at the ICML 2026 AI4Law Workshop.
+
 - date: 2026-05-01
   content: >-
     I presented my work on LODox and my thoughts on Solid for Cultural
