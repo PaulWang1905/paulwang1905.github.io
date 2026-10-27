@@ -35,6 +35,7 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 ## Community Service
 
 **[Oxford Artificial Intelligence Society (OxAI)](https://www.oxai.org/)**
+
 - Founder and General Chair, [OXAI Conference](https://conference.oxai.org/) (2024-2026)
 - Treasurer (2024-2026)
 - Welfare Officer (2025-2026)
@@ -42,28 +43,30 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 - Co-organiser and Treasurer, inaugural Oxford AI Gala (May 2025), with 300+ attendees
 - Helped bring the Claude Builder Club to Oxford (2025-2026)
 - A (incomplete) list of OXAI Sponsors during my treasurer tenure: 
-    - Anthropic
-    - Mistral
-    - Jane Street
-    - JP Morgan
-    - Quantco
-    ... and many more
+  - Anthropic
+  - Mistral
+  - Jane Street
+  - JP Morgan
+  - Quantco
+  - ... and many more
 
 **Reuben College, University of Oxford**
+
 - Sub-Dean (2023-present)
 - Peer Supporter (2023-present)
 - Member of '[_The Reuby_](https://reuby.org/)' - Student Magazine of Reuben College
 
 **[Oxford Digital Scholarship Society (OxDSS)](https://oxdss.site.ox.ac.uk/)**
+
 - Inaugural Vice-President & IT Officer (2025-present)
 
 **[GOBLIN COST Action](https://goblin-cost.eu/)**
+
 - Co-lead of Task 1.3 "Integration and Interlinking of Knowledge Graphs" (2026-present), hosting/curation of a monthly knowledge graph talk series
 
 ## Teaching
 
 - Class Tutor (TA) at Department of Computer Science, University of Oxford. Course: [Knowledge Representation & Reasoning:  2024-2026](https://www.cs.ox.ac.uk/teaching/courses/2024-2025/KRR/)  
-
 - Helped with [Digital Humanities at Oxford Summer School](https://digital.humanities.ox.ac.uk/digital-humanities-oxford-summer-school) (2023, 2026)
 - Research Project Supervisor, University of Leeds Summer Internship Scheme (2026): *Automated Evaluation of Piano Performance*
 
@@ -76,7 +79,11 @@ Puyu currently is one of **Sub-Deans** at **Reuben College** and serves as a **p
 
 # Links
 
-[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/puyu1001)[![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/PaulWang1905)[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/puyu-wang/)
+<p style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+    <a href="https://twitter.com/puyu1001"><img style="margin: 0;" alt="Twitter" src="https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white"></a>
+    <a href="https://github.com/PaulWang1905"><img style="margin: 0;" alt="GitHub" src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"></a>
+    <a href="https://www.linkedin.com/in/puyu-wang/"><img style="margin: 0;" alt="LinkedIn" src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"></a>
+</p>
 
 # Short Bio
 
