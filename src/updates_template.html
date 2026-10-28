@@ -14,7 +14,7 @@
 
 <!-- Hero -->
 <section class="py-16 border-b border-base-200">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
+  <div class="enter container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl">
     <h1 class="text-5xl font-semibold tracking-tighter mb-3">Updates</h1>
     <p class="text-base-content/50 text-sm tracking-wide">
       What am I up to? &middot;
@@ -27,7 +27,7 @@
 <main class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl py-10">
   {% if updates %}
   {% for year, items in updates | groupby('date.year') | reverse %}
-  <section class="mb-8" aria-labelledby="year-{{ year }}">
+  <section class="enter mb-8" style="--i: {{ [loop.index, 8] | min }}" aria-labelledby="year-{{ year }}">
     <h2 id="year-{{ year }}" class="text-xs font-bold uppercase tracking-widest text-base-content/40 mb-4">{{ year }}</h2>
     <ol>
       {% for update in items %}

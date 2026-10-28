@@ -26,7 +26,7 @@
 <body class="bg-base-200 min-h-screen">
 
   <header>
-    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <div class="site-nav navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="navbar-start">
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
@@ -92,7 +92,7 @@
   </header>
     <div class="max-w-7xl mx-auto px-4 py-6">
         <!-- Header -->
-        <div class="card bg-base-100 shadow-md mb-6">
+        <div class="enter card bg-base-100 shadow-md mb-6">
             <div class="card-body text-left">
                 <div class="max-w-none w-full">
                     <h1 class="text-3xl font-bold mb-2">Reading Note Viewer</h1>
@@ -112,7 +112,7 @@
         </div>
 
         <!-- Loading State -->
-        <div id="loadingState" class="card bg-base-100 shadow-md">
+        <div id="loadingState" class="enter card bg-base-100 shadow-md" style="--i: 1">
             <div class="card-body items-center text-center">
                 <span class="loading loading-spinner loading-md text-primary"></span>
                 <span class="text-base-content/70">Loading readings...</span>
@@ -149,7 +149,7 @@
         </div>
 
         <!-- Main Content -->
-        <div id="mainContent" class="hidden">
+        <div id="mainContent" class="enter hidden">
             <!-- Statistics -->
             <div class="grid grid-cols-2 md:grid-cols-5 gap-4 mb-6">
                 <div class="card bg-base-100 shadow-md">

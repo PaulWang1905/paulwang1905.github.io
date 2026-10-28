@@ -34,7 +34,7 @@
 
 
   <header>
-    <div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+    <div class="site-nav navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="navbar-start">
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
@@ -102,7 +102,7 @@
 
 <div class="container mx-auto px-5 p-4 max-w-6xl">
 
-  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
+  <div tabindex="0" style="--i: 0" class="enter bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
       <div class="breadcrumbs max-w-4xl text-sm">
         <ul>
@@ -135,7 +135,7 @@
 
   <div class="divider"></div>
 
-  <div class="bg-base-200 p-5 rounded-lg">
+  <div class="enter bg-base-200 p-5 rounded-lg" style="--i: 2">
     <article class="prose prose-base max-w-none">
       <h1>Math Rendering Test</h1>
 <h2>Inline Math</h2>
@@ -166,7 +166,7 @@
 </code></pre></div>
 <p>JavaScript:</p>
 <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">greet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="nx">name</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">"World"</span><span class="p">));</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">greet</span><span class="p">(</span><span class="s2">&quot;World&quot;</span><span class="p">));</span>
 </code></pre></div>
 <p>SPARQL:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span> <span class="nv">?subject</span> <span class="nv">?predicate</span> <span class="nv">?object</span>

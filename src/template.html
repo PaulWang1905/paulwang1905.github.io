@@ -40,7 +40,7 @@
 
 <div class="container mx-auto px-5 p-4 max-w-6xl">
 
-  <div tabindex="0" class="bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
+  <div tabindex="0" style="--i: 0" class="enter bg-primary text-primary-content focus:bg-primary focus:text-primary-content collapse p-5 rounded-lg">
     <div class="collapse-title">
       <div class="breadcrumbs max-w-4xl text-sm">
         <ul>
@@ -69,7 +69,7 @@
   </div>
 
   {% if image and image != meta_data.image %}
-    <div class="carousel w-full mx-auto my-6 rounded-xl shadow-2xl overflow-hidden flex items-center justify-center">
+    <div style="--i: 1" class="enter carousel w-full mx-auto my-6 rounded-xl shadow-2xl overflow-hidden flex items-center justify-center">
       <div class="carousel-item w-full relative group">
         <div class="relative w-full h-56 md:h-80 overflow-hidden">
           <div class="absolute inset-0">
@@ -100,7 +100,7 @@
 
   <div class="divider"></div>
 
-  <div class="bg-base-200 p-5 rounded-lg">
+  <div class="enter bg-base-200 p-5 rounded-lg" style="--i: 2">
     <article class="prose prose-base max-w-none">
       {{ content }}
     </article>

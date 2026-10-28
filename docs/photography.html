@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<header><div class="navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
+<header><div class="site-nav navbar bg-base-100 shadow-lg sticky top-0 z-50 backdrop-blur-sm bg-opacity-90">
     <div class="navbar-start">
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
@@ -78,7 +78,7 @@
 
 <!-- Hero -->
 <section class="py-16 border-b border-base-200">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
+  <div class="enter container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl">
     <h1 class="text-5xl font-semibold tracking-tighter mb-3">Photography</h1>
     <p class="text-base-content/40 text-sm tracking-wide">
       4 photos &middot; 3 albums
@@ -89,7 +89,7 @@
 <!-- Album filter tabs -->
 
 <div class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-5xl pt-6 pb-2">
-  <div class="inline-flex gap-0.5 bg-base-200 rounded-xl p-1">
+  <div class="enter inline-flex gap-0.5 bg-base-200 rounded-xl p-1" style="--i: 1">
     <button class="album-tab px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer bg-base-100 shadow-sm text-base-content"
             data-album="__all__" onclick="filterAlbum(this, null)">All</button>
     
@@ -111,7 +111,7 @@
   
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4" id="gallery">
     
-    <div class="break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
+    <div style="--i: 2" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
          data-album="Architecture & Urban"
          onclick="openLightbox(0)"
          role="button" tabindex="0"
@@ -129,7 +129,7 @@
       
     </div>
     
-    <div class="break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
+    <div style="--i: 3" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
          data-album="Architecture & Urban"
          onclick="openLightbox(1)"
          role="button" tabindex="0"
@@ -147,7 +147,7 @@
       
     </div>
     
-    <div class="break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
+    <div style="--i: 4" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
          data-album="Nature & People"
          onclick="openLightbox(2)"
          role="button" tabindex="0"
@@ -165,7 +165,7 @@
       
     </div>
     
-    <div class="break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
+    <div style="--i: 5" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
          data-album="Science & Museums"
          onclick="openLightbox(3)"
          role="button" tabindex="0"
