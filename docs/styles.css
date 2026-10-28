@@ -4760,11 +4760,6 @@ details.collapse summary::-webkit-details-marker {
   margin-right: -0.75rem;
 }
 
-.mx-1 {
-  margin-left: 0.25rem;
-  margin-right: 0.25rem;
-}
-
 .mx-5 {
   margin-left: 1.25rem;
   margin-right: 1.25rem;
@@ -4780,10 +4775,6 @@ details.collapse summary::-webkit-details-marker {
   margin-bottom: 1.5rem;
 }
 
-.-mt-14 {
-  margin-top: -3.5rem;
-}
-
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -4794,10 +4785,6 @@ details.collapse summary::-webkit-details-marker {
 
 .mb-2 {
   margin-bottom: 0.5rem;
-}
-
-.mb-2\.5 {
-  margin-bottom: 0.625rem;
 }
 
 .mb-3 {
@@ -4846,10 +4833,6 @@ details.collapse summary::-webkit-details-marker {
 
 .mt-4 {
   margin-top: 1rem;
-}
-
-.mt-5 {
-  margin-top: 1.25rem;
 }
 
 .mt-6 {
@@ -4930,10 +4913,6 @@ details.collapse summary::-webkit-details-marker {
   height: 0.875rem;
 }
 
-.h-36 {
-  height: 9rem;
-}
-
 .h-4 {
   height: 1rem;
 }
@@ -5000,10 +4979,6 @@ details.collapse summary::-webkit-details-marker {
 
 .w-2\/5 {
   width: 40%;
-}
-
-.w-24 {
-  width: 6rem;
 }
 
 .w-3\.5 {
@@ -5349,10 +5324,6 @@ details.collapse summary::-webkit-details-marker {
   border-style: none;
 }
 
-.border-accent\/25 {
-  border-color: var(--fallback-a,oklch(var(--a)/0.25));
-}
-
 .border-base-200 {
   --tw-border-opacity: 1;
   border-color: var(--fallback-b2,oklch(var(--b2)/var(--tw-border-opacity, 1)));
@@ -5371,10 +5342,6 @@ details.collapse summary::-webkit-details-marker {
   border-color: var(--fallback-b3,oklch(var(--b3)/0.6));
 }
 
-.border-base-300\/70 {
-  border-color: var(--fallback-b3,oklch(var(--b3)/0.7));
-}
-
 .border-gray-200 {
   --tw-border-opacity: 1;
   border-color: rgb(229 231 235 / var(--tw-border-opacity, 1));
@@ -5390,10 +5357,6 @@ details.collapse summary::-webkit-details-marker {
   border-color: var(--fallback-p,oklch(var(--p)/var(--tw-border-opacity, 1)));
 }
 
-.border-primary\/25 {
-  border-color: var(--fallback-p,oklch(var(--p)/0.25));
-}
-
 .border-primary\/30 {
   border-color: var(--fallback-p,oklch(var(--p)/0.3));
 }
@@ -5401,10 +5364,6 @@ details.collapse summary::-webkit-details-marker {
 .border-red-200 {
   --tw-border-opacity: 1;
   border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
-}
-
-.border-secondary\/25 {
-  border-color: var(--fallback-s,oklch(var(--s)/0.25));
 }
 
 .border-t-blue-500 {
@@ -5415,10 +5374,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-accent {
   --tw-bg-opacity: 1;
   background-color: var(--fallback-a,oklch(var(--a)/var(--tw-bg-opacity, 1)));
-}
-
-.bg-accent\/15 {
-  background-color: var(--fallback-a,oklch(var(--a)/0.15));
 }
 
 .bg-accent\/60 {
@@ -5482,10 +5437,6 @@ details.collapse summary::-webkit-details-marker {
   background-color: var(--fallback-p,oklch(var(--p)/var(--tw-bg-opacity, 1)));
 }
 
-.bg-primary\/15 {
-  background-color: var(--fallback-p,oklch(var(--p)/0.15));
-}
-
 .bg-primary\/5 {
   background-color: var(--fallback-p,oklch(var(--p)/0.05));
 }
@@ -5493,10 +5444,6 @@ details.collapse summary::-webkit-details-marker {
 .bg-red-50 {
   --tw-bg-opacity: 1;
   background-color: rgb(254 242 242 / var(--tw-bg-opacity, 1));
-}
-
-.bg-secondary\/15 {
-  background-color: var(--fallback-s,oklch(var(--s)/0.15));
 }
 
 .bg-white {
@@ -5530,12 +5477,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
-.from-black\/45 {
-  --tw-gradient-from: rgb(0 0 0 / 0.45) var(--tw-gradient-from-position);
-  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
 .from-black\/70 {
   --tw-gradient-from: rgb(0 0 0 / 0.7) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
@@ -5546,11 +5487,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-gradient-from: #4f46e5 var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(79 70 229 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
-}
-
-.via-black\/10 {
-  --tw-gradient-to: rgb(0 0 0 / 0)  var(--tw-gradient-to-position);
-  --tw-gradient-stops: var(--tw-gradient-from), rgb(0 0 0 / 0.1) var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .via-black\/20 {
@@ -5902,10 +5838,6 @@ details.collapse summary::-webkit-details-marker {
   color: var(--fallback-bc,oklch(var(--bc)/0.25));
 }
 
-.text-base-content\/30 {
-  color: var(--fallback-bc,oklch(var(--bc)/0.3));
-}
-
 .text-base-content\/35 {
   color: var(--fallback-bc,oklch(var(--bc)/0.35));
 }
@@ -6090,25 +6022,13 @@ details.collapse summary::-webkit-details-marker {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-.shadow-xl {
-  --tw-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-
 .outline {
   outline-style: solid;
 }
 
-.ring-4 {
-  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
-  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(4px + var(--tw-ring-offset-width)) var(--tw-ring-color);
-  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
-}
-
-.ring-base-100 {
-  --tw-ring-opacity: 1;
-  --tw-ring-color: var(--fallback-b1,oklch(var(--b1)/var(--tw-ring-opacity, 1)));
+.blur {
+  --tw-blur: blur(8px);
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
 
 .blur-lg {
@@ -6188,91 +6108,570 @@ details.collapse summary::-webkit-details-marker {
      - adapts to both the winter (light) and dark themes for free.
    ============================================================ */
 
+/* Selectors are scoped under .cv-timeline so they beat the typography
+   plugin's .prose rules for ol/li/h3/p without needing !important. */
+
 .cv-timeline {
+  --cv-gutter: 2.25rem;
   list-style: none;
-  max-width: 44rem;
+  max-width: 46rem;
   margin: 2rem auto;
   padding: 0;
   position: relative;
 }
 
-/* the vertical rail */
+/* the vertical rail, fading out towards the most recent entry */
 
 .cv-timeline::before {
   content: "";
   position: absolute;
   left: 7px;
-  top: 0.6rem;
-  bottom: 0.6rem;
+  top: 1.4rem;
+  bottom: 1.4rem;
   width: 2px;
-  background: oklch(var(--b3));
+  border-radius: 2px;
+  background: linear-gradient(to bottom,
+    oklch(var(--bc) / 0.15),
+    oklch(var(--p) / 0.55));
 }
 
-.cv-item {
+.cv-timeline .cv-item {
   position: relative;
-  padding: 0 0 2rem 2.5rem;
+  isolation: isolate;
+  margin: 0 0 1rem;
+  padding: 1rem 1.25rem 1.1rem calc(var(--cv-gutter) + 1.25rem);
 }
 
-.cv-item:last-child {
-  padding-bottom: 0;
+.cv-timeline .cv-item:last-child {
+  margin-bottom: 0;
 }
 
-/* the dot */
+/* the card behind each entry (drawn here so the markup stays plain) */
 
-.cv-item::before {
+.cv-timeline .cv-item::after {
+  content: "";
+  position: absolute;
+  inset: 0 0 0 var(--cv-gutter);
+  z-index: -1;
+  border-radius: 0.75rem;
+  background: oklch(var(--b1));
+  border: 1px solid oklch(var(--bc) / 0.08);
+  box-shadow: 0 1px 2px oklch(var(--bc) / 0.05);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.cv-timeline .cv-item:hover::after {
+  border-color: oklch(var(--p) / 0.35);
+  box-shadow: 0 6px 18px -6px oklch(var(--p) / 0.25);
+  transform: translateX(2px);
+}
+
+/* the dot, level with the card's first line */
+
+.cv-timeline .cv-item::before {
   content: "";
   position: absolute;
   left: 0;
-  top: 0.3rem;
+  top: 1.15rem;
   width: 16px;
   height: 16px;
   border-radius: 9999px;
-  background: oklch(var(--p));
-  border: 3px solid oklch(var(--b1));
-  box-shadow: 0 0 0 1px oklch(var(--b3));
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: oklch(var(--b1));
+  border: 3px solid oklch(var(--p));
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
 }
 
-.cv-item:hover::before {
-  transform: scale(1.2);
+.cv-timeline .cv-item:hover::before {
+  background: oklch(var(--p));
+  transform: scale(1.15);
   box-shadow: 0 0 0 4px oklch(var(--p) / 0.15);
 }
 
-.cv-date {
+/* the latest entry is filled in and gently highlighted */
+
+.cv-timeline .cv-item:last-child::before {
+  background: oklch(var(--p));
+  box-shadow: 0 0 0 4px oklch(var(--p) / 0.18);
+}
+
+.cv-timeline .cv-date {
   display: inline-block;
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: oklch(var(--a));
-  border: 1px solid oklch(var(--a) / 0.35);
-  border-radius: 9999px;
-  padding: 0.12rem 0.65rem;
-  margin-bottom: 0.45rem;
-}
-
-.cv-label {
-  display: block;
-  font-family: ui-serif, Georgia, Cambria, "Times New Roman", serif;
+  vertical-align: middle;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-variant-numeric: tabular-nums;
   color: oklch(var(--p));
-  font-size: 1.05rem;
-  font-weight: 600;
-  line-height: 1.3;
+  background: oklch(var(--p) / 0.1);
+  border-radius: 9999px;
+  padding: 0.15rem 0.65rem;
+  margin: 0 0.5rem 0.35rem 0;
 }
 
-.cv-title {
-  font-size: 1.05rem;
+.cv-timeline .cv-label {
+  display: inline-block;
+  vertical-align: middle;
+  margin-bottom: 0.35rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: oklch(var(--bc) / 0.55);
+}
+
+.cv-timeline .cv-title {
+  font-size: 1.1rem;
   font-weight: 700;
   color: oklch(var(--bc));
-  margin: 0.1rem 0 0;
+  margin: 0;
   line-height: 1.35;
 }
 
-.cv-desc {
-  color: oklch(var(--bc) / 0.72);
+.cv-timeline .cv-desc {
+  color: oklch(var(--bc) / 0.75);
   font-size: 0.92rem;
-  line-height: 1.6;
-  margin: 0.45rem 0 0;
+  line-height: 1.65;
+  margin: 0.4rem 0 0;
+}
+
+@media (max-width: 480px) {
+  .cv-timeline {
+    --cv-gutter: 1.75rem;
+  }
+
+  .cv-timeline .cv-item {
+    padding: 0.9rem 1rem 1rem calc(var(--cv-gutter) + 1rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cv-timeline .cv-item::before,
+  .cv-timeline .cv-item::after {
+    transition: none;
+  }
+
+  .cv-timeline .cv-item:hover::after {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   Link buttons (About page "Links")
+
+   Same approach as the timeline: plain CSS on theme variables.
+   Use inside a .not-prose wrapper so the typography plugin's
+   link underline and image margins don't apply.
+   ============================================================ */
+
+.link-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0 1.5rem;
+}
+
+.link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  color: oklch(var(--bc));
+  background: oklch(var(--b1));
+  border: 1px solid oklch(var(--bc) / 0.12);
+  box-shadow: 0 1px 2px oklch(var(--bc) / 0.06);
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.link-btn svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  flex: none;
+  fill: currentColor;
+}
+
+.link-btn:hover {
+  color: oklch(var(--pc));
+  background: oklch(var(--p));
+  border-color: oklch(var(--p));
+  box-shadow: 0 6px 16px -6px oklch(var(--p) / 0.6);
+  transform: translateY(-1px);
+}
+
+.link-btn:focus-visible {
+  outline: 2px solid oklch(var(--p));
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link-btn {
+    transition: none;
+  }
+
+  .link-btn:hover {
+    transform: none;
+  }
+}
+
+/* ============================================================
+   Home page hero: Metro
+
+   After Windows' Metro design language: type is the main visual,
+   content sits straight on the photo with no frames, and
+   everything aligns to one grid of square cells, like the Start
+   screen. Tiles are flat: solid warm colours for links, and
+   translucent "acrylic" (blurred photo) for text. The only motion
+   is a short staggered entrance. Plain CSS like the blocks above;
+   the hero looks the same in both themes because it is mostly
+   photo.
+   ============================================================ */
+
+.home-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #fff;
+  background: #3a302a;
+}
+
+.home-hero__photo {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: opacity 0.6s ease;
+}
+
+/* the chosen photo fades in once it has loaded (the noscript copy has no data attribute) */
+
+.home-hero__photo[data-hero-photo]:not(.is-loaded) {
+  opacity: 0;
+}
+
+/* shade the photo where the type and tiles sit, so they read on any of the three */
+
+.home-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(to top, rgb(22 15 10 / 0.6), rgb(22 15 10 / 0) 60%),
+    linear-gradient(100deg, rgb(22 15 10 / 0.5), rgb(22 15 10 / 0.1) 60%);
+}
+
+.home-hero__caption {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: rgb(255 255 255 / 0.8);
+  text-decoration: none;
+  text-shadow: 0 1px 3px rgb(0 0 0 / 0.5);
+  transition: color 0.15s ease;
+}
+
+.home-hero__caption svg {
+  width: 0.9rem;
+  height: 0.9rem;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.5));
+}
+
+.home-hero__caption:hover {
+  color: #fff;
+}
+
+.home-hero__caption:hover span {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.home-hero__caption:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+.home-hero__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.5rem;
+  min-height: 34rem;
+  padding: 3.5rem 1rem 1rem;
+}
+
+.home-hero__name {
+  font-size: clamp(3rem, 9vw, 5.75rem);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.015em;
+  text-shadow: 0 2px 24px rgb(0 0 0 / 0.25);
+}
+
+.home-hero__role {
+  margin-top: 0.9rem;
+  font-size: 1.05rem;
+  font-weight: 300;
+  line-height: 1.45;
+  color: rgb(255 255 255 / 0.88);
+  text-shadow: 0 1px 8px rgb(0 0 0 / 0.3);
+}
+
+/* the tile grid: 4 columns on phones, 8 on tablets, 12 fixed cells on desktop */
+
+.home-grid-wrap {
+  container-type: inline-size;
+}
+
+.home-grid {
+  display: grid;
+  gap: 6px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  /* square cells: a row is as tall as a column is wide (container width, 3 gaps) */
+  grid-auto-rows: calc((100cqw - 18px) / 4);
+  grid-auto-flow: dense;
+}
+
+.home-tile {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+  padding: 0.6rem 0.65rem;
+  overflow: hidden;
+  color: #fff;
+  background: var(--tile, rgb(36 28 22 / 0.45));
+  text-decoration: none;
+  outline: 2px solid transparent;
+  outline-offset: -2px;
+  animation: home-tile-in 0.55s cubic-bezier(0.1, 0.9, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 55ms);
+  transition: outline-color 0.15s ease, transform 0.1s ease, filter 0.15s ease;
+}
+
+.home-tile--quote,
+.home-tile--interests {
+  grid-column: span 4;
+  grid-row: span 2;
+}
+
+.home-tile--medium {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* the four small link tiles, kept together as one 2x2 block */
+
+.home-tile-group {
+  display: grid;
+  grid-column: span 2;
+  grid-row: span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.home-tile--acrylic {
+  background: rgb(36 28 22 / 0.42);
+  -webkit-backdrop-filter: blur(22px) saturate(1.3);
+  backdrop-filter: blur(22px) saturate(1.3);
+}
+
+/* the profile picture fills its tile */
+
+.home-tile.home-tile--photo {
+  padding: 0;
+}
+
+.home-tile--photo img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.home-tile svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.home-tile__label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.home-tile__quote {
+  margin: auto 0;
+  font-size: 1rem;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.45;
+}
+
+.home-tile.home-tile--interests {
+  justify-content: flex-start;
+}
+
+.home-tile__heading {
+  margin-bottom: 0.55rem;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1;
+  color: rgb(255 255 255 / 0.75);
+}
+
+.home-tile__list {
+  display: grid;
+  gap: 0.3rem;
+  font-size: 0.8rem;
+  font-weight: 400;
+  line-height: 1.25;
+}
+
+/* a small warm square before each interest; wrapped lines hang under the text */
+
+.home-tile__list li {
+  position: relative;
+  padding-left: 0.85rem;
+}
+
+.home-tile__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.4em;
+  width: 0.4rem;
+  height: 0.4rem;
+  background: #e2a457;
+}
+
+/* the link tiles */
+
+a.home-tile:hover {
+  outline-color: rgb(255 255 255 / 0.6);
+  filter: brightness(1.1);
+}
+
+/* pressed: tilt towards the press point (set by the script), or just shrink without it */
+
+a.home-tile:active {
+  transform: scale(0.97);
+}
+
+a.home-tile.is-pressed {
+  transform: perspective(500px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg)) scale(0.97);
+}
+
+a.home-tile:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@keyframes home-tile-in {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (min-width: 640px) {
+  .home-grid {
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    grid-auto-rows: calc((100cqw - 42px) / 8);
+  }
+
+  /* tablet: the quote runs along as one strip, so the other rows fill exactly */
+
+  .home-tile--quote {
+    grid-column: span 8;
+    grid-row: span 1;
+  }
+
+  .home-hero__body {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .home-hero__caption {
+    top: 1.25rem;
+    right: 2rem;
+  }
+
+  .home-hero__role {
+    font-size: 1.2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .home-grid {
+    grid-template-columns: repeat(12, 4.75rem);
+    grid-auto-rows: 4.75rem;
+  }
+
+  .home-hero__body {
+    min-height: 36rem;
+    padding: 4.5rem 2.5rem 2.5rem;
+  }
+
+  .home-hero__caption {
+    right: 2.5rem;
+  }
+
+  .home-tile {
+    padding: 0.65rem 0.7rem;
+  }
+
+  .home-tile--quote {
+    grid-column: span 3;
+    grid-row: span 2;
+  }
+
+  .home-tile--interests {
+    grid-column: span 5;
+  }
+
+  .home-tile__quote {
+    font-size: 1.05rem;
+  }
+
+  .home-tile__list {
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-tile {
+    animation: none;
+    transition: none;
+  }
+
+  a.home-tile:active, a.home-tile.is-pressed {
+    transform: none;
+  }
+
+  .home-hero__photo {
+    transition: none;
+  }
 }
 
 @media (min-width: 768px) {
@@ -6340,11 +6739,6 @@ details.collapse summary::-webkit-details-marker {
   --tw-scale-x: 1.1;
   --tw-scale-y: 1.1;
   transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-
-.hover\:border-base-content:hover {
-  --tw-border-opacity: 1;
-  border-color: var(--fallback-bc,oklch(var(--bc)/var(--tw-border-opacity, 1)));
 }
 
 .hover\:border-base-content\/20:hover {
@@ -6529,41 +6923,16 @@ details.collapse summary::-webkit-details-marker {
 }
 
 @media (min-width: 640px) {
-  .sm\:mx-6 {
-    margin-left: 1.5rem;
-    margin-right: 1.5rem;
-  }
-
-  .sm\:-mt-20 {
-    margin-top: -5rem;
-  }
-
   .sm\:mb-0 {
     margin-bottom: 0px;
-  }
-
-  .sm\:mt-0 {
-    margin-top: 0px;
-  }
-
-  .sm\:inline {
-    display: inline;
   }
 
   .sm\:h-24 {
     height: 6rem;
   }
 
-  .sm\:h-48 {
-    height: 12rem;
-  }
-
   .sm\:w-24 {
     width: 6rem;
-  }
-
-  .sm\:w-28 {
-    width: 7rem;
   }
 
   .sm\:columns-2 {
@@ -6575,36 +6944,8 @@ details.collapse summary::-webkit-details-marker {
     flex-direction: row;
   }
 
-  .sm\:items-start {
-    align-items: flex-start;
-  }
-
-  .sm\:justify-start {
-    justify-content: flex-start;
-  }
-
-  .sm\:justify-between {
-    justify-content: space-between;
-  }
-
-  .sm\:gap-6 {
-    gap: 1.5rem;
-  }
-
   .sm\:rounded-xl {
     border-radius: 0.75rem;
-  }
-
-  .sm\:border-l-2 {
-    border-left-width: 2px;
-  }
-
-  .sm\:border-primary\/40 {
-    border-color: var(--fallback-p,oklch(var(--p)/0.4));
-  }
-
-  .sm\:p-7 {
-    padding: 1.75rem;
   }
 
   .sm\:px-4 {
@@ -6622,26 +6963,8 @@ details.collapse summary::-webkit-details-marker {
     padding-bottom: 3.5rem;
   }
 
-  .sm\:pl-4 {
-    padding-left: 1rem;
-  }
-
   .sm\:pt-6 {
     padding-top: 1.5rem;
-  }
-
-  .sm\:text-left {
-    text-align: left;
-  }
-
-  .sm\:text-4xl {
-    font-size: 2.25rem;
-    line-height: 2.5rem;
-  }
-
-  .sm\:text-base {
-    font-size: 1rem;
-    line-height: 1.5rem;
   }
 }
 
@@ -6713,21 +7036,12 @@ details.collapse summary::-webkit-details-marker {
     grid-column: span 2 / span 2;
   }
 
-  .lg\:mx-10 {
-    margin-left: 2.5rem;
-    margin-right: 2.5rem;
-  }
-
   .lg\:flex {
     display: flex;
   }
 
   .lg\:hidden {
     display: none;
-  }
-
-  .lg\:h-56 {
-    height: 14rem;
   }
 
   .lg\:columns-3 {

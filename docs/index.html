@@ -437,78 +437,117 @@
   <!-- One container for the whole page, so the hero and the grid share edges -->
   <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-4 sm:pt-6">
 
-    <!-- Hero: a short photo band, with the profile card overlapping its bottom edge -->
-    <section aria-label="Profile">
-      <div class="relative h-36 sm:h-48 lg:h-56 rounded-2xl overflow-hidden bg-base-300">
-        <img src="image/background.jpg" alt="" class="absolute inset-0 h-full w-full object-cover" fetchpriority="high">
-        <div class="absolute inset-0 bg-gradient-to-t from-black/45 via-black/10 to-transparent"></div>
-      </div>
+    <!-- Hero: Metro style. One of three photos, chosen at random on each
+         visit, fills the band edge to edge; the name is set large on it, and
+         a Start-screen grid of square tiles holds the rest. Solid tiles are
+         links; the translucent "acrylic" tiles blur the photo behind them.
+         Styles: .home-* in styles.css. -->
+    <section aria-label="Profile" class="home-hero">
+      <img data-hero-photo alt="" class="home-hero__photo" fetchpriority="high">
+      <noscript><img src="image/background2-2000.jpg" alt="" class="home-hero__photo" style="object-position: center 35%"></noscript>
+      <a href="/photography.html" class="home-hero__caption">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M15 12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h1.17a2 2 0 0 0 1.42-.59l.82-.82A1 1 0 0 1 6.12 3.3h3.76a1 1 0 0 1 .7.29l.83.82A2 2 0 0 0 12.83 5H14a1 1 0 0 1 1 1zM2 4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-1.17a1 1 0 0 1-.7-.29l-.83-.82A2 2 0 0 0 9.88 2.3H6.12a2 2 0 0 0-1.42.59l-.82.82A1 1 0 0 1 3.17 4z"/><path d="M8 11a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5m0 1a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/></svg>
+        <span data-hero-caption>photography</span>
+      </a>
+      <script>
+        // A different photo for each visit, picked before the page paints.
+        (() => {
+          const photos = [
+            { src: 'image/background2-2000.jpg', position: 'center 35%', caption: 'college garden' },
+            { src: 'image/background3-2000.jpg', position: 'center 40%', caption: 'wheat field' },
+            { src: 'image/background.jpg', position: 'center 60%', caption: 'cobbled lane at night' },
+          ];
+          const photo = photos[Math.floor(Math.random() * photos.length)];
+          const img = document.querySelector('[data-hero-photo]');
+          img.style.objectPosition = photo.position;
+          img.addEventListener('load', () => img.classList.add('is-loaded'), { once: true });
+          img.src = photo.src;
+          document.querySelector('[data-hero-caption]').textContent = photo.caption;
+        })();
+      </script>
+      </script>
 
-      <div class="relative -mt-14 sm:-mt-20 mx-1 sm:mx-6 lg:mx-10 rounded-2xl bg-base-100 border border-base-300/70 shadow-xl p-5 sm:p-7">
-        <div class="flex flex-col items-center gap-4 sm:flex-row sm:items-start sm:gap-6">
+      <div class="home-hero__body">
+        <header>
+          <h1 class="home-hero__name">Puyu Wang</h1>
+          <p class="home-hero__role">
+            <span class="block">DPhil (Ph.D.) Candidate</span>
+            <span class="whitespace-nowrap">Oxford e-Research Centre,</span>
+            <span class="whitespace-nowrap">University of Oxford</span>
+          </p>
+        </header>
 
-          <!-- Avatar: pulled up over the card's top edge on phones -->
-          <div class="avatar flex-shrink-0 -mt-14 sm:mt-0">
-            <div class="w-24 sm:w-28 rounded-full ring-4 ring-base-100 shadow-md">
-              <img src="image/profile-256.jpg" alt="Puyu Wang" width="112" height="112">
-            </div>
-          </div>
-
-          <div class="flex-1 min-w-0 text-center sm:text-left">
-            <div class="flex flex-col items-center gap-3 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h1 class="text-3xl sm:text-4xl font-bold tracking-tight">Puyu Wang</h1>
-                <!-- One line with a separator on wider screens, stacked on phones -->
-                <p class="mt-1 text-sm sm:text-base text-base-content/70">
-                  <span class="block sm:inline">DPhil (Ph.D.) Candidate</span>
-                  <span class="hidden sm:inline mx-1 text-base-content/30" aria-hidden="true">·</span>
-                  <span class="whitespace-nowrap">Oxford e-Research Centre,</span>
-                  <span class="whitespace-nowrap">University of Oxford</span>
-                </p>
-              </div>
-
-              <!-- Elsewhere -->
-              <nav class="flex gap-2 flex-shrink-0" aria-label="Elsewhere">
-                <a href="mailto:puyu.wang@eng.ox.ac.uk" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="Email">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
-                  </svg>
-                </a>
-                <a href="https://github.com/paulwang1905" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="GitHub">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/>
-                  </svg>
-                </a>
-                <a href="https://linkedin.com/in/puyu-wang" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="LinkedIn">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
-                  </svg>
-                </a>
-                <a href="https://x.com/puyu1001" class="btn btn-circle btn-sm btn-ghost border border-base-300 hover:border-base-content" aria-label="X (Twitter)">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
-                    <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-                  </svg>
-                </a>
-              </nav>
+        <div class="home-grid-wrap">
+          <div class="home-grid">
+            <div class="home-tile home-tile--photo home-tile--medium" style="--i: 0">
+              <img src="image/profile-256.jpg" alt="Puyu Wang" width="256" height="276">
             </div>
 
-            <blockquote class="mt-5 sm:border-l-2 sm:border-primary/40 sm:pl-4 text-sm sm:text-base italic text-base-content/70">
-              ...exploring the intersection of semantic technologies and language models...for a more linked world...
+            <blockquote class="home-tile home-tile--acrylic home-tile--quote" style="--i: 1">
+              <p class="home-tile__quote">...exploring the intersection of semantic technologies and language models...for a more linked world...</p>
             </blockquote>
 
-            <div class="mt-5">
-              <p class="mb-2.5 text-xs font-bold uppercase tracking-widest text-base-content/50">Research interests</p>
-              <ul class="flex flex-wrap justify-center sm:justify-start gap-2">
-                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-primary/15 text-primary border border-primary/25">Knowledge/Data Integration</li>
-                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Semantic Web / Knowledge Graphs / Linked Open Data</li>
-                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Digital Humanities</li>
-                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-secondary/15 text-secondary border border-secondary/25">Ontology Engineering / Mapping</li>
-                <li class="px-2.5 py-1 text-xs font-medium rounded-full bg-accent/15 text-accent border border-accent/25">Large Language Models</li>
+            <div class="home-tile home-tile--acrylic home-tile--interests" style="--i: 2">
+              <h2 class="home-tile__heading">research interests</h2>
+              <ul class="home-tile__list">
+                <li>Knowledge/Data Integration</li>
+                <li>Semantic Web / Knowledge Graphs / Linked Open Data</li>
+                <li>Digital Humanities</li>
+                <li>Ontology Engineering / Mapping</li>
+                <li>Large Language Models</li>
               </ul>
+            </div>
+
+            <div class="home-tile-group">
+              <a href="mailto:puyu.wang@eng.ox.ac.uk" class="home-tile" style="--tile: #b4532f; --i: 3">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z" />
+                </svg>
+                <span class="home-tile__label">Email</span>
+              </a>
+
+              <a href="https://github.com/paulwang1905" class="home-tile" style="--tile: #45392f; --i: 4">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12z"/>
+                </svg>
+                <span class="home-tile__label">GitHub</span>
+              </a>
+
+              <a href="https://linkedin.com/in/puyu-wang" class="home-tile" style="--tile: #2f6b78; --i: 5">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                </svg>
+                <span class="home-tile__label">LinkedIn</span>
+              </a>
+
+              <a href="https://x.com/puyu1001" class="home-tile" style="--tile: #1f1b18; --i: 6" aria-label="X (Twitter)">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
+                </svg>
+                <span class="home-tile__label" aria-hidden="true">X</span>
+              </a>
             </div>
           </div>
         </div>
       </div>
+      <script>
+        // Metro press tilt: a pressed link tile leans away from the pointer.
+        (() => {
+          if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+          document.querySelectorAll('.home-grid a.home-tile').forEach((tile) => {
+            tile.addEventListener('pointerdown', (event) => {
+              const box = tile.getBoundingClientRect();
+              const x = (event.clientX - box.left) / box.width - 0.5;
+              const y = (event.clientY - box.top) / box.height - 0.5;
+              tile.style.setProperty('--tilt-x', `${(-y * 10).toFixed(1)}deg`);
+              tile.style.setProperty('--tilt-y', `${(x * 10).toFixed(1)}deg`);
+              tile.classList.add('is-pressed');
+            });
+            const release = () => tile.classList.remove('is-pressed');
+            ['pointerup', 'pointerleave', 'pointercancel'].forEach((type) => tile.addEventListener(type, release));
+          });
+        })();
+      </script>
     </section>
 
     <div class="grid grid-cols-1 gap-10 py-10 sm:py-14 lg:grid-cols-3 lg:gap-12">
@@ -689,8 +728,8 @@ Puyu currently is one of <strong>Sub-Deans</strong> at <strong>Reuben College</s
           <ul class="divide-y divide-base-300/60">
             
             <li>
-              <a href="/page/posts.html" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
-                <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">Daily Posts</h3>
+              <a href="/page/aboutme.html" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
+                <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">About Puyu Wang</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-base-content/25 group-hover:text-secondary/60 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
@@ -698,8 +737,8 @@ Puyu currently is one of <strong>Sub-Deans</strong> at <strong>Reuben College</s
             </li>
             
             <li>
-              <a href="/page/aboutme.html" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
-                <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">About Puyu Wang</h3>
+              <a href="/page/posts.html" class="flex items-center justify-between px-5 py-3.5 hover:bg-base-300/50 transition-colors group">
+                <h3 class="text-sm font-medium group-hover:text-secondary transition-colors">Daily Posts</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-base-content/25 group-hover:text-secondary/60 transition-colors flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                 </svg>
