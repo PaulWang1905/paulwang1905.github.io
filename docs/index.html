@@ -3,6 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>
+  // Theme, part 1 of 2 (included in every page's <head>, so it runs before
+  // anything is drawn): use the visitor's saved choice, or else the device's
+  // light/dark setting. Part 2, in header.html, keeps the switch in step and
+  // saves changes. The choice lives in localStorage, in the browser only.
+  (() => {
+    let theme = null;
+    try { theme = localStorage.getItem('theme'); } catch (e) {}
+    if (!theme) theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'winter';
+  })();
+</script>
 <meta name="google-adsense-account" content="ca-pub-9133490777581705">
 
 <title>Puyu Wang</title>
@@ -426,6 +438,33 @@
           d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
       </svg>
       </label>
+
+      <script>
+        // Theme, part 2 of 2: theme_head.html has already set the theme in
+        // <head>; this ticks the switch to match, saves the visitor's choice
+        // when they flip it, and follows the device's setting until they do.
+        (() => {
+          const toggle = document.currentScript.previousElementSibling.querySelector('.theme-controller');
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+          const apply = (theme) => {
+            toggle.checked = theme === 'dark';
+            document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'winter';
+          };
+          apply(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+
+          toggle.addEventListener('change', () => {
+            const theme = toggle.checked ? 'dark' : 'light';
+            apply(theme);
+            try { localStorage.setItem('theme', theme); } catch (e) {}
+          });
+          systemDark.addEventListener('change', (event) => {
+            let chosen = null;
+            try { chosen = localStorage.getItem('theme'); } catch (e) {}
+            if (!chosen) apply(event.matches ? 'dark' : 'light');
+          });
+        })();
+      </script>
 
       
   
