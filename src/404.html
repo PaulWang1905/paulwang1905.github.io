@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="winter">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% include 'theme_head.html' %}
+<meta name="robots" content="noindex">
+{# GitHub Pages serves this page for any unknown path, at any depth, so every
+   link here is absolute. Context from oxie: meta_data, title, phrases. #}
+<link href="/styles.css" rel="stylesheet">
+<title>Page not found — {{ meta_data.title }}</title>
+</head>
+<body>
+
+<header>{% include 'header.html' %}</header>
+
+<main class="container mx-auto px-4 sm:px-6 lg:px-8 max-w-3xl py-20 sm:py-28">
+  <p class="enter text-8xl sm:text-9xl font-light leading-none tracking-tight text-base-content/25">404</p>
+  <h1 class="enter mt-6 text-3xl sm:text-4xl font-light tracking-tight" style="--i: 1">This page does not exist</h1>
+  <p class="enter mt-3 text-base-content/60" style="--i: 2">The link may be out of date, or the page may have moved.</p>
+
+  <nav class="enter link-buttons mt-8" style="--i: 3" aria-label="Where to go instead">
+    <a class="link-btn" href="/index.html">Home</a>
+    <a class="link-btn" href="/blog_index.html">Blog</a>
+    <a class="link-btn" href="/photography.html">Photography</a>
+    <a class="link-btn" href="/page/aboutme.html">About</a>
+  </nav>
+</main>
+
+{% include 'footer.html' %}
+
+</body>
+</html>

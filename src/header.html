@@ -56,6 +56,33 @@
       </svg>
       </label>
 
+      <script>
+        // Theme, part 2 of 2: theme_head.html has already set the theme in
+        // <head>; this ticks the switch to match, saves the visitor's choice
+        // when they flip it, and follows the device's setting until they do.
+        (() => {
+          const toggle = document.currentScript.previousElementSibling.querySelector('.theme-controller');
+          const systemDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+          const apply = (theme) => {
+            toggle.checked = theme === 'dark';
+            document.documentElement.dataset.theme = theme === 'dark' ? 'dark' : 'winter';
+          };
+          apply(document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light');
+
+          toggle.addEventListener('change', () => {
+            const theme = toggle.checked ? 'dark' : 'light';
+            apply(theme);
+            try { localStorage.setItem('theme', theme); } catch (e) {}
+          });
+          systemDark.addEventListener('change', (event) => {
+            let chosen = null;
+            try { chosen = localStorage.getItem('theme'); } catch (e) {}
+            if (!chosen) apply(event.matches ? 'dark' : 'light');
+          });
+        })();
+      </script>
+
       
   
     </div>  
