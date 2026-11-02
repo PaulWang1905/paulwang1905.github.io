@@ -1,29 +1,12 @@
 <!DOCTYPE html>
-<html data-theme="winter">
+<html lang="en" data-theme="winter">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% include 'theme_head.html' %}
 <link href="./styles.css" rel="stylesheet">
 
-<style>
-  
-
-    .color-box::before {
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-    #phrase {
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-    .color-box {
-        display: inline-block;
-        position: relative;
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-
-</style>
-
-<title>Puyu Wang</title>
+<title>Blog — {{ meta_data.title }}</title>
 
 </head>
 <body>
@@ -149,14 +132,14 @@
 
       <!-- Pagination -->
       <div id="pagination" class="flex items-center justify-center gap-2">
-        <button id="btn-prev" onclick="changePage(-1)" class="btn btn-sm btn-ghost border border-base-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="btn-prev" onclick="changePage(-1)" class="btn btn-sm btn-ghost border border-base-300" aria-label="Previous page">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
           </svg>
         </button>
         <div id="page-numbers" class="flex gap-1"></div>
-        <button id="btn-next" onclick="changePage(1)" class="btn btn-sm btn-ghost border border-base-300">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <button id="btn-next" onclick="changePage(1)" class="btn btn-sm btn-ghost border border-base-300" aria-label="Next page">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
           </svg>
         </button>
@@ -202,6 +185,12 @@
       btn.onclick = () => renderPage(i);
       container.appendChild(btn);
     }
+  }
+
+  // Prev / Next buttons: step by delta, staying within the pages
+  function changePage(delta) {
+    const page = currentPage + delta;
+    if (page >= 0 && page < totalPages()) renderPage(page);
   }
 
   function switchTab(tab) {

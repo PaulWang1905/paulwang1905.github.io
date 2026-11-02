@@ -258,8 +258,11 @@
             fadeTime: 320        // matches the flip-out duration below
         };
 
-        // Phrases (rendered as proper JSON by the build; falls back if empty)
-        const phrases = {{ phrases | tojson }} || ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
+        // Phrases (rendered as proper JSON by the build; falls back if empty).
+        // An empty array is truthy in JS, so test the length, not just ||.
+        const builtPhrases = {{ phrases | tojson }};
+        const usingBuilt = Array.isArray(builtPhrases) && builtPhrases.length > 0;
+        const phrases = usingBuilt ? builtPhrases : ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
         let currentIndex = 0;
         let colorIndex = 0;
 
@@ -297,7 +300,11 @@
             const yearEl = document.getElementById('footer-year');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            if (!phraseElement || !phrases.length) return;
+            if (!phraseElement) return;
+
+            // The phrases in meta_data.json are Traditional Chinese; marking
+            // them so lets browsers pick Chinese glyphs and voices
+            if (usingBuilt) phraseElement.lang = 'zh-Hant';
 
             // Show the first phrase, then rotate (only if there is more than one)
             phraseElement.textContent = phrases[0];

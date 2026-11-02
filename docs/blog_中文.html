@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="winter">
+<html lang="en" data-theme="winter">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -17,24 +17,7 @@
 </script>
 <link href="./styles.css" rel="stylesheet">
 
-<style>
-  
-
-    .color-box::before {
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-    #phrase {
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-    .color-box {
-        display: inline-block;
-        position: relative;
-        transition: opacity 1s; /* Extend transition duration for smoother effect */
-    }
-
-</style>
-
-<title>Puyu Wang</title>
+<title>Category: 中文 — Puyu Wang</title>
 
 </head>
 <body>
@@ -46,8 +29,8 @@
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
       <div class="dropdown lg:hidden">
-        <label tabindex="0" class="btn btn-ghost btn-circle hover:bg-base-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <label tabindex="0" role="button" aria-label="Menu" class="btn btn-ghost btn-circle hover:bg-base-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
           </svg>
         </label>
@@ -79,7 +62,7 @@
 
       <!-- Theme toggle button with hover effect -->
       <label class="swap swap-rotate hover:scale-110 transition-transform duration-200">
-        <input type="checkbox" class="theme-controller" value="dark" />
+        <input type="checkbox" class="theme-controller" value="dark" aria-label="Dark mode" />
         <!-- Sun icon -->
         <svg
           class="swap-off h-10 w-10 fill-current"
@@ -200,7 +183,7 @@
             </div>
           </div>
         </div>
-        <div class="stat-title">Last Upate</div>
+        <div class="stat-title">Last Update</div>
         <div class="stat-value">2024-11-25</div>
        
         <div class="stat-desc text-secondary"><a href="/post/20241125.html">悼念贾舜尧</a></div>
@@ -238,7 +221,8 @@
       
       <div class="flex flex-col space-y-4">
         
-        <div style="--i: 2" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags="悼念 哲学">
+        
+        <div style="--i: 2" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags='["\u60bc\u5ff5", "\u54f2\u5b66"]'>
           <!-- Post Image -->
           <div class="flex-shrink-0 mb-3 sm:mb-0">
             <a href="/post/20241125.html" class="block relative overflow-hidden rounded-lg sm:rounded-xl">
@@ -248,7 +232,7 @@
           
           <!-- Post Content -->
           <div class="flex-grow sm:px-4 flex flex-col">
-            <div class="flex items-center text-xs text-gray-500 mb-1">
+            <div class="flex items-center text-xs text-base-content/50 mb-1">
               <time datetime="2024-11-25T12:00:00+00:00">Nov 25, 2024</time>
             </div>
             
@@ -256,7 +240,7 @@
               <a href="/post/20241125.html" class="hover:text-primary transition-colors duration-200">悼念贾舜尧</a>
             </h3>
             
-            <p class="text-sm text-gray-600 mb-2 line-clamp-2">贾舜尧，一个才华横溢的年轻人，不幸离世。</p>
+            <p class="text-sm text-base-content/70 mb-2 line-clamp-2">贾舜尧，一个才华横溢的年轻人，不幸离世。</p>
             
             
             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -270,7 +254,8 @@
           </div>
         </div>
         
-        <div style="--i: 3" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags="LifeWriting">
+        
+        <div style="--i: 3" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags='["LifeWriting"]'>
           <!-- Post Image -->
           <div class="flex-shrink-0 mb-3 sm:mb-0">
             <a href="/post/LifeWriting.html" class="block relative overflow-hidden rounded-lg sm:rounded-xl">
@@ -280,7 +265,7 @@
           
           <!-- Post Content -->
           <div class="flex-grow sm:px-4 flex flex-col">
-            <div class="flex items-center text-xs text-gray-500 mb-1">
+            <div class="flex items-center text-xs text-base-content/50 mb-1">
               <time datetime="2020-09-10T12:00:00+00:00">Sep 10, 2020</time>
             </div>
             
@@ -288,7 +273,7 @@
               <a href="/post/LifeWriting.html" class="hover:text-primary transition-colors duration-200">LifeWriting 课程小结</a>
             </h3>
             
-            <p class="text-sm text-gray-600 mb-2 line-clamp-2">Life Writing课程小结</p>
+            <p class="text-sm text-base-content/70 mb-2 line-clamp-2">Life Writing课程小结</p>
             
             
             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -300,7 +285,8 @@
           </div>
         </div>
         
-        <div style="--i: 4" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags="Music Schoenberg">
+        
+        <div style="--i: 4" class="enter group flex flex-col sm:flex-row p-4 bg-base-100 hover:bg-base-200 shadow-md hover:shadow-lg transition-all duration-200 rounded-lg post-card" data-tags='["Music", "Schoenberg"]'>
           <!-- Post Image -->
           <div class="flex-shrink-0 mb-3 sm:mb-0">
             <a href="/post/2017.html" class="block relative overflow-hidden rounded-lg sm:rounded-xl">
@@ -310,7 +296,7 @@
           
           <!-- Post Content -->
           <div class="flex-grow sm:px-4 flex flex-col">
-            <div class="flex items-center text-xs text-gray-500 mb-1">
+            <div class="flex items-center text-xs text-base-content/50 mb-1">
               <time datetime="2017-01-01T12:00:00+00:00">Jan 01, 2017</time>
             </div>
             
@@ -318,7 +304,7 @@
               <a href="/post/2017.html" class="hover:text-primary transition-colors duration-200">看勳伯格的和聲學</a>
             </h3>
             
-            <p class="text-sm text-gray-600 mb-2 line-clamp-2">這些天我一直在看SCHOENBERG的書</p>
+            <p class="text-sm text-base-content/70 mb-2 line-clamp-2">這些天我一直在看SCHOENBERG的書</p>
             
             
             <div class="flex flex-wrap gap-1.5 mt-auto">
@@ -598,8 +584,11 @@
             fadeTime: 320        // matches the flip-out duration below
         };
 
-        // Phrases (rendered as proper JSON by the build; falls back if empty)
-        const phrases = ["\u5929\u4e4b\u84bc\u84bc\uff0c\u5176\u6b63\u8272\u90aa", "\u543e\u65e5\u4e09\u7701\u543e\u8eab", "\u77e5\u884c\u5408\u4e00", "\u884c\u6709\u9918\u529b\uff0c\u5247\u4ee5\u5b78\u6587", "\u601d\u7121\u90aa", "\u5148\u884c\u5176\u8a00\uff0c\u800c\u5f8c\u5f9e\u4e4b", "\u76e1\u7f8e\u77e3\uff0c\u53c8\u76e1\u5584\u4e5f", "\u597d\u4ec1\u8005\uff0c\u7121\u4ee5\u5c1a\u4e4b", "\u7121\u6240\u5f9e\u4f86\uff0c\u4ea6\u7121\u6240\u53bb", "\u6240\u8b02\u4f5b\u6cd5\u8005\uff0c\u5373\u975e\u4f5b\u6cd5", "\u9053\u6cd5\u81ea\u7136", "\u5929\u4e0b\u5927\u4e8b\uff0c\u5fc5\u4f5c\u65bc\u7d30", "\u70ba\u7121\u70ba\uff0c\u4e8b\u7121\u4e8b\uff0c\u5473\u7121\u5473", "\u5468\u96d6\u820a\u90a6,\u5176\u547d\u7dad\u65b0", "\u5fb7\u4e0d\u5b64\uff0c\u5fc5\u6709\u9130", "\u4e14\u6709\u771f\u4eba\uff0c\u800c\u5f8c\u6709\u771f\u77e5"] || ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
+        // Phrases (rendered as proper JSON by the build; falls back if empty).
+        // An empty array is truthy in JS, so test the length, not just ||.
+        const builtPhrases = ["\u5929\u4e4b\u84bc\u84bc\uff0c\u5176\u6b63\u8272\u90aa", "\u543e\u65e5\u4e09\u7701\u543e\u8eab", "\u77e5\u884c\u5408\u4e00", "\u884c\u6709\u9918\u529b\uff0c\u5247\u4ee5\u5b78\u6587", "\u601d\u7121\u90aa", "\u5148\u884c\u5176\u8a00\uff0c\u800c\u5f8c\u5f9e\u4e4b", "\u76e1\u7f8e\u77e3\uff0c\u53c8\u76e1\u5584\u4e5f", "\u597d\u4ec1\u8005\uff0c\u7121\u4ee5\u5c1a\u4e4b", "\u7121\u6240\u5f9e\u4f86\uff0c\u4ea6\u7121\u6240\u53bb", "\u6240\u8b02\u4f5b\u6cd5\u8005\uff0c\u5373\u975e\u4f5b\u6cd5", "\u9053\u6cd5\u81ea\u7136", "\u5929\u4e0b\u5927\u4e8b\uff0c\u5fc5\u4f5c\u65bc\u7d30", "\u70ba\u7121\u70ba\uff0c\u4e8b\u7121\u4e8b\uff0c\u5473\u7121\u5473", "\u5468\u96d6\u820a\u90a6,\u5176\u547d\u7dad\u65b0", "\u5fb7\u4e0d\u5b64\uff0c\u5fc5\u6709\u9130", "\u4e14\u6709\u771f\u4eba\uff0c\u800c\u5f8c\u6709\u771f\u77e5"];
+        const usingBuilt = Array.isArray(builtPhrases) && builtPhrases.length > 0;
+        const phrases = usingBuilt ? builtPhrases : ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
         let currentIndex = 0;
         let colorIndex = 0;
 
@@ -637,7 +626,11 @@
             const yearEl = document.getElementById('footer-year');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            if (!phraseElement || !phrases.length) return;
+            if (!phraseElement) return;
+
+            // The phrases in meta_data.json are Traditional Chinese; marking
+            // them so lets browsers pick Chinese glyphs and voices
+            if (usingBuilt) phraseElement.lang = 'zh-Hant';
 
             // Show the first phrase, then rotate (only if there is more than one)
             phraseElement.textContent = phrases[0];
@@ -652,9 +645,7 @@
             document.addEventListener('DOMContentLoaded', initialize);
         }
     })();
-</script> 
-
-</body>
+</script>
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
@@ -673,7 +664,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       // Show or hide posts based on the selected tag
       postCards.forEach((postCard) => {
-        const postTags = postCard.getAttribute("data-tags").split(' ');
+        const postTags = JSON.parse(postCard.getAttribute("data-tags"));
         if (selectedTag === "All" || postTags.includes(selectedTag)) {
           postCard.style.display = "flex"; // Show post
         } else {
@@ -686,5 +677,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 </script>
+</body>
 </html>
          

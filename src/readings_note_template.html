@@ -1,25 +1,11 @@
 <!DOCTYPE html>
-<html data-theme="winter">
+<html lang="en" data-theme="winter">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 {% include 'theme_head.html' %}
 <meta name="google-adsense-account" content="ca-pub-9133490777581705">
 <link href="./styles.css" rel="stylesheet">
-
-<style>
-    .color-box::before {
-        transition: opacity 1s;
-    }
-    #phrase {
-        transition: opacity 1s;
-    }
-    .color-box {
-        display: inline-block;
-        position: relative;
-        transition: opacity 1s;
-    }
-</style>
 
 <title>Puyu Wang - Reading Notes</title>
 
@@ -44,7 +30,6 @@
                             </svg>
                             GitHub Repository
                         </a>
-                        <span id="lastSync" class="opacity-70"></span>
                     </div>
                 </div>
             </div>
@@ -207,6 +192,7 @@
                 this.filteredReadings = [];
                 this.subjects = new Set();
                 this.activeSubjects = new Set();
+                this.subjectButtons = new Map(); // Map of subject to its filter button
                 this.authors = new Map(); // Map of author URI to name
                 this.init();
             }
@@ -558,7 +544,8 @@
                 const thisYear = new Date().getFullYear();
                 const thisYearCount = this.readings.filter(r => {
                     try {
-                        return new Date(r.readDate).getFullYear() === thisYear;
+                        // date-only strings parse as UTC midnight, so read the UTC year
+                        return new Date(r.readDate).getUTCFullYear() === thisYear;
                     } catch { return false; }
                 }).length;
                 document.getElementById('statThisYear').textContent = thisYearCount;
@@ -570,7 +557,8 @@
             renderSubjectTags() {
                 const container = document.getElementById('subjectTags');
                 container.innerHTML = '';
-                
+                this.subjectButtons.clear();
+
                 // All button
                 const allBtn = this.createTag('All', () => {
                     this.activeSubjects.clear();
@@ -599,7 +587,9 @@
                         // Toggle this subject
                         this.toggleSubject(subject);
                     });
-                    btn.id = `subject-${btoa(subject)}`;
+                    // Looked up by subject, not by an id built with btoa(),
+                    // which throws on any non-Latin-1 character
+                    this.subjectButtons.set(subject, btn);
                     container.appendChild(btn);
                 });
             }
@@ -626,7 +616,7 @@
                 });
                 
                 // Add active class to the selected subject
-                const selectedTag = document.getElementById(`subject-${btoa(subject)}`);
+                const selectedTag = this.subjectButtons.get(subject);
                 if (selectedTag) {
                     selectedTag.classList.add('btn-primary');
                     selectedTag.classList.remove('btn-outline');
@@ -831,10 +821,13 @@
                     const date = new Date(dateStr);
                     if (isNaN(date)) return dateStr;
                     
-                    return date.toLocaleDateString('en-US', { 
-                        year: 'numeric', 
-                        month: 'short', 
-                        day: monthYear ? undefined : 'numeric' 
+                    // Dates like "2023-01-19" parse as UTC midnight; formatting
+                    // in local time would show the day before west of UTC
+                    return date.toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: monthYear ? undefined : 'numeric',
+                        timeZone: 'UTC'
                     });
                 } catch {
                     return dateStr;

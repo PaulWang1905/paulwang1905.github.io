@@ -92,8 +92,7 @@
                         title="Information Submission Form"
                         class="absolute inset-0 w-full h-full border-none rounded-md"
                         loading="lazy"
-                        onload="document.getElementById('loading').style.display='none';"
-                        onerror="handleFormError()"
+                        onload="formLoaded()"
                         aria-live="polite"
                     ></iframe>
                 </div>
@@ -114,6 +113,17 @@
         </main>
     
         <script>
+            // Browsers never fire "error" on an iframe, so a form that hasn't
+            // loaded within this time is treated as failed
+            const LOAD_TIMEOUT = 15000;
+            let loadTimer = setTimeout(handleFormError, LOAD_TIMEOUT);
+
+            function formLoaded() {
+                clearTimeout(loadTimer);
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('error').classList.add('hidden');
+            }
+
             // Handle form loading errors
             function handleFormError() {
                 document.getElementById('loading').style.display = 'none';
@@ -134,12 +144,12 @@
                 document.getElementById('error').classList.add('hidden');
                 document.getElementById('loading').style.display = 'flex';
                 
+                // Setting src, even to the same URL, reloads the frame. (Blanking
+                // it first loaded about:blank, whose load event hid the spinner.)
                 const iframe = document.querySelector('iframe');
-                const src = iframe.src;
-                iframe.src = '';
-                setTimeout(() => {
-                    iframe.src = src;
-                }, 100);
+                iframe.src = iframe.src;
+                clearTimeout(loadTimer);
+                loadTimer = setTimeout(handleFormError, LOAD_TIMEOUT);
             });
         </script>
     </body>

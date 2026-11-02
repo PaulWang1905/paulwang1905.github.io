@@ -3,8 +3,8 @@
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
       <div class="dropdown lg:hidden">
-        <label tabindex="0" class="btn btn-ghost btn-circle hover:bg-base-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <label tabindex="0" role="button" aria-label="Menu" class="btn btn-ghost btn-circle hover:bg-base-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
           </svg>
         </label>
@@ -36,7 +36,7 @@
 
       <!-- Theme toggle button with hover effect -->
       <label class="swap swap-rotate hover:scale-110 transition-transform duration-200">
-        <input type="checkbox" class="theme-controller" value="dark" />
+        <input type="checkbox" class="theme-controller" value="dark" aria-label="Dark mode" />
         <!-- Sun icon -->
         <svg
           class="swap-off h-10 w-10 fill-current"

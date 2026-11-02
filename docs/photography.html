@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html data-theme="winter">
+<html lang="en" data-theme="winter">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,8 +29,8 @@
       <!--- The dropdown menu is hidden on large screens -->
       <!-- Mobile menu button -->
       <div class="dropdown lg:hidden">
-        <label tabindex="0" class="btn btn-ghost btn-circle hover:bg-base-200">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <label tabindex="0" role="button" aria-label="Menu" class="btn btn-ghost btn-circle hover:bg-base-200">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
           </svg>
         </label>
@@ -62,7 +62,7 @@
 
       <!-- Theme toggle button with hover effect -->
       <label class="swap swap-rotate hover:scale-110 transition-transform duration-200">
-        <input type="checkbox" class="theme-controller" value="dark" />
+        <input type="checkbox" class="theme-controller" value="dark" aria-label="Dark mode" />
         <!-- Sun icon -->
         <svg
           class="swap-off h-10 w-10 fill-current"
@@ -133,13 +133,13 @@
             data-album="__all__" onclick="filterAlbum(this, null)">All</button>
     
     <button class="album-tab px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer text-base-content/50 hover:text-base-content"
-            data-album="Architecture & Urban" onclick="filterAlbum(this, 'Architecture & Urban')">Architecture & Urban</button>
+            data-album="Architecture &amp; Urban" onclick="filterAlbum(this, this.dataset.album)">Architecture & Urban</button>
     
     <button class="album-tab px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer text-base-content/50 hover:text-base-content"
-            data-album="Nature & People" onclick="filterAlbum(this, 'Nature & People')">Nature & People</button>
+            data-album="Nature &amp; People" onclick="filterAlbum(this, this.dataset.album)">Nature & People</button>
     
     <button class="album-tab px-4 py-1.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer text-base-content/50 hover:text-base-content"
-            data-album="Science & Museums" onclick="filterAlbum(this, 'Science & Museums')">Science & Museums</button>
+            data-album="Science &amp; Museums" onclick="filterAlbum(this, this.dataset.album)">Science & Museums</button>
     
   </div>
 </div>
@@ -151,7 +151,7 @@
   <div class="columns-1 sm:columns-2 lg:columns-3 gap-4" id="gallery">
     
     <div style="--i: 2" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
-         data-album="Architecture & Urban"
+         data-album="Architecture &amp; Urban"
          onclick="openLightbox(0)"
          role="button" tabindex="0"
          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(0)">
@@ -169,7 +169,7 @@
     </div>
     
     <div style="--i: 3" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
-         data-album="Architecture & Urban"
+         data-album="Architecture &amp; Urban"
          onclick="openLightbox(1)"
          role="button" tabindex="0"
          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(1)">
@@ -187,7 +187,7 @@
     </div>
     
     <div style="--i: 4" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
-         data-album="Nature & People"
+         data-album="Nature &amp; People"
          onclick="openLightbox(2)"
          role="button" tabindex="0"
          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(2)">
@@ -205,7 +205,7 @@
     </div>
     
     <div style="--i: 5" class="enter break-inside-avoid mb-4 rounded-2xl overflow-hidden cursor-pointer group relative gallery-item"
-         data-album="Science & Museums"
+         data-album="Science &amp; Museums"
          onclick="openLightbox(3)"
          role="button" tabindex="0"
          onkeydown="if(event.key==='Enter'||event.key===' ')openLightbox(3)">
@@ -234,8 +234,8 @@
     <div class="flex items-center justify-between px-5 py-3 border-b border-base-300">
       <span id="lb-counter" class="text-xs text-base-content/40 tabular-nums"></span>
       <form method="dialog">
-        <button class="btn btn-sm btn-ghost btn-circle text-base-content/50 hover:text-base-content">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <button class="btn btn-sm btn-ghost btn-circle text-base-content/50 hover:text-base-content" aria-label="Close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
             <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
           </svg>
         </button>
@@ -249,9 +249,9 @@
 
     <!-- Caption + nav -->
     <div class="flex items-center gap-4 px-5 py-4 border-t border-base-300">
-      <button id="lb-prev" onclick="stepLightbox(-1)"
+      <button id="lb-prev" onclick="stepLightbox(-1)" aria-label="Previous photo"
               class="btn btn-sm btn-ghost btn-circle text-base-content/50 hover:text-base-content shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
         </svg>
       </button>
@@ -259,9 +259,9 @@
         <p id="lb-caption" class="text-sm font-medium text-base-content truncate"></p>
         <p id="lb-desc" class="text-xs text-base-content/50 mt-0.5 leading-relaxed"></p>
       </div>
-      <button id="lb-next" onclick="stepLightbox(1)"
+      <button id="lb-next" onclick="stepLightbox(1)" aria-label="Next photo"
               class="btn btn-sm btn-ghost btn-circle text-base-content/50 hover:text-base-content shrink-0">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
           <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
         </svg>
       </button>
@@ -274,6 +274,7 @@
 const PHOTOS = [{"album": "Architecture \u0026 Urban", "alt": "Industrial heritage site, Beijing, 2019", "description": "Imagine this is Beijing. What was once an industrial area has been transformed into an art campus after being abandoned. This is the 798 Art District (798\u827a\u672f\u533a).", "src": "image/photo/IMG_20191111_092615.jpg", "thumb": "image/photo/thumb/IMG_20191111_092615.jpg"}, {"album": "Architecture \u0026 Urban", "alt": "Shanghai Normal University, 2022", "description": "This is a photo of the Shanghai Normal University campus, this photo was taken during the 2022 Shanghai COVID lock down. I took the photo while we were going to get our daily COVID tests as requested by the university. They collected the samples at the football pitch, right next to where I lived -- a very small dormitory.", "src": "image/photo/IMG_20220402_100445.jpg", "thumb": "image/photo/thumb/IMG_20220402_100445.jpg"}, {"album": "Nature \u0026 People", "alt": "Campfire at night, 2022", "description": "This photo was taken during 2022 Spring Festival. I think it was the lunar new year\u0027s eve. I was with two friends from my home town.", "src": "image/photo/IMG_20220131_233236.jpg", "thumb": "image/photo/thumb/IMG_20220131_233236.jpg"}, {"album": "Science \u0026 Museums", "alt": "Oxford Dodo collection at the Oxford Museum of Natural History, 2023", "description": "This photo was taken during Dining with Dinosaur event hosted by Reuben College. I think this might be the last Dinging with Dinosaur in the Oxford University Museum of Natural History. In the picture is the Oxford Dodo, arguably one of the most important collections in the Museum.", "src": "image/photo/PXL_20230615_165253980-01.jpeg", "thumb": "image/photo/thumb/PXL_20230615_165253980-01.jpeg"}];
 let activeAlbum = null;
 let lbIndex = 0;
+let lbPending = null;   // the photo request whose result should be shown
 
 function visiblePhotos() {
   return activeAlbum ? PHOTOS.filter(p => p.album === activeAlbum) : PHOTOS;
@@ -299,10 +300,14 @@ function syncLightbox() {
   const p = visible[lbIndex];
   const img = document.getElementById('lb-img');
 
-  // Fade out, swap src, fade in only once loaded
+  // Fade out, swap src, fade in only once loaded. Only the latest request
+  // may swap, so stepping quickly can't leave an older photo under the new
+  // caption; on error, swap anyway so the broken image and alt text show.
   img.style.opacity = '0';
   const newImg = new Image();
-  newImg.onload = () => {
+  lbPending = newImg;
+  newImg.onload = newImg.onerror = () => {
+    if (lbPending !== newImg) return;
     img.src = newImg.src;
     img.style.opacity = '1';
   };
@@ -597,8 +602,11 @@ document.addEventListener('keydown', e => {
             fadeTime: 320        // matches the flip-out duration below
         };
 
-        // Phrases (rendered as proper JSON by the build; falls back if empty)
-        const phrases = ["\u5929\u4e4b\u84bc\u84bc\uff0c\u5176\u6b63\u8272\u90aa", "\u543e\u65e5\u4e09\u7701\u543e\u8eab", "\u77e5\u884c\u5408\u4e00", "\u884c\u6709\u9918\u529b\uff0c\u5247\u4ee5\u5b78\u6587", "\u601d\u7121\u90aa", "\u5148\u884c\u5176\u8a00\uff0c\u800c\u5f8c\u5f9e\u4e4b", "\u76e1\u7f8e\u77e3\uff0c\u53c8\u76e1\u5584\u4e5f", "\u597d\u4ec1\u8005\uff0c\u7121\u4ee5\u5c1a\u4e4b", "\u7121\u6240\u5f9e\u4f86\uff0c\u4ea6\u7121\u6240\u53bb", "\u6240\u8b02\u4f5b\u6cd5\u8005\uff0c\u5373\u975e\u4f5b\u6cd5", "\u9053\u6cd5\u81ea\u7136", "\u5929\u4e0b\u5927\u4e8b\uff0c\u5fc5\u4f5c\u65bc\u7d30", "\u70ba\u7121\u70ba\uff0c\u4e8b\u7121\u4e8b\uff0c\u5473\u7121\u5473", "\u5468\u96d6\u820a\u90a6,\u5176\u547d\u7dad\u65b0", "\u5fb7\u4e0d\u5b64\uff0c\u5fc5\u6709\u9130", "\u4e14\u6709\u771f\u4eba\uff0c\u800c\u5f8c\u6709\u771f\u77e5"] || ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
+        // Phrases (rendered as proper JSON by the build; falls back if empty).
+        // An empty array is truthy in JS, so test the length, not just ||.
+        const builtPhrases = ["\u5929\u4e4b\u84bc\u84bc\uff0c\u5176\u6b63\u8272\u90aa", "\u543e\u65e5\u4e09\u7701\u543e\u8eab", "\u77e5\u884c\u5408\u4e00", "\u884c\u6709\u9918\u529b\uff0c\u5247\u4ee5\u5b78\u6587", "\u601d\u7121\u90aa", "\u5148\u884c\u5176\u8a00\uff0c\u800c\u5f8c\u5f9e\u4e4b", "\u76e1\u7f8e\u77e3\uff0c\u53c8\u76e1\u5584\u4e5f", "\u597d\u4ec1\u8005\uff0c\u7121\u4ee5\u5c1a\u4e4b", "\u7121\u6240\u5f9e\u4f86\uff0c\u4ea6\u7121\u6240\u53bb", "\u6240\u8b02\u4f5b\u6cd5\u8005\uff0c\u5373\u975e\u4f5b\u6cd5", "\u9053\u6cd5\u81ea\u7136", "\u5929\u4e0b\u5927\u4e8b\uff0c\u5fc5\u4f5c\u65bc\u7d30", "\u70ba\u7121\u70ba\uff0c\u4e8b\u7121\u4e8b\uff0c\u5473\u7121\u5473", "\u5468\u96d6\u820a\u90a6,\u5176\u547d\u7dad\u65b0", "\u5fb7\u4e0d\u5b64\uff0c\u5fc5\u6709\u9130", "\u4e14\u6709\u771f\u4eba\uff0c\u800c\u5f8c\u6709\u771f\u77e5"];
+        const usingBuilt = Array.isArray(builtPhrases) && builtPhrases.length > 0;
+        const phrases = usingBuilt ? builtPhrases : ['Simplicity is the ultimate sophistication', 'Design is intelligence made visible'];
         let currentIndex = 0;
         let colorIndex = 0;
 
@@ -636,7 +644,11 @@ document.addEventListener('keydown', e => {
             const yearEl = document.getElementById('footer-year');
             if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-            if (!phraseElement || !phrases.length) return;
+            if (!phraseElement) return;
+
+            // The phrases in meta_data.json are Traditional Chinese; marking
+            // them so lets browsers pick Chinese glyphs and voices
+            if (usingBuilt) phraseElement.lang = 'zh-Hant';
 
             // Show the first phrase, then rotate (only if there is more than one)
             phraseElement.textContent = phrases[0];
